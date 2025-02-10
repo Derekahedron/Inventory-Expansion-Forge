@@ -1,0 +1,140 @@
+{
+  "values": [
+    {
+      "id": "biomesoplenty:cut_white_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_white_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_white_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:cut_orange_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_orange_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_orange_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:orange_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:orange_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:orange_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:cut_black_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_black_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:smooth_black_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:black_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:black_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:black_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:brittle_ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:layered_ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:cut_ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:cut_ancient_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:chiseled_ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:smooth_ancient_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:smooth_ancient_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:smooth_ancient_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:brittle_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:layered_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:brittle_red_sandstone",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:layered_red_sandstone",
+      "required": false
+    }
+  ]
+}

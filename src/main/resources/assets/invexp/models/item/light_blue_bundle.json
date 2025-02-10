@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "invexp:item/light_blue_bundle"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "invexp:bundle/has_contents": 1.0
+      },
+      "model": "invexp:item/light_blue_bundle_filled"
+    }
+  ]
+}

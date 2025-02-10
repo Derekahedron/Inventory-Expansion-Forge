@@ -1,0 +1,48 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:radgill",
+      "required": false
+    },
+    {
+      "id": "alexscaves:lanternfish",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tripodfish",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish_red",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish_green",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish_yellow",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish_blue",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweetish_fish_pink",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:blobfish",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cosmic_cod",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:flying_fish",
+      "required": false
+    }
+  ]
+}

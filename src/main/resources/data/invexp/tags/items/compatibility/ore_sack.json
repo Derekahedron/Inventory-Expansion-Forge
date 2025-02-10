@@ -1,0 +1,128 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:raw_scarlet_neodymium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "alexscaves:raw_azure_neodymium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_node",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_pillar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_node",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_pillar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:pewen_sap",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber_curiosity",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber",
+      "required": false
+    },
+    {
+      "id": "alexscaves:ambersol",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber_monolith",
+      "required": false
+    },
+    {
+      "id": "alexscaves:radrock_uranium_ore",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_small",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_medium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_large",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_cluster",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guanostone_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "alexscaves:coprolith_coal_ore",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rose_quartz_cluster",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:large_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:medium_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:small_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "create:andesite_alloy",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_allurite_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_lumiere_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_amethyst_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_cluster",
+      "required": false
+    }
+  ]
+}

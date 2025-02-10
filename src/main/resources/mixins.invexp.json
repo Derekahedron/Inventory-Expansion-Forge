@@ -1,0 +1,42 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "package": "derekahedron.invexp.mixin",
+  "refmap": "mixins.invexp.refmap.json",
+  "mixins": [
+    "AbstractContainerMenuMixin",
+    "BundleItemMixin",
+    "DispenserBlockEntityMixin",
+    "DispenserBlockMixin",
+    "EntityMixin",
+    "InventoryChangeTriggerTriggerInstanceMixin",
+    "InventoryMixin",
+    "ItemFrameMixin",
+    "ItemMixin",
+    "ItemUtilsMixin",
+    "LivingEntityMixin",
+    "MapItemMixin",
+    "MapItemSavedDataMixin",
+    "MinecraftServerMixin",
+    "PlayerMixin",
+    "ProjectileWeaponItemMixin",
+    "ScaffoldingBlockMixin",
+    "ServerPlayerGameModeMixin",
+    "ServerPlayerMixin",
+    "ShulkerBoxBlockEntityMixin",
+    "ShulkerBoxSlotMixin",
+    "TemptGoalMixin"
+  ],
+  "client": [
+    "client.AbstractContainerScreenMixin",
+    "client.ClientPacketListenerMixin",
+    "client.GuiGraphicsMixin",
+    "client.GuiMixin",
+    "client.ItemInHandLayerMixin",
+    "client.ItemInHandRendererMixin",
+    "client.MinecraftMixin",
+    "client.MultiPlayerGameModeMixin",
+    "client.PlayerRendererMixin"
+  ]
+}

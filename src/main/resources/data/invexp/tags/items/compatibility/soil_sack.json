@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:metal_swarf",
+      "required": false
+    },
+    {
+      "id": "alexscaves:muck",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dried_salt",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:origin_grass_block",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ancient_sand",
+      "required": false
+    }
+  ]
+}

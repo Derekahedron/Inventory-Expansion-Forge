@@ -1,0 +1,32 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:serene_salad",
+      "required": false
+    },
+    {
+      "id": "alexscaves:seething_stew",
+      "required": false
+    },
+    {
+      "id": "alexscaves:primordial_soup",
+      "required": false
+    },
+    {
+      "id": "alexscaves:vesper_stew",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sundae",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:sopa_de_macaco",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mosquito_repellent_stew",
+      "required": false
+    }
+  ]
+}
