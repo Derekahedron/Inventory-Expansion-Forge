@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:beetroot",
+    "#forge:crops/beetroot",
+    {
+      "id": "#forge:storage_blocks/beetroot",
+      "required": false
+    }
+  ]
+}

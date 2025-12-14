@@ -1,0 +1,55 @@
+{
+  "values": [
+    "minecraft:redstone_torch",
+    "minecraft:redstone_lamp",
+    "minecraft:lightning_rod",
+    "minecraft:repeater",
+    "minecraft:comparator",
+    "minecraft:target",
+    "minecraft:lever",
+    "minecraft:tripwire_hook",
+    "minecraft:daylight_detector",
+    "minecraft:piston",
+    "minecraft:sticky_piston",
+    "minecraft:dispenser",
+    "minecraft:dropper",
+    "minecraft:hopper",
+    "minecraft:observer",
+    {
+      "id": "alexscaves:scarlet_magnet",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_magnet",
+      "required": false
+    },
+    {
+      "id": "alexscaves:magnetic_activator",
+      "required": false
+    },
+    {
+      "id": "alexscaves:hologram_projector",
+      "required": false
+    },
+    {
+      "id": "alexscaves:magnetic_light",
+      "required": false
+    },
+    {
+      "id": "alexscaves:siren_light",
+      "required": false
+    },
+    {
+      "id": "alexscaves:nuclear_siren",
+      "required": false
+    },
+    {
+      "id": "alexscaves:drain",
+      "required": false
+    },
+    {
+      "id": "alexscaves:copper_valve",
+      "required": false
+    }
+  ]
+}

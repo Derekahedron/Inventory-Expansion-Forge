@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:sugar",
+    {
+      "id": "alexscaves:sugar_glass",
+      "required": false
+    }
+  ]
+}

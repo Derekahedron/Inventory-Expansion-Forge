@@ -1,0 +1,369 @@
+{
+  "values": [
+    "minecraft:quartz_block",
+    "minecraft:quartz_stairs",
+    "minecraft:quartz_slab",
+    "minecraft:chiseled_quartz_block",
+    "minecraft:quartz_bricks",
+    "minecraft:quartz_pillar",
+    "minecraft:smooth_quartz",
+    "minecraft:smooth_quartz_stairs",
+    "minecraft:smooth_quartz_slab",
+    "minecraft:amethyst_block",
+    "minecraft:budding_amethyst",
+    "#forge:storage_blocks/amethyst",
+    "#forge:storage_blocks/quartz",
+    {
+      "id": "#forge:storage_blocks/raw_silver",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rose_quartz_block",
+      "required": false
+    },
+    {
+      "id": "create:rose_quartz_block",
+      "required": false
+    },
+    {
+      "id": "create:rose_quartz_tiles",
+      "required": false
+    },
+    {
+      "id": "create:small_rose_quartz_tiles",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_block",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_block",
+      "required": false
+    },
+    {
+      "id": "galosphere:charged_lumiere_block",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_amethyst",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_amethyst_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_amethyst_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_allurite",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_allurite_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_allurite_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_lumiere",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_lumiere_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:smooth_lumiere_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_amethyst",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_allurite",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_lumiere",
+      "required": false
+    },
+    {
+      "id": "galosphere:amethyst_lamp",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_lamp",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_lamp",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_rose_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pastel_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_rose_pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pastel_pink_salt_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_rose_pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pastel_pink_salt_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_rose_pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:polished_pastel_pink_salt_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_bricks",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_brick_slab",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_brick_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:rose_pink_salt_brick_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:pastel_pink_salt_brick_wall",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_rose_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:chiseled_pastel_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_lamp",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_straw",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_crystal_block",
+      "required": false
+    },
+    {
+      "id": "tconstruct:budding_earth_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_crystal_block",
+      "required": false
+    },
+    {
+      "id": "tconstruct:budding_sky_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_crystal_block",
+      "required": false
+    },
+    {
+      "id": "tconstruct:budding_ichor_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_crystal_block",
+      "required": false
+    },
+    {
+      "id": "tconstruct:budding_ender_slime_crystal",
+      "required": false
+    }
+  ]
+}

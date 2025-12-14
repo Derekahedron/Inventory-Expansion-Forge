@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:ochre_froglight",
+    "minecraft:verdant_froglight",
+    "minecraft:pearlescent_froglight",
+    {
+      "id": "alexscaves:carmine_froglight",
+      "required": false
+    }
+  ]
+}

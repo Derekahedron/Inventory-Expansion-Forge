@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "farmersdelight:dog_food",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:horse_feed",
+      "required": false
+    }
+  ]
+}

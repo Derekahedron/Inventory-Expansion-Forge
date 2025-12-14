@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#forge:storage_blocks/rice",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/rice",
+      "required": false
+    }
+  ]
+}

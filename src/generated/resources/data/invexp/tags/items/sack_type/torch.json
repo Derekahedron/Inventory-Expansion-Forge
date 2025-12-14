@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:torch",
+    "minecraft:soul_torch",
+    {
+      "id": "alexscaves:bioluminescent_torch",
+      "required": false
+    }
+  ]
+}

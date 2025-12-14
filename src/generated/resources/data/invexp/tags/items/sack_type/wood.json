@@ -1,0 +1,76 @@
+{
+  "values": [
+    "minecraft:stick",
+    "#minecraft:logs",
+    "#minecraft:planks",
+    "#minecraft:wooden_stairs",
+    "#minecraft:wooden_slabs",
+    "#minecraft:wooden_fences",
+    "#minecraft:fence_gates",
+    "minecraft:mangrove_roots",
+    "minecraft:ladder",
+    "minecraft:bookshelf",
+    "minecraft:chiseled_bookshelf",
+    "minecraft:chest",
+    "minecraft:barrel",
+    "minecraft:trapped_chest",
+    "minecraft:stick",
+    "minecraft:bowl",
+    "#forge:fences/wooden",
+    "#forge:fence_gates/wooden",
+    "#forge:chests/wooden",
+    "#forge:barrels/wooden",
+    {
+      "id": "alexscaves:thornwood_branch",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dead_branch",
+      "required": false
+    },
+    {
+      "id": "#deeperdarker:echo_logs",
+      "required": false
+    },
+    {
+      "id": "#deeperdarker:bloom_stems",
+      "required": false
+    },
+    {
+      "id": "tconstruct:nahuatl",
+      "required": false
+    },
+    {
+      "id": "tconstruct:nahuatl_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:nahuatl_stairs",
+      "required": false
+    },
+    {
+      "id": "tconstruct:nahuatl_fence",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blazewood",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blazewood_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blazewood_stairs",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blazewood_fence",
+      "required": false
+    },
+    {
+      "id": "tconstruct:enderbark_roots",
+      "required": false
+    }
+  ]
+}

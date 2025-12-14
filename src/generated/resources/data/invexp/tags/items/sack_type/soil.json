@@ -1,0 +1,170 @@
+{
+  "values": [
+    "minecraft:packed_mud",
+    "#minecraft:dirt",
+    "minecraft:dirt_path",
+    "minecraft:farmland",
+    "minecraft:clay",
+    "minecraft:gravel",
+    "#minecraft:sand",
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    "minecraft:suspicious_sand",
+    "minecraft:suspicious_gravel",
+    "minecraft:clay_ball",
+    "#forge:sand",
+    "#forge:gravel",
+    {
+      "id": "alexscaves:metal_swarf",
+      "required": false
+    },
+    {
+      "id": "alexscaves:muck",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dried_salt",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:origin_grass_block",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:ancient_sand",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_grime",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:echo_soil",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:grime_ball",
+      "required": false
+    },
+    {
+      "id": "tconstruct:grout",
+      "required": false
+    },
+    {
+      "id": "tconstruct:nether_grout",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_enderbark_roots",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_enderbark_roots",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_enderbark_roots",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_enderbark_roots",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_dirt",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_dirt",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_dirt",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_dirt",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_vanilla_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_earth_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_sky_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_ichor_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_ender_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_vanilla_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_earth_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_sky_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_ichor_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_ender_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_vanilla_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_earth_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_sky_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_ichor_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_ender_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_vanilla_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_earth_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_sky_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_ichor_slime_grass",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_ender_slime_grass",
+      "required": false
+    }
+  ]
+}

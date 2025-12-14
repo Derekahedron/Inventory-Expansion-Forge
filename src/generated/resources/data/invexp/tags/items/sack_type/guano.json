@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:guano",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guano_block",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guano_layer",
+      "required": false
+    }
+  ]
+}
