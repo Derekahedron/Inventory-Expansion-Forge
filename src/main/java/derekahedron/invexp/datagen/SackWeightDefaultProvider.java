@@ -1,6 +1,5 @@
 package derekahedron.invexp.datagen;
 
-import com.google.gson.JsonNull;
 import derekahedron.invexp.item.InvExpItemTags;
 import derekahedron.invexp.registry.InvExpRegistryKeys;
 import derekahedron.invexp.sack.SackWeightDefault;
@@ -14,7 +13,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.apache.commons.lang3.math.Fraction;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.Optional;
 

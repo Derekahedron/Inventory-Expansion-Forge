@@ -5,7 +5,6 @@ import derekahedron.invexp.util.ContainerItemContentsReader;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Checker for contents of a quiver.

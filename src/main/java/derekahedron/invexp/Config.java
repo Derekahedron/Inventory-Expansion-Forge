@@ -1,6 +1,5 @@
 package derekahedron.invexp;
 
-import derekahedron.invexp.sack.SacksHelper;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
 
