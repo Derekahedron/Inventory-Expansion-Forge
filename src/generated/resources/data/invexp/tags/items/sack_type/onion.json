@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#forge:storage_blocks/onion",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/onion",
+      "required": false
+    }
+  ]
+}

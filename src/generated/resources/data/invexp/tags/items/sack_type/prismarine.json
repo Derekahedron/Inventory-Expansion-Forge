@@ -1,0 +1,59 @@
+{
+  "values": [
+    "minecraft:sea_lantern",
+    "minecraft:prismarine",
+    "minecraft:prismarine_stairs",
+    "minecraft:prismarine_slab",
+    "minecraft:prismarine_wall",
+    "minecraft:prismarine_bricks",
+    "minecraft:prismarine_brick_stairs",
+    "minecraft:prismarine_brick_slab",
+    "minecraft:dark_prismarine",
+    "minecraft:dark_prismarine_stairs",
+    "minecraft:dark_prismarine_slab",
+    {
+      "id": "alexscaves:abyssmarine",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_stairs",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_wall",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_altar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_bricks",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_brick_wall",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_pillar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_tiles",
+      "required": false
+    }
+  ]
+}

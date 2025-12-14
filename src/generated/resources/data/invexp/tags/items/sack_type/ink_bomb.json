@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:ink_bomb",
+      "required": false
+    },
+    {
+      "id": "alexscaves:glow_ink_bomb",
+      "required": false
+    }
+  ]
+}

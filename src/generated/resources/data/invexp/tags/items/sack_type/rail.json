@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#minecraft:rails",
+    {
+      "id": "alexscaves:magnetic_levitation_rail",
+      "required": false
+    }
+  ]
+}

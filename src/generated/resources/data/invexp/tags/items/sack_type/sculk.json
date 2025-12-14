@@ -1,0 +1,42 @@
+{
+  "values": [
+    "minecraft:sculk",
+    "minecraft:sculk_vein",
+    "minecraft:sculk_catalyst",
+    "minecraft:sculk_shrieker",
+    "minecraft:sculk_sensor",
+    "minecraft:calibrated_sculk_sensor",
+    {
+      "id": "alexsmobs:sculk_boomer",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:gloomy_sculk",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:gloomy_geyser",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_gleam",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_tendrils",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_vines",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:infested_sculk",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_jaw",
+      "required": false
+    }
+  ]
+}

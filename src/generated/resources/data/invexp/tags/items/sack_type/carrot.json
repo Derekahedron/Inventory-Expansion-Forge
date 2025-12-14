@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:carrot",
+    "#forge:crops/carrot",
+    {
+      "id": "#forge:storage_blocks/carrot",
+      "required": false
+    }
+  ]
+}

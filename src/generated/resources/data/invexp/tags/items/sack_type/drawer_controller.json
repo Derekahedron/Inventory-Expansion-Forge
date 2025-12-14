@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "storagedrawers:controller",
+      "required": false
+    },
+    {
+      "id": "storagedrawers:controller_io",
+      "required": false
+    },
+    {
+      "id": "storagedrawers:controller_slave",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "items": {
+    "tag": "invexp:sack_type/repair_kit"
+  },
+  "priority": 10,
+  "sack_type": "invexp:repair_kit"
+}

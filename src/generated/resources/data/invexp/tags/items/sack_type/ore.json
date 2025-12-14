@@ -1,0 +1,475 @@
+{
+  "values": [
+    "#minecraft:coal_ores",
+    "#minecraft:iron_ores",
+    "#minecraft:copper_ores",
+    "#minecraft:gold_ores",
+    "#minecraft:redstone_ores",
+    "#minecraft:emerald_ores",
+    "#minecraft:lapis_ores",
+    "#minecraft:diamond_ores",
+    "minecraft:nether_quartz_ore",
+    "minecraft:ancient_debris",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_copper_block",
+    "minecraft:raw_gold_block",
+    "minecraft:glowstone",
+    "minecraft:small_amethyst_bud",
+    "minecraft:medium_amethyst_bud",
+    "minecraft:large_amethyst_bud",
+    "minecraft:amethyst_cluster",
+    "minecraft:redstone",
+    "#minecraft:coals",
+    "minecraft:raw_iron",
+    "minecraft:raw_copper",
+    "minecraft:raw_gold",
+    "minecraft:emerald",
+    "minecraft:lapis_lazuli",
+    "minecraft:diamond",
+    "minecraft:quartz",
+    "minecraft:amethyst_shard",
+    "minecraft:iron_nugget",
+    "minecraft:gold_nugget",
+    "minecraft:iron_ingot",
+    "minecraft:copper_ingot",
+    "minecraft:gold_ingot",
+    "minecraft:netherite_scrap",
+    "minecraft:netherite_ingot",
+    "minecraft:flint",
+    "minecraft:echo_shard",
+    "minecraft:glowstone_dust",
+    "#forge:ores",
+    "#forge:ores/coal",
+    "#forge:ores/copper",
+    "#forge:ores/diamond",
+    "#forge:ores/emerald",
+    "#forge:ores/gold",
+    "#forge:ores/iron",
+    "#forge:ores/lapis",
+    "#forge:ores/netherite_scrap",
+    "#forge:ores/quartz",
+    "#forge:ores/redstone",
+    "#forge:raw_materials/copper",
+    "#forge:raw_materials/gold",
+    "#forge:raw_materials/iron",
+    "#forge:gems/diamond",
+    "#forge:gems/emerald",
+    "#forge:gems/amethyst",
+    "#forge:gems/lapis",
+    "#forge:gems/quartz",
+    "#forge:ingots/copper",
+    "#forge:ingots/gold",
+    "#forge:ingots/iron",
+    "#forge:ingots/netherite",
+    "#forge:nuggets/gold",
+    "#forge:nuggets/iron",
+    "#forge:storage_blocks/coal",
+    "#forge:storage_blocks/diamond",
+    "#forge:storage_blocks/emerald",
+    "#forge:storage_blocks/lapis",
+    "#forge:storage_blocks/raw_copper",
+    "#forge:storage_blocks/raw_gold",
+    "#forge:storage_blocks/raw_iron",
+    "#forge:storage_blocks/redstone",
+    {
+      "id": "#forge:ores/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/uranium",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/pearl",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/brass",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/steel",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/slimesteel",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/amethyst_bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/rose_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/pig_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/hepatizon",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/manganese",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/shaka",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/copper",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/netherite_scrap",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/netherite",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/brass",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/uranium",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/steel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/slimesteel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/amethyst_bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/rose_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/pig_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/hepatizon",
+      "required": false
+    },
+    {
+      "id": "#forge:gems/eudialyte",
+      "required": false
+    },
+    {
+      "id": "#forge:gems/azurite",
+      "required": false
+    },
+    {
+      "id": "#forge:gems/zircon",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_silver",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/pearl",
+      "required": false
+    },
+    {
+      "id": "alexscaves:raw_scarlet_neodymium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "alexscaves:raw_azure_neodymium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_node",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_pillar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_node",
+      "required": false
+    },
+    {
+      "id": "alexscaves:azure_neodymium_pillar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:pewen_sap",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber_curiosity",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber",
+      "required": false
+    },
+    {
+      "id": "alexscaves:ambersol",
+      "required": false
+    },
+    {
+      "id": "alexscaves:amber_monolith",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_dust",
+      "required": false
+    },
+    {
+      "id": "alexscaves:radrock_uranium_ore",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_small",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_medium",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_bud_large",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_cluster",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guanostone_redstone_ore",
+      "required": false
+    },
+    {
+      "id": "alexscaves:coprolith_coal_ore",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:rose_quartz_cluster",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:large_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:medium_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:small_rose_quartz_bud",
+      "required": false
+    },
+    {
+      "id": "create:andesite_alloy",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_allurite_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_lumiere_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:glinted_amethyst_cluster",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:small_earth_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:medium_earth_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:large_earth_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_crystal_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:small_sky_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:medium_sky_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:large_sky_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_crystal_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:small_ichor_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:medium_ichor_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:large_ichor_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_crystal_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:small_ender_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:medium_ender_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:large_enderh_slime_crystal_bud",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_crystal_cluster",
+      "required": false
+    }
+  ]
+}

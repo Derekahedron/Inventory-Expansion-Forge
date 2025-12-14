@@ -1,0 +1,458 @@
+{
+  "values": [
+    "minecraft:slime_block",
+    "minecraft:ender_eye",
+    "minecraft:string",
+    "minecraft:ender_pearl",
+    "minecraft:rotten_flesh",
+    "minecraft:spider_eye",
+    "minecraft:bone",
+    "minecraft:feather",
+    "minecraft:leather",
+    "minecraft:rabbit_hide",
+    "minecraft:ink_sac",
+    "minecraft:glow_ink_sac",
+    "minecraft:slime_ball",
+    "minecraft:prismarine_shard",
+    "minecraft:prismarine_crystals",
+    "minecraft:nautilus_shell",
+    "minecraft:blaze_rod",
+    "minecraft:nether_star",
+    "minecraft:shulker_shell",
+    "minecraft:gunpowder",
+    "minecraft:fermented_spider_eye",
+    "minecraft:blaze_powder",
+    "minecraft:rabbit_foot",
+    "minecraft:magma_cream",
+    "minecraft:ghast_tear",
+    "minecraft:phantom_membrane",
+    {
+      "id": "alexscaves:telecore",
+      "required": false
+    },
+    {
+      "id": "alexscaves:notor_gizmo",
+      "required": false
+    },
+    {
+      "id": "alexscaves:holocoder",
+      "required": false
+    },
+    {
+      "id": "alexscaves:ferrouslime_ball",
+      "required": false
+    },
+    {
+      "id": "alexscaves:heavyweight",
+      "required": false
+    },
+    {
+      "id": "alexscaves:heart_of_iron",
+      "required": false
+    },
+    {
+      "id": "alexscaves:trilocaris_tail",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tough_hide",
+      "required": false
+    },
+    {
+      "id": "alexscaves:heavy_bone",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tectonic_shard",
+      "required": false
+    },
+    {
+      "id": "alexscaves:dinosaur_chop",
+      "required": false
+    },
+    {
+      "id": "alexscaves:fissile_core",
+      "required": false
+    },
+    {
+      "id": "alexscaves:charred_remnant",
+      "required": false
+    },
+    {
+      "id": "alexscaves:marine_snow",
+      "required": false
+    },
+    {
+      "id": "alexscaves:bioluminesscence",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sea_glass_shards",
+      "required": false
+    },
+    {
+      "id": "alexscaves:immortal_embryo",
+      "required": false
+    },
+    {
+      "id": "alexscaves:moth_dust",
+      "required": false
+    },
+    {
+      "id": "alexscaves:dark_tatters",
+      "required": false
+    },
+    {
+      "id": "alexscaves:occult_gem",
+      "required": false
+    },
+    {
+      "id": "alexscaves:corrodent_teeth",
+      "required": false
+    },
+    {
+      "id": "alexscaves:vesper_wing",
+      "required": false
+    },
+    {
+      "id": "alexscaves:pure_darkness",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gelatin_red",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gelatin_green",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gelatin_yellow",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gelatin_blue",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gelatin_pink",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gumball_pile",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sweet_tooth",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gingerbread_crumbs",
+      "required": false
+    },
+    {
+      "id": "alexscaves:caramel",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:bear_fur",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:roadrunner_feather",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:bone_serpent_tooth",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:gazelle_horn",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:crocodile_scute",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:maggot",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:blood_sac",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mosquito_proboscis",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:rattlesnake_rattle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:shark_tooth",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lobster_tail",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:komodo_spit",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:centipede_leg",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mosquito_larva",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:moose_antler",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:moose_ribs",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mimicream",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:raccoon_tail",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cockroach_wing_fragment",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cockroach_wing",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:soul_heart",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:spiked_scute",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:guster_eye",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:warped_muscle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:hemolymph_sac",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:straddlite",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:emu_feather",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:dropbear_claw",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:kangaroo_meat",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:kangaroo_hide",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:ambergris",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cachalot_whale_tooth",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:gongylidia",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:leafcutter_ant_pupa",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:tarantula_hawk_wing_fragment",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:tarantula_hawk_wing",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:void_worm_mandible",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:void_worm_eye",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:serrated_shark_tooth",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:froststalker_horn",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:shed_snake_skin",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:rocky_shell",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:rainbow_jelly",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mungal_spores",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:bison_fur",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lost_tentacle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:raw_catfish",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:fish_bones",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:farseer_arm",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:skreecher_soul",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:elastic_tendon",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banana_slug_slime",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:straddlite_block",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:capsid",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:void_worm_beak",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banana_slug_slime_block",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_bone",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:soul_dust",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:soul_crystal",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:resonarium",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:heart_of_the_deep",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:warden_carapace",
+      "required": false
+    },
+    {
+      "id": "galosphere:preserved_flesh",
+      "required": false
+    },
+    {
+      "id": "tconstruct:necrotic_bone",
+      "required": false
+    },
+    {
+      "id": "tconstruct:dragon_scale",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_congealed_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_ball",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_congealed_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_ball",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_congealed_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_ball",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_congealed_slime",
+      "required": false
+    }
+  ]
+}

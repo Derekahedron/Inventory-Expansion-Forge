@@ -1,0 +1,80 @@
+{
+  "values": [
+    {
+      "id": "tconstruct:scorched_brick",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_alloyer",
+      "required": false
+    },
+    {
+      "id": "tconstruct:foundry_controller",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_drain",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_duct",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_chute",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_faucet",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_channel",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_table",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_basin",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_proxy_tank",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_fluid_cannon",
+      "required": false
+    },
+    {
+      "id": "#tconstruct:scorched_blocks",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_bricks_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_bricks_stairs",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_bricks_fence",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_road_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_road_stairs",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_ladder",
+      "required": false
+    }
+  ]
+}

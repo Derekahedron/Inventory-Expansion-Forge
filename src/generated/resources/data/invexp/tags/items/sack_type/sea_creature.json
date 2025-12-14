@@ -1,0 +1,25 @@
+{
+  "values": [
+    "minecraft:sea_pickle",
+    {
+      "id": "alexscaves:sea_pig",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tube_worm",
+      "required": false
+    },
+    {
+      "id": "alexscaves:bone_worms",
+      "required": false
+    },
+    {
+      "id": "alexscaves:mussel",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:barnacles",
+      "required": false
+    }
+  ]
+}

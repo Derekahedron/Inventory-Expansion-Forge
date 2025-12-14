@@ -1,0 +1,131 @@
+{
+  "values": [
+    "#minecraft:candles",
+    "minecraft:snow",
+    "minecraft:pointed_dripstone",
+    "minecraft:pink_petals",
+    "minecraft:wheat_seeds",
+    "minecraft:pumpkin_seeds",
+    "minecraft:melon_seeds",
+    "minecraft:beetroot_seeds",
+    "minecraft:torchflower_seeds",
+    "minecraft:pitcher_pod",
+    "minecraft:sea_pickle",
+    "#minecraft:rails",
+    "minecraft:raw_copper",
+    "minecraft:amethyst_shard",
+    "#minecraft:decorated_pot_sherds",
+    "minecraft:popped_chorus_fruit",
+    "minecraft:brick",
+    "minecraft:nether_brick",
+    "minecraft:water_bucket",
+    "minecraft:cod_bucket",
+    "minecraft:salmon_bucket",
+    "minecraft:tropical_fish_bucket",
+    "minecraft:pufferfish_bucket",
+    "minecraft:axolotl_bucket",
+    "minecraft:tadpole_bucket",
+    "minecraft:lava_bucket",
+    "minecraft:powder_snow_bucket",
+    "minecraft:milk_bucket",
+    "#forge:seeds",
+    "#forge:ingots/brick",
+    "#forge:ingots/nether_brick",
+    {
+      "id": "#forge:seeds/cabbage",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/tomato",
+      "required": false
+    },
+    {
+      "id": "alexscaves:magnetic_levitation_rail",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sulfur_dust",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sprinkles",
+      "required": false
+    },
+    {
+      "id": "alexscaves:candy_cane",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lava_bottle",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:barnacles",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:wildflowers",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:white_petals",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:clover",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:barnacles",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:grime_ball",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:grime_brick",
+      "required": false
+    },
+    {
+      "id": "galosphere:allurite_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:lumiere_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_shard",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_straw",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_brick",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_brick",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_crystal",
+      "required": false
+    }
+  ]
+}

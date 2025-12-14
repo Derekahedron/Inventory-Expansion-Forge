@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#forge:storage_blocks/cabbage",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/cabbage",
+      "required": false
+    }
+  ]
+}

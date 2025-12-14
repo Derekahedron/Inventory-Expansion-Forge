@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "tconstruct:repair_kit",
+      "required": false
+    }
+  ]
+}

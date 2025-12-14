@@ -1,0 +1,30 @@
+{
+  "values": [
+    "minecraft:item_frame",
+    "minecraft:glow_item_frame",
+    {
+      "id": "tconstruct:reversed_gold_item_frame",
+      "required": false
+    },
+    {
+      "id": "tconstruct:diamond_item_frame",
+      "required": false
+    },
+    {
+      "id": "tconstruct:manyullyn_item_frame",
+      "required": false
+    },
+    {
+      "id": "tconstruct:gold_item_frame",
+      "required": false
+    },
+    {
+      "id": "tconstruct:clear_item_frame",
+      "required": false
+    },
+    {
+      "id": "tconstruct:netherite_item_frame",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:toxic_paste",
+      "required": false
+    },
+    {
+      "id": "alexscaves:waste_drum",
+      "required": false
+    },
+    {
+      "id": "alexscaves:unrefined_waste",
+      "required": false
+    }
+  ]
+}

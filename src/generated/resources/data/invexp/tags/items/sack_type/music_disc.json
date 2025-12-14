@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#minecraft:music_discs",
+    "minecraft:disc_fragment_5",
+    {
+      "id": "alexscaves:disc_fragment_fusion",
+      "required": false
+    },
+    {
+      "id": "alexscaves:disc_fragment_tasty",
+      "required": false
+    }
+  ]
+}

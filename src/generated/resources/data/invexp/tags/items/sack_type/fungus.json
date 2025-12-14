@@ -1,0 +1,38 @@
+{
+  "values": [
+    "minecraft:brown_mushroom_block",
+    "minecraft:red_mushroom_block",
+    "#minecraft:wart_blocks",
+    "minecraft:shroomlight",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom",
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "minecraft:mushroom_stem",
+    "#forge:mushrooms",
+    {
+      "id": "biomesoplenty:toadstool_block",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:glowshroom_block",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:brown_mushroom_colony",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:red_mushroom_colony",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_slime_sapling",
+      "required": false
+    },
+    {
+      "id": "tconstruct:blood_slime_leaves",
+      "required": false
+    }
+  ]
+}

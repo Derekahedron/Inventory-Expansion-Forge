@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "#waystones:waystones",
+      "required": false
+    },
+    {
+      "id": "waystones:deepslate_waystone",
+      "required": false
+    },
+    {
+      "id": "waystones:blackstone_waystone",
+      "required": false
+    },
+    {
+      "id": "waystones:end_stone_waystone",
+      "required": false
+    }
+  ]
+}

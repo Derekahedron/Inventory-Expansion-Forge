@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#forge:storage_blocks/tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/tomato",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:rotten_tomato",
+      "required": false
+    }
+  ]
+}

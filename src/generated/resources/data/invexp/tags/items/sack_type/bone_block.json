@@ -1,0 +1,41 @@
+{
+  "values": [
+    "minecraft:bone_block",
+    {
+      "id": "alexscaves:smooth_bone",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_bone_stairs",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_bone_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_bone_wall",
+      "required": false
+    },
+    {
+      "id": "alexscaves:hallow_bone",
+      "required": false
+    },
+    {
+      "id": "alexscaves:thin_bone",
+      "required": false
+    },
+    {
+      "id": "alexscaves:bone_nodule",
+      "required": false
+    },
+    {
+      "id": "alexscaves:bone_ribs",
+      "required": false
+    },
+    {
+      "id": "alexscaves:baleen_bone",
+      "required": false
+    }
+  ]
+}
