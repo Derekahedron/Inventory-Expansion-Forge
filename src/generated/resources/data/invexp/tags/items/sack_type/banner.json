@@ -1,0 +1,25 @@
+{
+  "values": [
+    "#minecraft:banners",
+    {
+      "id": "alexsmobs:banner_pattern_bear",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_australia_0",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_australia_1",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_new_mexico",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_brazil",
+      "required": false
+    }
+  ]
+}

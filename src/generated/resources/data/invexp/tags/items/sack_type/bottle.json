@@ -1,0 +1,78 @@
+{
+  "values": [
+    "minecraft:glass_bottle",
+    "minecraft:experience_bottle",
+    {
+      "id": "alexscaves:radon_bottle",
+      "required": false
+    },
+    {
+      "id": "alexscaves:purple_soda_bottle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lava_bottle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:komodo_spit_bottle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:poison_bottle",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:fish_oil",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:warped_mixure",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:stink_bottle",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:milk_bottle",
+      "required": false
+    },
+    {
+      "id": "galosphere:bottle_of_spectre",
+      "required": false
+    },
+    {
+      "id": "tconstruct:splash_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:lingering_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:earth_slime_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:sky_slime_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ichor_slime_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:ender_slime_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:magma_bottle",
+      "required": false
+    },
+    {
+      "id": "tconstruct:venom_bottle",
+      "required": false
+    }
+  ]
+}

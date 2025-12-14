@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:firework_rocket",
+    {
+      "id": "alexscaves:purple_soda_bottle_rocket",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:enderiophage_rocket",
+      "required": false
+    }
+  ]
+}

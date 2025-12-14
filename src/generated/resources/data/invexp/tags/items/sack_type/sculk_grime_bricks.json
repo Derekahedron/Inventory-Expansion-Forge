@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "deeperdarker:sculk_grime_bricks",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_grime_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_grime_brick_slab",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:sculk_grime_brick_wall",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:grime_brick",
+      "required": false
+    }
+  ]
+}

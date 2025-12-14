@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:potato",
+    "minecraft:poisonous_potato",
+    "#forge:crops/potato",
+    {
+      "id": "#forge:storage_blocks/potato",
+      "required": false
+    }
+  ]
+}

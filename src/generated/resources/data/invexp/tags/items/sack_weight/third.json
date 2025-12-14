@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:metal_rebar",
+      "required": false
+    },
+    {
+      "id": "alexscaves:rusty_rebar",
+      "required": false
+    }
+  ]
+}

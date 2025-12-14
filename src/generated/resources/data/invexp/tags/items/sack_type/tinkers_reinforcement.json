@@ -1,0 +1,32 @@
+{
+  "values": [
+    {
+      "id": "tconstruct:emerald_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:slimesteel_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:iron_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:gold_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:cobalt_reinforcement",
+      "required": false
+    },
+    {
+      "id": "tconstruct:obsidian_reinforcement",
+      "required": false
+    }
+  ]
+}

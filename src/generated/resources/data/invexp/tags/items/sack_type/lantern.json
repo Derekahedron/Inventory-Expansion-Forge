@@ -1,0 +1,14 @@
+{
+  "values": [
+    "minecraft:lantern",
+    "minecraft:soul_lantern",
+    {
+      "id": "tconstruct:seared_lantern",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_lantern",
+      "required": false
+    }
+  ]
+}

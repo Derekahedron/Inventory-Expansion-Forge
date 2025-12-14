@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "#forge:plates/copper",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/iron",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/gold",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/brass",
+      "required": false
+    },
+    {
+      "id": "alexscaves:polymer_plate",
+      "required": false
+    }
+  ]
+}

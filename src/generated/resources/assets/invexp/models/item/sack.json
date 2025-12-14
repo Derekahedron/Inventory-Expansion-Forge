@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "invexp:item/sack_filled",
+      "predicate": {
+        "invexp:sack/has_contents": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "invexp:item/sack",
+    "layer1": "invexp:item/sack_overlay"
+  }
+}

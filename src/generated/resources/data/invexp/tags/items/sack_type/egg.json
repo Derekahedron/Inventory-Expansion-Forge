@@ -1,0 +1,22 @@
+{
+  "values": [
+    "minecraft:frogspawn",
+    "minecraft:turtle_egg",
+    "minecraft:sniffer_egg",
+    "minecraft:dragon_egg",
+    "minecraft:egg",
+    "#forge:eggs",
+    {
+      "id": "alexsmobs:emu_egg",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:triops_eggs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:spider_egg",
+      "required": false
+    }
+  ]
+}

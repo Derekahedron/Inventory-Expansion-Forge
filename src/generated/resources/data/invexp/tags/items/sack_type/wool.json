@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#minecraft:wool",
+    "#minecraft:wool_carpets",
+    {
+      "id": "alexsmobs:bison_fur_block",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:bison_carpet",
+      "required": false
+    }
+  ]
+}

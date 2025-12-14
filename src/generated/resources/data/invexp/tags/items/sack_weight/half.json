@@ -1,0 +1,387 @@
+{
+  "values": [
+    "minecraft:iron_bars",
+    "#minecraft:wool_carpets",
+    "minecraft:glass_pane",
+    "minecraft:white_stained_glass_pane",
+    "minecraft:light_gray_stained_glass_pane",
+    "minecraft:gray_stained_glass_pane",
+    "minecraft:black_stained_glass_pane",
+    "minecraft:brown_stained_glass_pane",
+    "minecraft:red_stained_glass_pane",
+    "minecraft:orange_stained_glass_pane",
+    "minecraft:yellow_stained_glass_pane",
+    "minecraft:lime_stained_glass_pane",
+    "minecraft:green_stained_glass_pane",
+    "minecraft:cyan_stained_glass_pane",
+    "minecraft:light_blue_stained_glass_pane",
+    "minecraft:blue_stained_glass_pane",
+    "minecraft:purple_stained_glass_pane",
+    "minecraft:magenta_stained_glass_pane",
+    "minecraft:pink_stained_glass_pane",
+    "#minecraft:beds",
+    "minecraft:moss_carpet",
+    "minecraft:bamboo",
+    "minecraft:glow_lichen",
+    "minecraft:cocoa_beans",
+    "minecraft:glow_berries",
+    "minecraft:sweet_berries",
+    "minecraft:nether_wart",
+    "minecraft:kelp",
+    "minecraft:sculk_vein",
+    "minecraft:minecart",
+    "minecraft:hopper_minecart",
+    "minecraft:chest_minecart",
+    "minecraft:tnt_minecart",
+    "minecraft:command_block_minecart",
+    "minecraft:bone_meal",
+    "minecraft:saddle",
+    "#minecraft:boats",
+    "minecraft:goat_horn",
+    "#minecraft:music_discs",
+    "minecraft:chorus_fruit",
+    "minecraft:melon_slice",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:beetroot",
+    "minecraft:mushroom_stew",
+    "minecraft:beetroot_soup",
+    "minecraft:rabbit_stew",
+    "minecraft:suspicious_stew",
+    "minecraft:wheat",
+    "minecraft:flower_banner_pattern",
+    "minecraft:creeper_banner_pattern",
+    "minecraft:skull_banner_pattern",
+    "minecraft:mojang_banner_pattern",
+    "minecraft:globe_banner_pattern",
+    "minecraft:piglin_banner_pattern",
+    "minecraft:enchanted_book",
+    "#minecraft:slabs",
+    "#forge:crops/wheat",
+    "#forge:crops/potato",
+    "#forge:crops/carrot",
+    "#forge:crops/beetroot",
+    "#forge:crops/nether_wart",
+    "#forge:glass_panes",
+    {
+      "id": "#forge:crops/cabbage",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/tomato",
+      "required": false
+    },
+    {
+      "id": "forge:rotten_tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/onion",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/rice",
+      "required": false
+    },
+    {
+      "id": "alexscaves:cave_map",
+      "required": false
+    },
+    {
+      "id": "alexscaves:galena_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:galena_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:serene_salad",
+      "required": false
+    },
+    {
+      "id": "alexscaves:seething_stew",
+      "required": false
+    },
+    {
+      "id": "alexscaves:primordial_soup",
+      "required": false
+    },
+    {
+      "id": "alexscaves:vesper_stew",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sundae",
+      "required": false
+    },
+    {
+      "id": "alexscaves:sopa_de_macaco",
+      "required": false
+    },
+    {
+      "id": "alexscaves:limestone_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_limestone_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:cinder_brick",
+      "required": false
+    },
+    {
+      "id": "alexscaves:radrock_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:radrock_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:cinder_block_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:abyssmarine_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_bone_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:fertilizer",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guano_layer",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guanostone_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:guanostone_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:coprolith_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:smooth_coprolith_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:wafer_cookie_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:frostmint",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gingerbread_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:frosted_gingerbread_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:gingerbread_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexscaves:frosted_gingerbread_brick_slab",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_bear",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_australia_0",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_australia_1",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_new_mexico",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:banner_pattern_brazil",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mosquito_repellent_stew",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:barnacles",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:glowing_moss_carpet",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:webbing",
+      "required": false
+    },
+    {
+      "id": "create:andesite_bars",
+      "required": false
+    },
+    {
+      "id": "create:brass_bars",
+      "required": false
+    },
+    {
+      "id": "create:copper_bars",
+      "required": false
+    },
+    {
+      "id": "create:copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:exposed_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:weathered_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:oxidized_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_exposed_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_weathered_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_oxidized_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_exposed_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_weathered_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_oxidized_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:exposed_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:weathered_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "create:oxidized_copper_tile_slab",
+      "required": false
+    },
+    {
+      "id": "deeperdarker:bloom_berries",
+      "required": false
+    },
+    {
+      "id": "galosphere:silver_lattice",
+      "required": false
+    },
+    {
+      "id": "galosphere:glow_ink_clumps",
+      "required": false
+    },
+    {
+      "id": "tconstruct:soul_glass_pane",
+      "required": false
+    },
+    {
+      "id": "tconstruct:gold_bars",
+      "required": false
+    },
+    {
+      "id": "tconstruct:obsidian_pane",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_bricks_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_stone_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_cobble_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_paver_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_glass_pane",
+      "required": false
+    },
+    {
+      "id": "tconstruct:seared_soul_glass_pane",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_bricks_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_road_slab",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_glass_pane",
+      "required": false
+    },
+    {
+      "id": "tconstruct:scorched_soul_glass_pane",
+      "required": false
+    },
+    {
+      "id": "yungscavebiomes:ice_sheet",
+      "required": false
+    }
+  ]
+}
