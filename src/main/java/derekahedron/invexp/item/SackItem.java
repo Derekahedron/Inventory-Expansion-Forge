@@ -4,6 +4,7 @@ import derekahedron.invexp.Config;
 import derekahedron.invexp.item.tooltip.SackTooltip;
 import derekahedron.invexp.quiver.QuiverContents;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.sound.InvExpSoundEvents;
 import derekahedron.invexp.util.InvExpUtil;
 import derekahedron.invexp.util.OpenItemTexturesRegistry;
@@ -18,9 +19,7 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 
 /**
@@ -46,8 +45,8 @@ public class SackItem extends Item {
         return Config.MAX_SACK_TYPES.get();
     }
 
-    public int getMaxSackWeight() {
-        return Config.MAX_SACK_WEIGHT.get();
+    public Fraction getMaxSackWeight() {
+        return Fraction.getFraction(Config.MAX_SACK_WEIGHT_STACKS.get());
     }
 
     public int getMaxSackStacks() {
@@ -65,9 +64,12 @@ public class SackItem extends Item {
      * @return <code>true</code> if the click had an effect; <code>false</code> otherwise.
      */
     @Override
-    @ParametersAreNonnullByDefault
-    public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction clickAction, Player player) {
-        SackContents contents = SackContents.of(stack);
+    public boolean overrideStackedOnOther(
+            ItemStack stack,
+            Slot slot,
+            ClickAction clickAction,
+            Player player) {
+        SackContents contents = SackContents.of(stack, player.level());
         ItemStack otherStack;
 
         // Make sure this is actually a valid sack
@@ -114,12 +116,14 @@ public class SackItem extends Item {
      * @return <code>true</code> if the click had an effect; <code>false</code> otherwise.
      */
     @Override
-    @ParametersAreNonnullByDefault
     public boolean overrideOtherStackedOnMe(
-            ItemStack stack, ItemStack otherStack, Slot slot, ClickAction clickAction,
-            Player player, SlotAccess slotAccess
-    ) {
-        SackContents contents = SackContents.of(stack);
+            ItemStack stack,
+            ItemStack otherStack,
+            Slot slot,
+            ClickAction clickAction,
+            Player player,
+            SlotAccess slotAccess) {
+        SackContents contents = SackContents.of(stack, player.level());
 
         // Make sure this is actually a valid sack
         if (contents == null) {
@@ -163,9 +167,8 @@ public class SackItem extends Item {
      * @return <code>true</code> if the item bar should be shown; <code>false</code> otherwise
      */
     @Override
-    @ParametersAreNonnullByDefault
     public boolean isBarVisible(ItemStack stack) {
-        SackContents contents = SackContents.of(stack);
+        SackContentsReader contents = SackContents.of(stack);
         return contents != null && !contents.isEmpty();
     }
 
@@ -176,9 +179,8 @@ public class SackItem extends Item {
      * @return int 0-13 representing how full the quiver is
      */
     @Override
-    @ParametersAreNonnullByDefault
     public int getBarWidth(ItemStack stack) {
-        SackContents contents = SackContents.of(stack);
+        SackContentsReader contents = SackContents.of(stack);
         if (contents == null) {
             return 0;
         }
@@ -196,13 +198,11 @@ public class SackItem extends Item {
      * @return              color that the sack bar should display
      */
     @Override
-    @ParametersAreNonnullByDefault
     public int getBarColor(ItemStack sackStack) {
-        SackContents contents = SackContents.of(sackStack);
-        if (contents != null && contents.getTotalWeight() < contents.getMaxSackWeight()) {
+        SackContentsReader contents = SackContents.of(sackStack);
+        if (contents == null || contents.getTotalWeight().compareTo(contents.getMaxSackWeight()) < 0) {
             return ITEM_BAR_COLOR;
-        }
-        else {
+        } else {
             return FULL_ITEM_BAR_COLOR;
         }
     }
@@ -214,9 +214,8 @@ public class SackItem extends Item {
      * @return              Optional tooltip data to add to the stack
      */
     @Override
-    @ParametersAreNonnullByDefault
-    public @NotNull Optional<TooltipComponent> getTooltipImage(ItemStack sackStack) {
-        SackContents contents = SackContents.of(sackStack);
+    public Optional<TooltipComponent> getTooltipImage(ItemStack sackStack) {
+        SackContentsReader contents = SackContents.of(sackStack);
         if (contents != null) {
             return Optional.of(new SackTooltip(contents));
         }
@@ -230,7 +229,6 @@ public class SackItem extends Item {
      * @param entity    ItemEntity that was destroyed
      */
     @Override
-    @ParametersAreNonnullByDefault
     @SuppressWarnings("deprecation")
     public void onDestroyed(ItemEntity entity) {
         QuiverContents contents = QuiverContents.of(entity.getItem());
@@ -245,16 +243,15 @@ public class SackItem extends Item {
      * Also ticks the selected stack in the sack.
      *
      * @param sackStack     sack stack to tick
-     * @param world         world the stack is ticked in
+     * @param level         world the stack is ticked in
      * @param entity        the entity holding the item; usually a player
      * @param slot          slot the item is in
      * @param selected      whether the item is in the selected hotbar slot
      */
     @Override
-    @ParametersAreNonnullByDefault
-    public void inventoryTick(ItemStack sackStack, Level world, Entity entity, int slot, boolean selected) {
+    public void inventoryTick(ItemStack sackStack, Level level, Entity entity, int slot, boolean selected) {
         if (entity instanceof Player player) {
-            SackContents contents = SackContents.of(sackStack);
+            SackContents contents = SackContents.of(sackStack, level);
             if (contents == null) {
                 return;
             }
@@ -265,7 +262,7 @@ public class SackItem extends Item {
                 return;
             }
             ItemStack selectedStack = contents.copySelectedStack();
-            selectedStack.getItem().inventoryTick(selectedStack, world, entity, slot, selected);
+            selectedStack.getItem().inventoryTick(selectedStack, level, entity, slot, selected);
             contents.updateSelectedStack(selectedStack, leftoverStack -> {
                 if (!player.getInventory().add(leftoverStack)) {
                     player.drop(leftoverStack, false);
@@ -277,9 +274,9 @@ public class SackItem extends Item {
     /**
      * Plays sack remove sound.
      *
-     * @param entity    entity to play sound from
+     * @param entity the entity to play the sound from
      */
-    public void playRemoveSound(@NotNull Entity entity) {
+    public void playRemoveSound(Entity entity) {
         entity.playSound(
                 InvExpSoundEvents.ITEM_SACK_REMOVE_ONE.get(),
                 0.8F,
@@ -290,9 +287,9 @@ public class SackItem extends Item {
     /**
      * Plays sack insert sound.
      *
-     * @param entity    entity to play sound from
+     * @param entity the entity to play the sound from
      */
-    public void playInsertSound(@NotNull Entity entity) {
+    public void playInsertSound(Entity entity) {
         entity.playSound(
                 InvExpSoundEvents.ITEM_SACK_INSERT.get(),
                 0.8F,

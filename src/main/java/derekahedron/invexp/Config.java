@@ -5,17 +5,16 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = InventoryExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class Config
-{
+public class Config {
     private static final ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
 
     public static final ForgeConfigSpec.IntValue MAX_SACK_TYPES = SERVER_BUILDER
-            .comment("How much sack weight the default sack can hold (100 is roughly one item)")
+            .comment("How many different sack types can one sack hold")
             .defineInRange("maxSackTypes", 1, 0, Integer.MAX_VALUE);
 
-    public static final ForgeConfigSpec.IntValue MAX_SACK_WEIGHT = SERVER_BUILDER
-            .comment("How much sack weight the default sack can hold (100 is roughly one item)")
-            .defineInRange("maxSackWeight", 4 * 64 * SacksHelper.DEFAULT_SACK_WEIGHT, 0, Integer.MAX_VALUE);
+    public static final ForgeConfigSpec.IntValue MAX_SACK_WEIGHT_STACKS = SERVER_BUILDER
+            .comment("How many stacks a sack can hold by weight")
+            .defineInRange("maxSackWeightStacks", 4, 0, Integer.MAX_VALUE);
 
     public static final ForgeConfigSpec.IntValue MAX_SACK_STACKS = SERVER_BUILDER
             .comment("How many separate stacks can be held in the sack")

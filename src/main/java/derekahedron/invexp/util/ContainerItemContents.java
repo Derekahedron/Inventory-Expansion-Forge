@@ -6,10 +6,9 @@ import derekahedron.invexp.sack.SackContents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
@@ -21,7 +20,7 @@ import java.util.stream.Stream;
  * If a modification can happen, a builder is created (which copies the items when created and applied)
  * where the modifications occur, so we are only creating the builder when necessary.
  */
-public abstract class ContainerItemContents implements ContainerItemContentsChecker {
+public abstract class ContainerItemContents implements ContainerItemContentsReader {
 
     /**
      * Create a Contents object from the given stack based on the stack that is passed in.
@@ -31,12 +30,23 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param stack     stack to create contents from if possible
      * @return          contents created from the stack; null if none are created
      */
-    public static @Nullable ContainerItemContents of(@Nullable ItemStack stack) {
-        ContainerItemContents contents;
+    @Nullable
+    public static ContainerItemContentsReader of(@Nullable ItemStack stack) {
+        ContainerItemContentsReader contents;
         if ((contents = SackContents.of(stack)) != null) {
             return contents;
+        } else if ((contents = QuiverContents.of(stack)) != null) {
+            return contents;
         }
-        else if ((contents = QuiverContents.of(stack)) != null) {
+        return null;
+    }
+
+    @Nullable
+    public static ContainerItemContents of(@Nullable ItemStack stack, Level level) {
+        ContainerItemContents contents;
+        if ((contents = SackContents.of(stack, level)) != null) {
+            return contents;
+        } else if ((contents = QuiverContents.of(stack)) != null) {
             return contents;
         }
         return null;
@@ -47,7 +57,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      *
      * @return  a copy of the selected stack
      */
-    public @NotNull ItemStack copySelectedStack() {
+    public ItemStack copySelectedStack() {
         return copySelectedStack(null);
     }
 
@@ -60,7 +70,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param currentSelectedStack  selected stack to transform
      * @return                      copy of the selected stack to modify
      */
-    public @NotNull ItemStack copySelectedStack(@Nullable ItemStack currentSelectedStack) {
+    public ItemStack copySelectedStack(@Nullable ItemStack currentSelectedStack) {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -82,7 +92,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param stack     stack to add
      * @return          number of items added
      */
-    public int add(@NotNull ItemStack stack) {
+    public int add(ItemStack stack) {
         if (getMaxAllowed(stack) > 0) {
             Builder builder = getBuilder();
             int added = builder.add(stack, 0);
@@ -101,7 +111,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param player    player adding the item
      * @return          number of items added
      */
-    public int add(@NotNull Slot slot, @NotNull Player player) {
+    public int add(Slot slot, Player player) {
         return add(Stream.of(slot), player);
     }
 
@@ -113,11 +123,11 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param player    player adding the items
      * @return          total number of items added
      */
-    public int add(@NotNull Stream<Slot> slots, @NotNull Player player) {
+    public int add(Stream<Slot> slots, Player player) {
         // Do not create builder until needed
         Builder builder = null;
         // Default to using this as the contents checker
-        ContainerItemContentsChecker checker = this;
+        ContainerItemContentsReader checker = this;
         int added = 0;
 
         for (Slot slot : slots.toList()) {
@@ -150,7 +160,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param stack     stack to remove
      * @return          number of items removed
      */
-    public int remove(@NotNull ItemStack stack) {
+    public int remove(ItemStack stack) {
         if (isEmpty() || stack.isEmpty()) {
             return 0;
         }
@@ -168,7 +178,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      *
      * @return  popped selected stack containing one item; EMPTY if there is none
      */
-    public @NotNull ItemStack popSelectedItem() {
+    public ItemStack popSelectedItem() {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -194,7 +204,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      *
      * @return  popped selected stack; EMPTY if there is none
      */
-    public @NotNull ItemStack popSelectedStack() {
+    public ItemStack popSelectedStack() {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -212,7 +222,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param slot  slot to pop stack into
      * @return      true if the stack was popped; false otherwise
      */
-    public boolean popSelectedStack(@NotNull Slot slot) {
+    public boolean popSelectedStack(Slot slot) {
         if (isEmpty()) {
             return false;
         }
@@ -245,7 +255,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      *
      * @return  list of copied stacks
      */
-    public @NotNull List<ItemStack> popAllStacks() {
+    public List<ItemStack> popAllStacks() {
         if (isEmpty()) {
             return List.of();
         }
@@ -277,8 +287,8 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
      * @param leftoverStackConsumer     handle leftover stack
      */
     public void updateSelectedStack(
-            @NotNull ItemStack selectedStack, @NotNull Consumer<ItemStack> leftoverStackConsumer
-    ) {
+            ItemStack selectedStack,
+            Consumer<ItemStack> leftoverStackConsumer) {
         ItemStack leftoverStack = ItemStack.EMPTY;
 
         if (isEmpty()) {
@@ -349,30 +359,16 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
     }
 
     /**
-     * Test for if the contents should show as full. Either by weight or stacks.
-     *
-     * @return  true if the contents should render as full
-     */
-    public abstract boolean isFull();
-
-    /**
-     * Gets a fraction for displaying fullness of contents.
-     *
-     * @return  fraction representing fullness
-     */
-    public abstract @NotNull Fraction getFillFraction();
-
-    /**
      * Create a new builder for modifying contents.
      *
      * @return  builder for contents
      */
-    public abstract @NotNull Builder getBuilder();
+    public abstract Builder getBuilder();
 
     /**
      * Builder for modifying contents. Changes made do not take effect until the builder is applied.
      */
-    public abstract static class Builder implements ContainerItemContentsChecker {
+    public abstract static class Builder implements ContainerItemContentsReader {
         /**
          * Applies changes made to the original contents and container stack.
          */
@@ -386,7 +382,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param insertAt  where to insert the new stack
          * @return          number of items added
          */
-        public abstract int add(@NotNull ItemStack stack, int insertAt);
+        public abstract int add(ItemStack stack, int insertAt);
 
         /**
          * Remove the given stack from the contents
@@ -395,21 +391,21 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param toRemove  how many of the given stack to remove
          * @return          how many items were removed
          */
-        public abstract int remove(@NotNull ItemStack stack, int toRemove);
+        public abstract int remove(ItemStack stack, int toRemove);
 
         /**
          * Pops the selected stack from the contents.
          *
          * @return ItemStack popped from the contents; EMPTY if none
          */
-        public abstract @NotNull ItemStack popSelectedStack();
+        public abstract ItemStack popSelectedStack();
 
         /**
          * Remove all stacks from contents.
          *
          * @return  List of copies of previous contents
          */
-        public abstract @NotNull List<ItemStack> popAllStacks();
+        public abstract List<ItemStack> popAllStacks();
 
         /**
          * Sets the selected index
@@ -424,7 +420,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param stack     stack to add
          * @return          number of items added
          */
-        public int add(@NotNull ItemStack stack) {
+        public int add(ItemStack stack) {
             return add(stack, 0);
         }
 
@@ -434,7 +430,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param stack     stack to remove
          * @return          number of items removed
          */
-        public int remove(@NotNull ItemStack stack) {
+        public int remove(ItemStack stack) {
             return remove(stack, stack.getCount());
         }
 
@@ -445,7 +441,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param stack     stack to replace selected stack
          * @return          true if the operation completes; false otherwise
          */
-        public boolean replaceSelectedStack(@NotNull ItemStack stack) {
+        public boolean replaceSelectedStack(ItemStack stack) {
             return replaceSelectedStack(stack, getSelectedStack().getCount());
         }
 
@@ -457,7 +453,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param count     amount of the selected stack to replace
          * @return          true if the operation completes; false otherwise
          */
-        public boolean replaceSelectedStack(@NotNull ItemStack stack, int count) {
+        public boolean replaceSelectedStack(ItemStack stack, int count) {
             if (isEmpty()) {
                 return false;
             }
@@ -512,7 +508,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param startingIndex     index to start search from
          * @return                  new index
          */
-        public int nextSelectedIndex(@NotNull ItemStack stack, int startingIndex) {
+        public int nextSelectedIndex(ItemStack stack, int startingIndex) {
             return nextSelectedIndex(stack, null, startingIndex);
         }
 
@@ -526,7 +522,7 @@ public abstract class ContainerItemContents implements ContainerItemContentsChec
          * @param startingIndex     index to start search from
          * @return                  new index
          */
-        public int nextSelectedIndex(@NotNull ItemStack stack, @Nullable ItemStack backupStack, int startingIndex) {
+        public int nextSelectedIndex(ItemStack stack, @Nullable ItemStack backupStack, int startingIndex) {
             if (isEmpty()) {
                 return -1;
             }

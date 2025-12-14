@@ -26,10 +26,10 @@ public class MinecraftMixin {
             method = "startUseItem",
             at = @At("HEAD")
     )
-    private void beforeItemUse(@NotNull CallbackInfo ci) {
+    private void beforeItemUse(CallbackInfo ci) {
         Minecraft self = (Minecraft) (Object) this;
         if (self.player != null) {
-            ((PlayerEntityDuck) self.player).invexp$startUsingSack();
+            ((PlayerEntityDuck) self.player).invexp_$startUsingSack();
         }
     }
 
@@ -40,10 +40,10 @@ public class MinecraftMixin {
             method = "startUseItem",
             at = @At("RETURN")
     )
-    private void afterItemUse(@NotNull CallbackInfo ci) {
+    private void afterItemUse(CallbackInfo ci) {
         Minecraft self = (Minecraft) (Object) this;
         if (self.player != null) {
-            ((PlayerEntityDuck) self.player).invexp$stopUsingSack();
+            ((PlayerEntityDuck) self.player).invexp_$stopUsingSack();
         }
     }
 
@@ -52,18 +52,23 @@ public class MinecraftMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/player/Inventory;findSlotMatchingItem(Lnet/minecraft/world/item/ItemStack;)I",
-                    by = 2
-            ),
+                    by = 2),
             locals = LocalCapture.CAPTURE_FAILSOFT,
             cancellable = true
     )
-    private void setSelectedIndexToPickBlock(CallbackInfo ci, boolean flag, BlockEntity blockentity, HitResult.Type hitresult$type, ItemStack itemstack, @NotNull Inventory inventory) {
+    private void setSelectedIndexToPickBlock(
+            CallbackInfo ci,
+            boolean flag,
+            BlockEntity blockentity,
+            HitResult.Type hitresult$type,
+            ItemStack itemstack,
+            Inventory inventory) {
         if (inventory.findSlotMatchingItem(itemstack) != -1) {
             return;
         }
 
         for (int slot = 0; slot < inventory.items.size(); slot++) {
-            SackContents contents = SackContents.of(inventory.items.get(slot));
+            SackContents contents = SackContents.of(inventory.items.get(slot), inventory.player.level());
             if (contents != null && !contents.isEmpty()) {
                 int newSelectedIndex = contents.indexOf(itemstack, contents.getSelectedIndex());
                 if (newSelectedIndex != -1) {

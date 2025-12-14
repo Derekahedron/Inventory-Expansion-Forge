@@ -6,9 +6,8 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +15,9 @@ public class QuiverContentsComponent {
     public static final String COMPOUND_KEY = "InvExpQuiverContents";
     public static final String ITEMS_KEY = "Items";
     public static final String SELECTED_INDEX_KEY = "SelectedIndex";
-    public static final String TOTAL_OCCUPANCY_NUMERATOR_KEY = "TotalOccupancyNumerator";
-    public static final String TOTAL_OCCUPANCY_DENOMINATOR_KEY = "TotalOccupancyDenominator";
+    public static final String TOTAL_OCCUPANCY_KEY = "TotalOccupancy";
+    public static final String NUMERATOR_KEY = "Numerator";
+    public static final String DENOMINATOR_KEY = "Denominator";
 
     public final List<ItemStack> stacks;
     public final int selectedIndex;
@@ -29,7 +29,7 @@ public class QuiverContentsComponent {
      * @param stacks            list of stacks to give the component
      * @param selectedIndex     selected index of the component
      */
-    public QuiverContentsComponent(@NotNull List<ItemStack> stacks, int selectedIndex) {
+    public QuiverContentsComponent(List<ItemStack> stacks, int selectedIndex) {
         this(stacks, selectedIndex, calculateTotalOccupancy(stacks));
     }
 
@@ -41,7 +41,7 @@ public class QuiverContentsComponent {
      * @param totalOccupancy total occupancy to store in the component
      */
     public QuiverContentsComponent(
-            @NotNull List<ItemStack> stacks, int selectedIndex, Fraction totalOccupancy
+            List<ItemStack> stacks, int selectedIndex, Fraction totalOccupancy
     ) {
         this.stacks = stacks;
         this.selectedIndex = selectedIndex;
@@ -60,7 +60,7 @@ public class QuiverContentsComponent {
      *
      * @return  list of stacks in the component
      */
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return stacks;
     }
 
@@ -78,7 +78,7 @@ public class QuiverContentsComponent {
      *
      * @return  total occupancy of the component
      */
-    public @NotNull Fraction getTotalOccupancy() {
+    public Fraction getTotalOccupancy() {
         return totalOccupancy;
     }
 
@@ -111,7 +111,7 @@ public class QuiverContentsComponent {
      *
      * @return  the selected stack; EMPTY if there is none
      */
-    public @NotNull ItemStack getSelectedStack() {
+    public ItemStack getSelectedStack() {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -135,8 +135,11 @@ public class QuiverContentsComponent {
             }
             quiverContents.put(ITEMS_KEY, contentsTag);
             quiverContents.putInt(SELECTED_INDEX_KEY, getSelectedIndex());
-            quiverContents.putInt(TOTAL_OCCUPANCY_NUMERATOR_KEY, totalOccupancy.getNumerator());
-            quiverContents.putInt(TOTAL_OCCUPANCY_DENOMINATOR_KEY, totalOccupancy.getDenominator());
+
+            CompoundTag occupancyTag = new CompoundTag();
+            occupancyTag.putInt(NUMERATOR_KEY, totalOccupancy.getNumerator());
+            occupancyTag.putInt(DENOMINATOR_KEY, totalOccupancy.getDenominator());
+            quiverContents.put(TOTAL_OCCUPANCY_KEY, occupancyTag);
             tag.put(COMPOUND_KEY, quiverContents);
         }
         else {
@@ -150,7 +153,8 @@ public class QuiverContentsComponent {
      * @param stack     stack to get the component from
      * @return          QuiverContentsComponent of the stack; null if invalid
      */
-    public static @Nullable QuiverContentsComponent getComponent(@Nullable ItemStack stack) {
+    @Nullable
+    public static QuiverContentsComponent getComponent(@Nullable ItemStack stack) {
         if (stack != null && !stack.isEmpty() && stack.getItem() instanceof QuiverItem) {
             CompoundTag tag = stack.getTag();
             if (tag != null && tag.contains(COMPOUND_KEY)) {
@@ -162,16 +166,15 @@ public class QuiverContentsComponent {
                 }
                 int selectedIndex = quiverContents.getInt(SELECTED_INDEX_KEY);
 
-                Fraction totalOccupancy;
-                int totalOccupancyNumerator = quiverContents.getInt(TOTAL_OCCUPANCY_NUMERATOR_KEY);
-                int totalOccupancyDenominator = quiverContents.getInt(TOTAL_OCCUPANCY_DENOMINATOR_KEY);
-                if (totalOccupancyNumerator != 0 && totalOccupancyDenominator != 0) {
-                    totalOccupancy = Fraction.getFraction(totalOccupancyNumerator, totalOccupancyDenominator);
+                if (quiverContents.contains(TOTAL_OCCUPANCY_KEY, 10)) {
+                    CompoundTag totalOccupancyTag = quiverContents.getCompound(TOTAL_OCCUPANCY_KEY);
+                    Fraction totalOccupancy = Fraction.getFraction(
+                            totalOccupancyTag.getInt(NUMERATOR_KEY),
+                            totalOccupancyTag.getInt(DENOMINATOR_KEY));
+                    return new QuiverContentsComponent(stacks, selectedIndex, totalOccupancy);
+                } else {
+                    return new QuiverContentsComponent(stacks, selectedIndex);
                 }
-                else {
-                    totalOccupancy = Fraction.ZERO;
-                }
-                return new QuiverContentsComponent(stacks, selectedIndex, totalOccupancy);
             }
             else {
                 return new QuiverContentsComponent();

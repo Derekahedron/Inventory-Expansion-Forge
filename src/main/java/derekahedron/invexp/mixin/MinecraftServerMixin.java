@@ -1,14 +1,13 @@
 package derekahedron.invexp.mixin;
 
 import com.mojang.datafixers.DataFixer;
-import derekahedron.invexp.sack.SackDataManager;
+import derekahedron.invexp.sack.SackDefaultManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Services;
 import net.minecraft.server.WorldStem;
 import net.minecraft.server.level.progress.ChunkProgressListenerFactory;
 import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.world.level.storage.LevelStorageSource;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -30,10 +29,17 @@ public class MinecraftServerMixin {
             at = @At("TAIL")
     )
     private void initialPostDataPackLoad(
-            Thread p_236723_, LevelStorageSource.LevelStorageAccess p_236724_, PackRepository p_236725_, WorldStem p_236726_, Proxy p_236727_, DataFixer p_236728_, Services p_236729_, ChunkProgressListenerFactory p_236730_, @NotNull CallbackInfo ci
-    ) {
+            Thread p_236723_,
+            LevelStorageSource.LevelStorageAccess p_236724_,
+            PackRepository p_236725_,
+            WorldStem p_236726_,
+            Proxy p_236727_,
+            DataFixer p_236728_,
+            Services p_236729_,
+            ChunkProgressListenerFactory p_236730_,
+            CallbackInfo ci) {
         MinecraftServer self = (MinecraftServer) (Object) this;
-        SackDataManager.createNewInstance(self.registryAccess());
+        SackDefaultManager.createNewInstance(self.registryAccess());
     }
 
     /**
@@ -46,10 +52,10 @@ public class MinecraftServerMixin {
                     target = "Ljava/util/concurrent/CompletableFuture;thenAcceptAsync(Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;"
             )
     )
-    private @NotNull Consumer<Object> detectDataPackReload(Consumer<Object> consumer) {
+    private Consumer<Object> detectDataPackReload(Consumer<Object> consumer) {
         return (var) -> {
             consumer.accept(var);
-            SackDataManager.updateInstanceTaggedData();
+            SackDefaultManager.updateInstanceSackDefaults();
         };
     }
 }

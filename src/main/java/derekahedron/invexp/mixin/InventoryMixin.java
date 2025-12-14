@@ -3,10 +3,10 @@ package derekahedron.invexp.mixin;
 import derekahedron.invexp.entity.player.PlayerEntityDuck;
 import derekahedron.invexp.quiver.QuiverContents;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.sack.SackUsage;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +24,7 @@ public class InventoryMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void insertIntoContainerItem(ItemStack stack, @NotNull CallbackInfoReturnable<Boolean> cir) {
+    private void insertIntoContainerItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         Inventory self = (Inventory) (Object) this;
 
         // First attempt pickup into quivers
@@ -50,17 +50,17 @@ public class InventoryMixin {
 
         // Next try picking up into sacks
         // Start with main hand
-        if (SackContents.attemptPickup(self.getItem(self.selected), stack)) {
+        if (SackContents.attemptPickup(self.getItem(self.selected), stack, self.player)) {
             cir.setReturnValue(true);
         }
         // Then try offhand
-        else if (SackContents.attemptPickup(self.getItem(40), stack)) {
+        else if (SackContents.attemptPickup(self.getItem(40), stack, self.player)) {
             cir.setReturnValue(true);
         }
         else {
             // Finally try remaining slots
             for (int slot = 0; slot < self.items.size(); slot++) {
-                if (SackContents.attemptPickup(self.getItem(slot), stack)) {
+                if (SackContents.attemptPickup(self.getItem(slot), stack, self.player)) {
                     cir.setReturnValue(true);
                     break;
                 }
@@ -77,10 +77,10 @@ public class InventoryMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void removeFromSack(ItemStack stack, @NotNull CallbackInfo ci) {
+    private void removeFromSack(ItemStack stack, CallbackInfo ci) {
         Inventory self = (Inventory) (Object) this;
-        if (((PlayerEntityDuck) self.player).invexp$isUsingSack()) {
-            SackUsage usage = ((PlayerEntityDuck) self.player).invexp$getUsageForSelectedStack(stack);
+        if (((PlayerEntityDuck) self.player).invexp_$isUsingSack()) {
+            SackUsage usage = ((PlayerEntityDuck) self.player).invexp_$getUsageForSelectedStack(stack);
             if (usage != null) {
                 usage.selectedStack = ItemStack.EMPTY;
                 ci.cancel();
@@ -97,14 +97,14 @@ public class InventoryMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void dropSelectedItemFromSack(boolean entireStack, @NotNull CallbackInfoReturnable<ItemStack> info) {
+    private void dropSelectedItemFromSack(boolean entireStack, CallbackInfoReturnable<ItemStack> info) {
         // Dropping the entire stack should drop the sack
         if (entireStack) {
             return;
         }
         Inventory self = (Inventory) (Object) this;
         ItemStack sackStack = self.getSelected();
-        SackContents contents = SackContents.of(sackStack);
+        SackContents contents = SackContents.of(sackStack, self.player.level());
         if (contents == null || contents.isEmpty()) {
             return;
         }
@@ -120,7 +120,7 @@ public class InventoryMixin {
             at = @At("RETURN"),
             cancellable = true
     )
-    private void getSlotWithStackInSack(ItemStack stack, @NotNull CallbackInfoReturnable<Integer> cir) {
+    private void getSlotWithStackInSack(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
         // only run if the normal function does not find anything.
         if (cir.getReturnValue() != -1) {
             return;
@@ -128,7 +128,7 @@ public class InventoryMixin {
         Inventory self = (Inventory) (Object) this;
 
         for (int slot = 0; slot < self.items.size(); slot++) {
-            SackContents contents = SackContents.of(self.items.get(slot));
+            SackContentsReader contents = SackContents.of(self.items.get(slot));
             if (contents != null && !contents.isEmpty()) {
                 if (ItemStack.isSameItemSameTags(stack, contents.getSelectedStack())) {
                     // Find first sack that has the item selected already

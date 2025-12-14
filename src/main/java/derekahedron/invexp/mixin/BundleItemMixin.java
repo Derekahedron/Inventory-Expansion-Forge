@@ -15,7 +15,6 @@ import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -42,9 +41,11 @@ public abstract class BundleItemMixin {
             cancellable = true
     )
     private void betterOverrideStackedOnOther(
-            ItemStack stack, Slot slot, ClickAction clickAction,
-            Player player, @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            ItemStack stack,
+            Slot slot,
+            ClickAction clickAction,
+            Player player,
+            CallbackInfoReturnable<Boolean> cir) {
         // Make sure this is actually a valid sack
         BundleContents contents = BundleContents.of(stack);
         if (contents == null) {
@@ -88,9 +89,13 @@ public abstract class BundleItemMixin {
             cancellable = true
     )
     private void betterOtherStackedOnMe(
-            ItemStack bundleStack, ItemStack otherStack, Slot slot, ClickAction clickAction,
-            Player player, SlotAccess slotAccess, @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            ItemStack bundleStack,
+            ItemStack otherStack,
+            Slot slot,
+            ClickAction clickAction,
+            Player player,
+            SlotAccess slotAccess,
+            CallbackInfoReturnable<Boolean> cir) {
         // Make sure this is actually a valid sack
         BundleContents contents = BundleContents.of(bundleStack);
         if (contents == null) {
@@ -140,7 +145,7 @@ public abstract class BundleItemMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void betterGetBarColor(ItemStack bundleStack, @NotNull CallbackInfoReturnable<Integer> cir) {
+    private void betterGetBarColor(ItemStack bundleStack, CallbackInfoReturnable<Integer> cir) {
         BundleContents contents = BundleContents.of(bundleStack);
         if (contents != null && contents.getTotalWeight() >= contents.getMaxBundleWeight()) {
             cir.setReturnValue(BetterBundleItem.FULL_ITEM_BAR_COLOR);
@@ -153,8 +158,8 @@ public abstract class BundleItemMixin {
             cancellable = true
     )
     private void betterGetTooltipImage(
-            ItemStack bundleStack, @NotNull CallbackInfoReturnable<Optional<TooltipComponent>> cir
-    ) {
+            ItemStack bundleStack,
+            CallbackInfoReturnable<Optional<TooltipComponent>> cir) {
         BundleContents contents = BundleContents.of(bundleStack);
         if (contents != null) {
             cir.setReturnValue(Optional.of(new BetterBundleTooltip(contents)));
@@ -170,7 +175,7 @@ public abstract class BundleItemMixin {
             cancellable = true
     )
     private void betterAppendHoverText(
-            ItemStack bundleStack, Level level, List<Component> components, TooltipFlag flag, @NotNull CallbackInfo ci
+            ItemStack bundleStack, Level level, List<Component> components, TooltipFlag flag, CallbackInfo ci
     ) {
         ci.cancel();
     }
@@ -180,7 +185,7 @@ public abstract class BundleItemMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private static void getBetterWeight(@NotNull ItemStack stack, @NotNull CallbackInfoReturnable<Integer> cir) {
+    private static void getBetterWeight(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
         if (stack.getItem() instanceof BetterBundleItem) {
             cir.setReturnValue(BundleItem.getContentWeight(stack) + 4);
         }

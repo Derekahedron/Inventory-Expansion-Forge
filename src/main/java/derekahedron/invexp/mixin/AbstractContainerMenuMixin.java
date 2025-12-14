@@ -10,7 +10,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,7 +32,7 @@ public class AbstractContainerMenuMixin {
             cancellable = true
     )
     private void doubleClickContainerItem(
-            int slotIndex, int button, ClickType clickType, Player player, @NotNull CallbackInfo ci
+            int slotIndex, int button, ClickType clickType, Player player, CallbackInfo ci
     ) {
         AbstractContainerMenu self = (AbstractContainerMenu) (Object) this;
         // First, make sure it was a double click on a valid slot
@@ -47,7 +46,7 @@ public class AbstractContainerMenuMixin {
         }
 
         // Check that the item is a valid container
-        ContainerItemContents contents = ContainerItemContents.of(cursorStack);
+        ContainerItemContents contents = ContainerItemContents.of(cursorStack, player.level());
         if (contents == null || (contents.isEmpty() && contents instanceof SackContents)) {
             return;
         }

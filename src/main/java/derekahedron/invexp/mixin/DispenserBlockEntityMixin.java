@@ -16,11 +16,12 @@ import java.util.List;
 public class DispenserBlockEntityMixin implements DispenserBlockEntityDuck {
 
     @Unique
-    List<ItemStack> invexp$usageBuffer;
+    @Nullable
+    List<ItemStack> invexp_$usageBuffer;
 
     @Override
-    public void invexp$setUsageBuffer(@Nullable List<ItemStack> usageBuffer) {
-        this.invexp$usageBuffer = usageBuffer;
+    public void invexp_$setUsageBuffer(@Nullable List<ItemStack> usageBuffer) {
+        this.invexp_$usageBuffer = usageBuffer;
     }
 
     /**
@@ -33,8 +34,8 @@ public class DispenserBlockEntityMixin implements DispenserBlockEntityDuck {
             cancellable = true
     )
     public void catchAddedStacks(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
-        if (invexp$usageBuffer != null) {
-            invexp$usageBuffer.add(stack);
+        if (invexp_$usageBuffer != null) {
+            invexp_$usageBuffer.add(stack);
             cir.setReturnValue(stack.getCount());
         }
     }

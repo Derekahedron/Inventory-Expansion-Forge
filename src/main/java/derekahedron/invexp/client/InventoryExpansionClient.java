@@ -11,6 +11,7 @@ import derekahedron.invexp.item.tooltip.QuiverTooltip;
 import derekahedron.invexp.item.tooltip.SackTooltip;
 import derekahedron.invexp.quiver.QuiverContents;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.util.InvExpUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -45,7 +46,7 @@ public class InventoryExpansionClient {
     public static void setupItemOverrides(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemProperties.register(InvExpItems.SACK.get(), InvExpUtil.location("sack/has_contents"), (stack, level, entity, id) -> {
-                SackContents contents = SackContents.of(stack);
+                SackContentsReader contents = SackContents.of(stack);
                 return contents != null && !contents.isEmpty() ? 1.0F : 0.0F;
             });
             ItemProperties.register(InvExpItems.QUIVER.get(), InvExpUtil.location("quiver/has_contents"), (stack, level, entity, id) -> {

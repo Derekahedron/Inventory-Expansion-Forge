@@ -10,8 +10,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraftforge.common.ForgeHooks;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,15 +17,21 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin implements PlayerEntityDuck {
 
-    private @Unique boolean invexp$usingSack = false;
-    private @Unique SackUsage invexp$mainHandSackUsage;
-    private @Unique SackUsage invexp$offHandSackUsage;
+    @Unique
+    private boolean invexp_$usingSack = false;
+    @Unique
+    @Nullable
+    private SackUsage invexp_$mainHandSackUsage;
+    @Unique
+    @Nullable
+    private SackUsage invexp_$offHandSackUsage;
 
     /**
      * If the player is using a sack, getting the equipped stack should return the stack
@@ -39,8 +43,8 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
             cancellable = true
     )
     private void getEquippedStackInSack(EquipmentSlot slot, CallbackInfoReturnable<ItemStack> cir) {
-        if (invexp$usingSack && (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)) {
-            SackUsage usage = invexp$getUsageForSackStack(cir.getReturnValue());
+        if (invexp_$usingSack && (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)) {
+            SackUsage usage = invexp_$getUsageForSackStack(cir.getReturnValue());
             if (usage != null) {
                 cir.setReturnValue(usage.selectedStack);
             }
@@ -56,8 +60,8 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void equipStackInSack(EquipmentSlot slot, ItemStack stack, @NotNull CallbackInfo ci) {
-        if (invexp$usingSack && (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)) {
+    private void equipStackInSack(EquipmentSlot slot, ItemStack stack, CallbackInfo ci) {
+        if (invexp_$usingSack && (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)) {
             Player self = (Player) (Object) this;
             // Get the stack that is being held
             ItemStack heldStack;
@@ -67,7 +71,7 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
                 default -> throw new IllegalArgumentException("Invalid slot " + slot);
             }
             // If the stack in the slot is a sack being used, replace there instead
-            SackUsage usage = invexp$getUsageForSackStack(heldStack);
+            SackUsage usage = invexp_$getUsageForSackStack(heldStack);
             if (usage != null) {
                 self.onEquipItem(slot, usage.selectedStack, stack);
                 usage.selectedStack = stack;
@@ -82,8 +86,8 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * @return  true if the player is using a sack; false otherwise
      */
     @Override
-    public boolean invexp$isUsingSack() {
-        return invexp$usingSack;
+    public boolean invexp_$isUsingSack() {
+        return invexp_$usingSack;
     }
 
     /**
@@ -91,18 +95,18 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * offhand. Merge previous usages if they are of the same sack stack.
      */
     @Override
-    public void invexp$startUsingSack() {
-        if (invexp$usingSack) {
-            invexp$stopUsingSack();
+    public void invexp_$startUsingSack() {
+        if (invexp_$usingSack) {
+            invexp_$stopUsingSack();
         }
 
         Player self = (Player) (Object) this;
         SackUsage[] usages = new SackUsage[InteractionHand.values().length];
         for (int i = 0; i < InteractionHand.values().length; i++) {
             ItemStack heldStack = self.getItemInHand(InteractionHand.values()[i]);
-            SackContents contents = SackContents.of(heldStack);
+            SackContents contents = SackContents.of(heldStack, self.level());
             if (contents != null && !contents.isEmpty()) {
-                SackUsage usage = invexp$getUsageForSackStack(heldStack);
+                SackUsage usage = invexp_$getUsageForSackStack(heldStack);
                 if (usage != null) {
                     usages[i] = new SackUsage(contents, usage.selectedStack);
                 }
@@ -116,28 +120,28 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
             invexp$setUsageByHand(InteractionHand.values()[i], usages[i]);
         }
 
-        invexp$usingSack = true;
+        invexp_$usingSack = true;
     }
 
     /**
      * Stop player using sack. Updates sack usages with the new selected stacks.
      */
     @Override
-    public void invexp$stopUsingSack() {
-        if (!invexp$usingSack) {
+    public void invexp_$stopUsingSack() {
+        if (!invexp_$usingSack) {
             return;
         }
 
         ArrayList<ItemStack> leftoverStacks = new ArrayList<>();
         Player self = (Player) (Object) this;
         for (InteractionHand hand : InteractionHand.values()) {
-            SackUsage usage = invexp$getUsageByHand(hand);
+            SackUsage usage = invexp_$getUsageByHand(hand);
             if (usage != null) {
-                usage.update(leftoverStacks::add);
+                usage.update(self.level(), leftoverStacks::add);
             }
         }
 
-        invexp$usingSack = false;
+        invexp_$usingSack = false;
         for (ItemStack leftoverStack : leftoverStacks) {
             if (!leftoverStack.isEmpty() && !self.getInventory().add(leftoverStack)) {
                 self.drop(leftoverStack, false);
@@ -152,9 +156,10 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * @return              sack usage associated with the sack stack; null if there is none
      */
     @Override
-    public SackUsage invexp$getUsageForSackStack(ItemStack sackStack) {
+    @Nullable
+    public SackUsage invexp_$getUsageForSackStack(ItemStack sackStack) {
         for (InteractionHand hand : InteractionHand.values()) {
-            SackUsage usage = invexp$getUsageByHand(hand);
+            SackUsage usage = invexp_$getUsageByHand(hand);
             if (usage != null && usage.sackStack == sackStack) {
                 return usage;
             }
@@ -170,9 +175,10 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * @return                  sack usage associated with the selected stack; null if there is none
      */
     @Override
-    public SackUsage invexp$getUsageForSelectedStack(ItemStack selectedStack) {
+    @Nullable
+    public SackUsage invexp_$getUsageForSelectedStack(ItemStack selectedStack) {
         for (InteractionHand hand : InteractionHand.values()) {
-            SackUsage usage = invexp$getUsageByHand(hand);
+            SackUsage usage = invexp_$getUsageByHand(hand);
             if (usage != null && usage.selectedStack == selectedStack) {
                 return usage;
             }
@@ -187,10 +193,10 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * @param usage     usage to set in the hand
      */
     @Unique
-    private void invexp$setUsageByHand(@NotNull InteractionHand hand, @Nullable SackUsage usage) {
+    private void invexp$setUsageByHand(InteractionHand hand, @Nullable SackUsage usage) {
         switch (hand) {
-            case MAIN_HAND -> invexp$mainHandSackUsage = usage;
-            case OFF_HAND -> invexp$offHandSackUsage = usage;
+            case MAIN_HAND -> invexp_$mainHandSackUsage = usage;
+            case OFF_HAND -> invexp_$offHandSackUsage = usage;
             default -> throw new IllegalArgumentException("Invalid hand " + hand);
         }
     }
@@ -202,13 +208,14 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
      * @return      usage in the given hand
      */
     @Unique
-    private SackUsage invexp$getUsageByHand(@NotNull InteractionHand hand) {
+    @Nullable
+    private SackUsage invexp_$getUsageByHand(InteractionHand hand) {
         switch (hand) {
             case MAIN_HAND -> {
-                return invexp$mainHandSackUsage;
+                return invexp_$mainHandSackUsage;
             }
             case OFF_HAND -> {
-                return invexp$offHandSackUsage;
+                return invexp_$offHandSackUsage;
             }
             default -> throw new IllegalArgumentException("Invalid hand " + hand);
         }
@@ -222,13 +229,9 @@ public abstract class PlayerMixin implements PlayerEntityDuck {
             method = "getProjectile",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ProjectileWeaponItem;getAllSupportedProjectiles()Ljava/util/function/Predicate;"
-            ),
-            cancellable = true
-    )
-    private void getQuiveredProjectile(
-            ItemStack stack, CallbackInfoReturnable<ItemStack> cir
-    ) {
+                    target = "Lnet/minecraft/world/item/ProjectileWeaponItem;getAllSupportedProjectiles()Ljava/util/function/Predicate;"),
+            cancellable = true)
+    private void getQuiveredProjectile(ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
         Player self = (Player) (Object) this;
         Predicate<ItemStack> predicate = ((ProjectileWeaponItem) stack.getItem()).getAllSupportedProjectiles();
         for (int i = 0; i < self.getInventory().getContainerSize(); i++) {

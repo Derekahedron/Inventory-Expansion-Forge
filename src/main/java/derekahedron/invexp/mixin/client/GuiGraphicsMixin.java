@@ -4,6 +4,7 @@ import derekahedron.invexp.bundle.BundleContents;
 import derekahedron.invexp.client.util.OpenItemTextures;
 import derekahedron.invexp.item.BetterBundleItem;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -21,7 +22,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(GuiGraphics.class)
 public class GuiGraphicsMixin {
 
-    @Shadow @Final
+    @Shadow
+    @Final
     public Minecraft minecraft;
 
     /**
@@ -33,11 +35,17 @@ public class GuiGraphicsMixin {
             at = @At("STORE"),
             ordinal = 0
     )
-    private float drawCooldownProgressForSelectedStack(float f, Font font, ItemStack stack, int p_282641_, int p_282146_, @Nullable String p_282803_) {
+    private float drawCooldownProgressForSelectedStack(
+            float f,
+            Font font,
+            ItemStack stack,
+            int p_282641_,
+            int p_282146_,
+            @Nullable String p_282803_) {
         if (minecraft.player == null) {
             return f;
         }
-        SackContents contents = SackContents.of(stack);
+        SackContentsReader contents = SackContents.of(stack);
         if (contents == null || contents.isEmpty()) {
             return f;
         }
@@ -49,7 +57,15 @@ public class GuiGraphicsMixin {
             at = @At("HEAD"),
             argsOnly = true
     )
-    private ItemStack renderOpenBundle(ItemStack bundleStack, @Nullable LivingEntity entity, @Nullable Level level, ItemStack stack, int x, int y, int seed, int z) {
+    private ItemStack renderOpenBundle(
+            ItemStack bundleStack,
+            @Nullable LivingEntity entity,
+            @Nullable Level level,
+            ItemStack stack,
+            int x,
+            int y,
+            int seed,
+            int z) {
         if (!stack.is(Items.BUNDLE) && !(stack.getItem() instanceof BetterBundleItem)) {
             return bundleStack;
         }

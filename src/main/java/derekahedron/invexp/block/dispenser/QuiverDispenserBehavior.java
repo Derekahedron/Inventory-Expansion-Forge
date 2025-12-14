@@ -9,9 +9,6 @@ import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.DispenserBlockEntity;
-import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * Dispenser Behavior for Quiver that allow sacks to dispense their selected arrow
@@ -27,8 +24,6 @@ public class QuiverDispenserBehavior extends OptionalDispenseItemBehavior {
      * @return Quiver stack after dispense
      */
     @Override
-    @ParametersAreNonnullByDefault
-    @NotNull
     public final ItemStack dispense(BlockSource pointer, ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         // Fail dispense if invalid or empty

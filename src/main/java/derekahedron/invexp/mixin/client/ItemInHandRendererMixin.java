@@ -1,11 +1,11 @@
 package derekahedron.invexp.mixin.client;
 
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,7 +16,9 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(ItemInHandRenderer.class)
 public class ItemInHandRendererMixin {
 
-    @Shadow @Final private Minecraft minecraft;
+    @Shadow
+    @Final
+    private Minecraft minecraft;
 
     /**
      * Use the selected stack for the main hand when getting the hand render type.
@@ -26,7 +28,7 @@ public class ItemInHandRendererMixin {
             at = @At("STORE"),
             ordinal = 0
     )
-    private static @NotNull ItemStack getRenderTypeForMainHand(ItemStack stack, LocalPlayer player) {
+    private static ItemStack getRenderTypeForMainHand(ItemStack stack, LocalPlayer player) {
         return SackContents.selectedStackOf(player, stack);
     }
 
@@ -38,7 +40,7 @@ public class ItemInHandRendererMixin {
             at = @At("STORE"),
             ordinal = 1
     )
-    private static @NotNull ItemStack getRenderTypeForOffHand(ItemStack stack, LocalPlayer player) {
+    private static ItemStack getRenderTypeForOffHand(ItemStack stack, LocalPlayer player) {
         return SackContents.selectedStackOf(player, stack);
     }
 
@@ -53,7 +55,7 @@ public class ItemInHandRendererMixin {
             )
     )
     private static ItemStack isSackChargedCrossbow(ItemStack stack) {
-        SackContents contents = SackContents.of(stack);
+        SackContentsReader contents = SackContents.of(stack);
         if (contents == null || contents.isEmpty()) {
             return stack;
         }
@@ -68,7 +70,7 @@ public class ItemInHandRendererMixin {
             at = @At("STORE"),
             ordinal = 0
     )
-    private @NotNull ItemStack updateMainHandSelectedStack(ItemStack stack) {
+    private ItemStack updateMainHandSelectedStack(ItemStack stack) {
         return SackContents.selectedStackOf(minecraft.player, stack);
     }
 
@@ -80,7 +82,7 @@ public class ItemInHandRendererMixin {
             at = @At("STORE"),
             ordinal = 1
     )
-    private @NotNull ItemStack updateOffHandSelectedStack(ItemStack stack) {
+    private ItemStack updateOffHandSelectedStack(ItemStack stack) {
         return SackContents.selectedStackOf(minecraft.player, stack);
     }
 }

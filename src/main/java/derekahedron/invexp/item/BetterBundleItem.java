@@ -9,9 +9,6 @@ import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 public class BetterBundleItem extends BundleItem {
     public static final int FULL_ITEM_BAR_COLOR = Mth.color(1.0F, 0.33F, 0.33F);
 
@@ -30,7 +27,6 @@ public class BetterBundleItem extends BundleItem {
      * @param selected whether the item is in the selected hotbar slot
      */
     @Override
-    @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (entity instanceof Player player) {
             BundleContents contents = BundleContents.of(stack);
@@ -48,7 +44,6 @@ public class BetterBundleItem extends BundleItem {
      * @return int 0-13 representing how full the bundle is
      */
     @Override
-    @ParametersAreNonnullByDefault
     public int getBarWidth(ItemStack stack) {
         BundleContents contents = BundleContents.of(stack);
         if (contents == null) {

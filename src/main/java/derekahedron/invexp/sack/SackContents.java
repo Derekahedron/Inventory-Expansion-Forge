@@ -2,23 +2,28 @@ package derekahedron.invexp.sack;
 
 import com.google.common.collect.Lists;
 import derekahedron.invexp.entity.player.PlayerEntityDuck;
+import derekahedron.invexp.registry.InvExpRegistryKeys;
 import derekahedron.invexp.util.ContainerItemContents;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 /**
  * Manages contents of a sack. Extends ContainerItemContents for improved modifying of
  * contents.
  */
-public class SackContents extends ContainerItemContents implements SackContentsChecker {
+public class SackContents extends ContainerItemContents implements SackContentsReader {
     public final ItemStack sackStack;
     public SackContentsComponent component;
+    public final Registry<SackType> sackTypeRegistry;
 
     /**
      * Creates a new SackContents object. Private as of() should be used to create
@@ -27,9 +32,13 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @param sackStack     stack containing the contents
      * @param component     contents component
      */
-    private SackContents(@NotNull ItemStack sackStack, @NotNull SackContentsComponent component) {
+    private SackContents(
+            ItemStack sackStack,
+            SackContentsComponent component,
+            Registry<SackType> sackTypeRegistry) {
         this.sackStack = sackStack;
         this.component = component;
+        this.sackTypeRegistry = sackTypeRegistry;
     }
 
     /**
@@ -39,13 +48,19 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @param sackStack     stack to create contents from
      * @return              created SackContents; null if not valid
      */
-    public static @Nullable SackContents of(@Nullable ItemStack sackStack) {
-        SackContentsComponent component = SackContentsComponent.getComponent(sackStack);
-        if (component == null) {
-            return null;
-        }
-        return new SackContents(sackStack, component);
+    @Nullable
+    public static SackContentsReader of(@Nullable ItemStack sackStack) {
+        return ImmutableSackContents.of(sackStack);
     }
+
+    @Nullable
+    public static SackContents of(@Nullable ItemStack sackStack, Level level) {
+        SackContentsComponent component = SackContentsComponent.getComponent(sackStack);
+        return component == null ? null :
+                new SackContents(sackStack, component, level.registryAccess()
+                        .registryOrThrow(InvExpRegistryKeys.SACK_TYPE));
+    }
+
 
     /**
      * Gets the selected stack from the given stack assuming it is a valid sack.
@@ -54,12 +69,11 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @param sackStack     stack to fetch selected stack from
      * @return              selected stack or given stack if invalid
      */
-    public static @NotNull ItemStack selectedStackOf(@NotNull ItemStack sackStack) {
-        SackContents contents = SackContents.of(sackStack);
+    public static ItemStack selectedStackOf(ItemStack sackStack) {
+        SackContentsReader contents = SackContents.of(sackStack);
         if (contents != null && !contents.isEmpty()) {
             return contents.getSelectedStack();
-        }
-        else {
+        } else {
             return sackStack;
         }
     }
@@ -75,17 +89,16 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @param sackStack     stack to fetch the selected stack from
      * @return              selected stack or given stack if invalid
      */
-    public static @NotNull ItemStack selectedStackOf(@Nullable LivingEntity user, @NotNull ItemStack sackStack) {
+    public static ItemStack selectedStackOf(@Nullable LivingEntity user, ItemStack sackStack) {
         if (user instanceof Player player) {
-            SackUsage usage = ((PlayerEntityDuck) player).invexp$getUsageForSackStack(sackStack);
+            SackUsage usage = ((PlayerEntityDuck) player).invexp_$getUsageForSackStack(sackStack);
             if (usage != null) {
-                SackContents contents = SackContents.of(usage.sackStack);
+                SackContentsReader contents = SackContents.of(usage.sackStack);
                 if (contents != null && !contents.isEmpty()) {
                     ItemStack selectedStack = contents.getSelectedStack();
                     if (ItemStack.matches(usage.selectedStack, selectedStack)) {
                         return usage.selectedStack;
-                    }
-                    else {
+                    } else {
                         return selectedStack;
                     }
                 }
@@ -109,7 +122,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
             return false;
         }
         return (getSackTypes().size() <= getMaxSackTypes() &&
-                component.getTotalWeight() <= getMaxSackWeight() &&
+                getTotalWeight().compareTo(getMaxSackWeight()) <= 0 &&
                 getStacks().size() <= getMaxSackStacks());
     }
 
@@ -119,13 +132,16 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      *
      * @param player    player holding the sack
      */
-    public void validate(@NotNull Player player) {
+    public void validate(Player player) {
         if (isValid()) {
             return;
         }
 
         List<ItemStack> removedStacks = new ArrayList<>(getStacks().size());
-        SackContents newContents = new SackContents(sackStack, new SackContentsComponent());
+        SackContents newContents = new SackContents(
+                sackStack,
+                new SackContentsComponent(),
+                sackTypeRegistry);
         Builder builder = newContents.getBuilder();
         for (int i = getStacks().size() - 1; i >= 0; i--) {
             ItemStack stack = getStacks().get(i).copy();
@@ -151,7 +167,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @return  List of stack contents
      */
     @Override
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return component.getStacks();
     }
 
@@ -166,37 +182,12 @@ public class SackContents extends ContainerItemContents implements SackContentsC
     }
 
     /**
-     * Check if the contents have reached max stacks or the total weight has reached max weight.
-     *
-     * @return  true if the contents should display as full
-     */
-    @Override
-    public boolean isFull() {
-        return getTotalWeight() >= getMaxSackWeight() || getStacks().size() >= getMaxSackStacks();
-    }
-
-    /**
-     * Gets a fraction for displaying fullness of contents.
-     *
-     * @return  fraction representing fullness
-     */
-    @Override
-    public @NotNull Fraction getFillFraction() {
-        if (isFull()) {
-            return Fraction.ONE;
-        }
-        else {
-            return Fraction.getFraction(getTotalWeight(), getMaxSackWeight());
-        }
-    }
-
-    /**
      * Gets the stored sack stack.
      *
      * @return  sack stack that holds the contents
      */
     @Override
-    public @NotNull ItemStack getSackStack() {
+    public ItemStack getSackStack() {
         return sackStack;
     }
 
@@ -206,7 +197,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @return  List of all sack types in the contents
      */
     @Override
-    public @NotNull List<String> getSackTypes() {
+    public List<String> getSackTypes() {
         return component.getSackTypes();
     }
 
@@ -216,7 +207,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @return  total sack weight that the contents hold
      */
     @Override
-    public int getTotalWeight() {
+    public Fraction getTotalWeight() {
         return component.getTotalWeight();
     }
 
@@ -226,18 +217,18 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @return  builder for sack contents
      */
     @Override
-    public @NotNull Builder getBuilder() {
+    public Builder getBuilder() {
         return new Builder();
     }
 
     /**
      * Builder for SackContents. Contains a copy of the sack contents to be modified.
      */
-    public class Builder extends ContainerItemContents.Builder implements SackContentsChecker {
+    public class Builder extends ContainerItemContents.Builder implements SackContentsReader {
         public final List<String> sackTypes;
         public final List<ItemStack> stacks;
         public int selectedIndex;
-        public int totalWeight;
+        public Fraction totalWeight;
 
         /**
          * Copies component data into modifiable versions.
@@ -271,12 +262,12 @@ public class SackContents extends ContainerItemContents implements SackContentsC
          * @return          number of items added
          */
         @Override
-        public int add(@NotNull ItemStack stack, int insertAt) {
+        public int add(ItemStack stack, int insertAt) {
             if (!canTryInsert(stack)) {
                 return 0;
             }
 
-            int weight = SacksHelper.getSackWeight(stack);
+            Fraction weight = SacksHelper.getSackWeight(stack);
             int added = 0;
             int toAdd = Math.min(stack.getCount(), getMaxAllowedByWeight(stack));
             if (toAdd > 0) {
@@ -289,7 +280,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
                             stack.shrink(amount);
                             toAdd -= amount;
                             added += amount;
-                            totalWeight += amount * weight;
+                            totalWeight = totalWeight.add(weight.multiplyBy(Fraction.getFraction(amount)));
                         }
                         if (toAdd <= 0) {
                             // Return early if all the item was added.
@@ -304,7 +295,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
                         selectedIndex++;
                     }
                     added += toAdd;
-                    totalWeight += toAdd * weight;
+                    totalWeight = totalWeight.add(weight.multiplyBy(Fraction.getFraction(toAdd)));
                     tryAddType(SacksHelper.getSackType(stack));
                     stacks.add(insertAt, stack.split(toAdd));
                     return added;
@@ -321,12 +312,12 @@ public class SackContents extends ContainerItemContents implements SackContentsC
          * @return          how many items were removed
          */
         @Override
-        public int remove(@NotNull ItemStack stack, int toRemove) {
+        public int remove(ItemStack stack, int toRemove) {
             if (stacks.isEmpty() || stack.isEmpty() || toRemove <= 0) {
                 return 0;
             }
             int removed = 0;
-            int weight = SacksHelper.getSackWeight(stack);
+            Fraction weight2 = SacksHelper.getSackWeight(stack);
 
             // Track if the selected index was removed
             boolean removedSelected = false;
@@ -336,7 +327,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
                     if (toRemove >= nestedStack.getCount()) {
                         removed += nestedStack.getCount();
                         toRemove -= nestedStack.getCount();
-                        totalWeight -= weight * nestedStack.getCount();
+                        totalWeight = totalWeight.subtract(weight2.multiplyBy(Fraction.getFraction(nestedStack.getCount())));
                         stacks.remove(i);
                         // update selected index when removing
                         if (i < selectedIndex) {
@@ -349,7 +340,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
                     }
                     else {
                         removed += toRemove;
-                        totalWeight -= weight * toRemove;
+                        totalWeight = totalWeight.subtract(weight2.multiplyBy(Fraction.getFraction(toRemove)));
                         stacks.set(i, nestedStack.copyWithCount(nestedStack.getCount() - toRemove));
                         toRemove = 0;
                     }
@@ -375,14 +366,14 @@ public class SackContents extends ContainerItemContents implements SackContentsC
          * @return ItemStack popped from the contents; EMPTY if none
          */
         @Override
-        public @NotNull ItemStack popSelectedStack() {
+        public ItemStack popSelectedStack() {
             if (isEmpty()) {
                 return ItemStack.EMPTY;
             }
 
             ItemStack selectedStack = stacks.remove(selectedIndex).copy();
             selectedIndex = nextSelectedIndex(selectedStack, selectedIndex);
-            totalWeight -= SacksHelper.getSackWeight(selectedStack) * selectedStack.getCount();
+            totalWeight = totalWeight.subtract(SacksHelper.getSackWeightOfStack(selectedStack));
             tryRemoveType(SacksHelper.getSackType(selectedStack));
             return selectedStack;
         }
@@ -393,72 +384,42 @@ public class SackContents extends ContainerItemContents implements SackContentsC
          * @return  List of copies of previous contents
          */
         @Override
-        public @NotNull List<ItemStack> popAllStacks() {
+        public List<ItemStack> popAllStacks() {
             List<ItemStack> copies = Lists.transform(stacks, ItemStack::copy);
             stacks.clear();
             selectedIndex = -1;
             sackTypes.clear();
-            totalWeight = 0;
+            totalWeight = Fraction.ZERO;
             return copies;
         }
 
-        /**
-         * Gets the sack stored in the related StackContents.
-         *
-         * @return  sack stack that holds the contents
-         */
         @Override
-        public @NotNull ItemStack getSackStack() {
+        public ItemStack getSackStack() {
             return sackStack;
         }
 
-        /**
-         * Gets the modified sack types.
-         *
-         * @return  List of all sack types in the contents
-         */
         @Override
-        public @NotNull List<String> getSackTypes() {
+        public List<String> getSackTypes() {
             return sackTypes;
         }
 
-        /**
-         * Gets the modified stacks.
-         *
-         * @return  List of stack contents
-         */
         @Override
-        public @NotNull List<ItemStack> getStacks() {
+        public List<ItemStack> getStacks() {
             return stacks;
         }
 
-        /**
-         * Gets the modified selected index.
-         *
-         * @return  selected index; -1 if there is none
-         */
         @Override
         public int getSelectedIndex() {
             return selectedIndex;
         }
 
-        /**
-         * Modifies the selected index
-         *
-         * @param selectedIndex     new selected index
-         */
         @Override
         public void setSelectedIndex(int selectedIndex) {
             this.selectedIndex = selectedIndex;
         }
 
-        /**
-         * Gets the modified total weight.
-         *
-         * @return  total sack weight that the contents hold
-         */
         @Override
-        public int getTotalWeight() {
+        public Fraction getTotalWeight() {
             return totalWeight;
         }
 
@@ -468,7 +429,7 @@ public class SackContents extends ContainerItemContents implements SackContentsC
          * @param sackType  sack type to try to add
          */
         public void tryAddType(@Nullable String sackType) {
-            if (sackType != null && !isInTypes(sackType)) {
+            if (sackType != null && !isInTypes(sackType) && sackTypeRegistry.get(new ResourceLocation(sackType)) != null) {
                 sackTypes.add(sackType);
             }
         }
@@ -505,8 +466,8 @@ public class SackContents extends ContainerItemContents implements SackContentsC
      * @param stack         stack to try to insert
      * @return              true if the added stack is now empty; false otherwise
      */
-    public static boolean attemptPickup(@NotNull ItemStack sackStack, @NotNull ItemStack stack) {
-        SackContents contents = SackContents.of(sackStack);
+    public static boolean attemptPickup(ItemStack sackStack, ItemStack stack, Entity entity) {
+        SackContents contents = SackContents.of(sackStack, entity.level());
         if (contents == null) {
             return false;
         }

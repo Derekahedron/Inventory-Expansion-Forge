@@ -1,6 +1,7 @@
 package derekahedron.invexp.mixin;
 
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.ScaffoldingBlock;
@@ -9,7 +10,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,10 +29,10 @@ public class ScaffoldingBlockMixin {
     )
     private void getOutlineShapeForSack(
             BlockState state, BlockGetter world, BlockPos pos, CollisionContext context,
-            @NotNull CallbackInfoReturnable<VoxelShape> cir
+            CallbackInfoReturnable<VoxelShape> cir
     ) {
         if (context instanceof EntityCollisionContext entityContext) {
-            SackContents contents = SackContents.of(entityContext.heldItem);
+            SackContentsReader contents = SackContents.of(entityContext.heldItem);
             if (contents != null && !contents.isEmpty() && contents.getSelectedStack().is(state.getBlock().asItem())) {
                 cir.setReturnValue(Shapes.block());
             }

@@ -1,9 +1,10 @@
 package derekahedron.invexp.item;
 
-import derekahedron.invexp.sack.SackDataManager;
+import derekahedron.invexp.sack.SackDefaultManager;
 import org.jetbrains.annotations.Nullable;
 
 public interface ItemDuck {
-    void invexp$setDefaultSackData(@Nullable SackDataManager.DefaultSackData defaultSackInsertable);
-    SackDataManager.DefaultSackData invexp$getDefaultSackData();
+    void invexp$setSackDefaults(@Nullable SackDefaultManager.SackDefaults sackDefaults);
+    @Nullable
+    SackDefaultManager.SackDefaults invexp$getSackDefaults();
 }

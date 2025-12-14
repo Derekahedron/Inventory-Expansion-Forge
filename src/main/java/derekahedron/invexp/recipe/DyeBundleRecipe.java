@@ -1,66 +1,66 @@
 package derekahedron.invexp.recipe;
 
+import com.google.common.collect.Maps;
+import com.google.gson.JsonObject;
 import derekahedron.invexp.bundle.BundleContents;
 import derekahedron.invexp.bundle.BundleContentsComponent;
-import derekahedron.invexp.item.InvExpItems;
-import derekahedron.invexp.tags.InvExpItemTags;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.CriterionTriggerInstance;
+import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.data.recipes.*;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.CustomRecipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.HashMap;
+import javax.annotation.Nullable;
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.Objects;
+import java.util.function.Consumer;
 
-public class DyeBundleRecipe extends CustomRecipe {
-    public static final Map<Item, Supplier<Item>> DYED_BUNDLES;
+public class DyeBundleRecipe implements CraftingRecipe {
+    public final ResourceLocation id;
+    public final String group;
+    public final CraftingBookCategory category;
+    public final Ingredient input;
+    public final Ingredient material;
+    public final ItemStack result;
 
-    public DyeBundleRecipe(ResourceLocation location, CraftingBookCategory category) {
-        super(location, category);
+    public DyeBundleRecipe(ResourceLocation id, String group, CraftingBookCategory category, Ingredient input, Ingredient material, ItemStack result) {
+        this.id = id;
+        this.group = group;
+        this.category = category;
+        this.input = input;
+        this.material = material;
+        this.result = result;
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     public boolean matches(CraftingContainer craftingContainer, Level level) {
         ItemStack baseBundle = null;
-        Item resultItem = null;
         ItemStack dye = null;
 
         for (int i = 0; i < craftingContainer.getContainerSize(); i++) {
             ItemStack stack = craftingContainer.getItem(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
+            if (stack.isEmpty()) continue;
 
-            if (stack.is(InvExpItemTags.DYEABLE_BUNDLES)) {
-                if (baseBundle != null) {
-                    return false;
-                }
+            if (input.test(stack)) {
+                if (baseBundle != null) return false;
                 baseBundle = stack;
-                if (dye != null && baseBundle.is(resultItem)) {
-                    return false;
-                }
-            }
-            else if (DYED_BUNDLES.containsKey(stack.getItem())) {
-                if (dye != null) {
-                    return false;
-                }
+                if (baseBundle.is(result.getItem())) return false;
+            } else if (material.test(stack)) {
+                if (dye != null) return false;
                 dye = stack;
-                resultItem = DYED_BUNDLES.get(dye.getItem()).get();
-                if (baseBundle != null && baseBundle.is(resultItem)) {
-                    return false;
-                }
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -68,37 +68,31 @@ public class DyeBundleRecipe extends CustomRecipe {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
-    public @NotNull ItemStack assemble(CraftingContainer craftingContainer, RegistryAccess registryAccess) {
+    public ItemStack assemble(CraftingContainer craftingContainer, RegistryAccess registryAccess) {
         ItemStack baseBundle = null;
-        Item resultItem = null;
 
         for (int i = 0; i < craftingContainer.getContainerSize(); i++) {
             ItemStack stack = craftingContainer.getItem(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
+            if (stack.isEmpty()) continue;
 
-            if (DYED_BUNDLES.containsKey(stack.getItem())) {
-                resultItem = DYED_BUNDLES.get(stack.getItem()).get();
-            }
-            else {
+            if (input.test(stack)) {
                 baseBundle = stack;
+                break;
             }
         }
         BundleContentsComponent component = BundleContentsComponent.getComponent(baseBundle);
-        if (component == null || resultItem == null) {
+        if (component == null) {
             return ItemStack.EMPTY;
         }
-        ItemStack result = new ItemStack(resultItem);
-        component.setComponent(result);
+        ItemStack resultBundle = result.copy();
+        component.setComponent(resultBundle);
         if (component.selectedIndex != -1) {
-            BundleContents contents = BundleContents.of(result);
+            BundleContents contents = BundleContents.of(resultBundle);
             if (contents != null && !contents.isEmpty()) {
                 contents.setSelectedIndex(-1);
             }
         }
-        return result;
+        return resultBundle;
     }
 
     @Override
@@ -107,27 +101,152 @@ public class DyeBundleRecipe extends CustomRecipe {
     }
 
     @Override
-    public @NotNull RecipeSerializer<?> getSerializer() {
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return result;
+    }
+
+    @Override
+    public ResourceLocation getId() {
+        return id;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
         return InvExpRecipes.DYE_BUNDLE_RECIPE.get();
     }
 
-    static {
-        DYED_BUNDLES = new HashMap<>();
-        DYED_BUNDLES.put(Items.WHITE_DYE, InvExpItems.WHITE_BUNDLE);
-        DYED_BUNDLES.put(Items.ORANGE_DYE, InvExpItems.ORANGE_BUNDLE);
-        DYED_BUNDLES.put(Items.MAGENTA_DYE, InvExpItems.MAGENTA_BUNDLE);
-        DYED_BUNDLES.put(Items.LIGHT_BLUE_DYE, InvExpItems.LIGHT_BLUE_BUNDLE);
-        DYED_BUNDLES.put(Items.YELLOW_DYE, InvExpItems.YELLOW_BUNDLE);
-        DYED_BUNDLES.put(Items.LIME_DYE, InvExpItems.LIME_BUNDLE);
-        DYED_BUNDLES.put(Items.PINK_DYE, InvExpItems.PINK_BUNDLE);
-        DYED_BUNDLES.put(Items.GRAY_DYE, InvExpItems.GRAY_BUNDLE);
-        DYED_BUNDLES.put(Items.LIGHT_GRAY_DYE, InvExpItems.LIGHT_GRAY_BUNDLE);
-        DYED_BUNDLES.put(Items.PURPLE_DYE, InvExpItems.PURPLE_BUNDLE);
-        DYED_BUNDLES.put(Items.CYAN_DYE, InvExpItems.CYAN_BUNDLE);
-        DYED_BUNDLES.put(Items.BLUE_DYE, InvExpItems.BLUE_BUNDLE);
-        DYED_BUNDLES.put(Items.BROWN_DYE, InvExpItems.BROWN_BUNDLE);
-        DYED_BUNDLES.put(Items.GREEN_DYE, InvExpItems.GREEN_BUNDLE);
-        DYED_BUNDLES.put(Items.RED_DYE, InvExpItems.RED_BUNDLE);
-        DYED_BUNDLES.put(Items.BLACK_DYE, InvExpItems.BLACK_BUNDLE);
+    @Override
+    public CraftingBookCategory category() {
+        return category;
+    }
+
+    public static class Serializer implements RecipeSerializer<DyeBundleRecipe> {
+
+        public DyeBundleRecipe fromJson(ResourceLocation id, JsonObject json) {
+            String group = GsonHelper.getAsString(json, "group", "");
+            CraftingBookCategory category = CraftingBookCategory.CODEC.byName(GsonHelper.getAsString(json, "category", null), CraftingBookCategory.MISC);
+            Ingredient input = Ingredient.fromJson(json.get("input"), false);
+            Ingredient material = Ingredient.fromJson(json.get("material"), false);
+            ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
+            return new DyeBundleRecipe(id, group, category, input, material, result);
+        }
+
+        public DyeBundleRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+            String group = buf.readUtf();
+            CraftingBookCategory category = buf.readEnum(CraftingBookCategory.class);
+            Ingredient input = Ingredient.fromNetwork(buf);
+            Ingredient material = Ingredient.fromNetwork(buf);
+            ItemStack result = buf.readItem();
+            return new DyeBundleRecipe(id, group, category, input, material, result);
+        }
+
+        public void toNetwork(FriendlyByteBuf buf, DyeBundleRecipe recipe) {
+            buf.writeUtf(recipe.group);
+            buf.writeEnum(recipe.category);
+            recipe.input.toNetwork(buf);
+            recipe.material.toNetwork(buf);
+            buf.writeItem(recipe.result);
+        }
+    }
+
+    public static class Builder extends CraftingRecipeBuilder implements RecipeBuilder {
+        public final RecipeCategory category;
+        public final Item result;
+        public final Ingredient input;
+        public final Ingredient material;
+        public final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
+        public final Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
+        @Nullable
+        public String group;
+
+        public Builder(RecipeCategory category, ItemLike result, Ingredient input, Ingredient material) {
+            this.category = category;
+            this.result = result.asItem();
+            this.input = input;
+            this.material = material;
+        }
+
+        public Builder unlockedBy(String p_126133_, CriterionTriggerInstance p_126134_) {
+            advancement.addCriterion(p_126133_, p_126134_);
+            return this;
+        }
+
+        public Builder group(@Nullable String group) {
+            this.group = group;
+            return this;
+        }
+
+        public Item getResult() {
+            return result;
+        }
+
+        public void save(Consumer<FinishedRecipe> consumer, ResourceLocation id) {
+            advancement.parent(ROOT_RECIPE_ADVANCEMENT)
+                    .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+                    .rewards(AdvancementRewards.Builder.recipe(id))
+                    .requirements(RequirementsStrategy.OR);
+            consumer.accept(new Result(
+                    id,
+                    result,
+                    group == null ? "" : group,
+                    determineBookCategory(category),
+                    input,
+                    material,
+                    this.advancement, id.withPrefix("recipes/" + this.category.getFolderName() + "/")
+            ));
+        }
+
+        public static class Result extends CraftingRecipeBuilder.CraftingResult {
+            private final ResourceLocation id;
+            private final Item result;
+            private final String group;
+            public final Ingredient input;
+            public final Ingredient material;
+            private final Advancement.Builder advancement;
+            private final ResourceLocation advancementId;
+
+            public Result(ResourceLocation id, Item result, String group, CraftingBookCategory category, Ingredient input, Ingredient material, Advancement.Builder advancement, ResourceLocation advancementId) {
+                super(category);
+                this.id = id;
+                this.result = result;
+                this.group = group;
+                this.input = input;
+                this.material = material;
+                this.advancement = advancement;
+                this.advancementId = advancementId;
+            }
+
+            public void serializeRecipeData(JsonObject json) {
+                super.serializeRecipeData(json);
+                if (!group.isEmpty()) {
+                    json.addProperty("group", this.group);
+                }
+
+                json.add("input", input.toJson());
+                json.add("material", material.toJson());
+
+                JsonObject resultJson = new JsonObject();
+                resultJson.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(result)).toString());
+                json.add("result", resultJson);
+            }
+
+            public RecipeSerializer<?> getType() {
+                return InvExpRecipes.DYE_BUNDLE_RECIPE.get();
+            }
+
+            public ResourceLocation getId() {
+                return this.id;
+            }
+
+            @Nullable
+            public JsonObject serializeAdvancement() {
+                return this.advancement.serializeToJson();
+            }
+
+            @Nullable
+            public ResourceLocation getAdvancementId() {
+                return this.advancementId;
+            }
+        }
     }
 }

@@ -3,7 +3,6 @@ package derekahedron.invexp.mixin.client;
 import derekahedron.invexp.entity.player.PlayerEntityDuck;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,8 +18,8 @@ public class MultiPlayerGameModeMixin {
             method = "releaseUsingItem",
             at = @At("HEAD")
     )
-    private void beforeStopUsingItem(Player player, @NotNull CallbackInfo ci) {
-        ((PlayerEntityDuck) player).invexp$startUsingSack();
+    private void beforeStopUsingItem(Player player, CallbackInfo ci) {
+        ((PlayerEntityDuck) player).invexp_$startUsingSack();
     }
 
     /**
@@ -30,7 +29,7 @@ public class MultiPlayerGameModeMixin {
             method = "releaseUsingItem",
             at = @At("RETURN")
     )
-    private void afterStopUsingItem(Player player, @NotNull CallbackInfo ci) {
-        ((PlayerEntityDuck) player).invexp$stopUsingSack();
+    private void afterStopUsingItem(Player player, CallbackInfo ci) {
+        ((PlayerEntityDuck) player).invexp_$stopUsingSack();
     }
 }

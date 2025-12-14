@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -24,7 +23,18 @@ public class ItemInHandLayerMixin {
             at = @At("STORE"),
             ordinal = 0
     )
-    private @NotNull ItemStack getRenderTypeForMainHand(ItemStack stack, PoseStack p_117204_, MultiBufferSource p_117205_, int p_117206_, LivingEntity p_117207_, float p_117208_, float p_117209_, float p_117210_, float p_117211_, float p_117212_, float p_117213_) {
+    private ItemStack getRenderTypeForMainHand(
+            ItemStack stack,
+            PoseStack p_117204_,
+            MultiBufferSource p_117205_,
+            int p_117206_,
+            LivingEntity p_117207_,
+            float p_117208_,
+            float p_117209_,
+            float p_117210_,
+            float p_117211_,
+            float p_117212_,
+            float p_117213_) {
         if (p_117207_ instanceof Player player && SackContents.selectedStackOf(player, stack) == player.getUseItem()) {
             return player.getUseItem();
         }
@@ -39,7 +49,18 @@ public class ItemInHandLayerMixin {
             at = @At("STORE"),
             ordinal = 1
     )
-    private @NotNull ItemStack getRenderTypeForOffHand(ItemStack stack, PoseStack p_117204_, MultiBufferSource p_117205_, int p_117206_, LivingEntity p_117207_, float p_117208_, float p_117209_, float p_117210_, float p_117211_, float p_117212_, float p_117213_) {
+    private ItemStack getRenderTypeForOffHand(
+            ItemStack stack,
+            PoseStack p_117204_,
+            MultiBufferSource p_117205_,
+            int p_117206_,
+            LivingEntity p_117207_,
+            float p_117208_,
+            float p_117209_,
+            float p_117210_,
+            float p_117211_,
+            float p_117212_,
+            float p_117213_) {
         if (p_117207_ instanceof Player player && SackContents.selectedStackOf(player, stack) == player.getUseItem()) {
             return player.getUseItem();
         }

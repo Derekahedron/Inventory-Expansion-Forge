@@ -21,6 +21,6 @@ public class ItemFrameMixin {
             at = @At("HEAD")
     )
     private void stopUsingSack(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
-        ((PlayerEntityDuck) player).invexp$stopUsingSack();
+        ((PlayerEntityDuck) player).invexp_$stopUsingSack();
     }
 }

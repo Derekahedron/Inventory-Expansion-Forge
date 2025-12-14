@@ -1,16 +1,14 @@
 package derekahedron.invexp.sack;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
+import derekahedron.invexp.registry.InvExpRegistryKeys;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.RegistryFileCodec;
 
-import java.util.Optional;
-
-public record SackType(Optional<String> name) {
-    public static final Codec<SackType> CODEC;
-
-    static {
-        CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.optionalFieldOf("name").forGetter(SackType::name)
-        ).apply(instance, SackType::new));
-    }
+public record SackType() {
+    public static final Codec<SackType> CODEC =
+            Codec.unit(SackType::new);
+    public static final Codec<Holder<SackType>> ENTRY_CODEC =
+            RegistryFileCodec.create(
+                    InvExpRegistryKeys.SACK_TYPE, CODEC);
 }

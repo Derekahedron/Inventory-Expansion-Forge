@@ -10,9 +10,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -31,24 +30,16 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
     public static final Component QUIVER_EMPTY_DESCRIPTION = Component.translatable("item.invexp.quiver.description.empty");
     public static final String QUIVER_EMPTY_DESCRIPTION_PLURAL = "item.invexp.quiver.description.empty.plural";
     public final QuiverContents contents;
+    @Nullable
     private Font lastFont;
 
     public ClientQuiverTooltip(QuiverContents contents) {
         this.contents = contents;
     }
 
-    /**
-     * Draws the quiver tooltip by first drawing either the contents or an empty description,
-     * then finally drawing a progress bar.
-     *
-     * @param textRenderer  text renderer
-     * @param x             x position to draw tooltip at
-     * @param y             y position to draw tooltip at
-     * @param drawContext   draw context
-     */
     @Override
     public void renderImage(
-            @NotNull Font textRenderer, int x, int y, @NotNull GuiGraphics drawContext
+            Font textRenderer, int x, int y, GuiGraphics drawContext
     ) {
         int width = getTooltipWidth();
         int top = y;
@@ -73,23 +64,12 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
         // y += getProgressBarPadding();
     }
 
-    /**
-     * Gets the width this tooltip requires.
-     *
-     * @param textRenderer  text renderer
-     * @return              width the tooltip takes up
-     */
     @Override
     public int getWidth(@Nullable Font textRenderer) {
         lastFont = textRenderer;
         return getTooltipWidth();
     }
 
-    /**
-     * Gets the height this tooltip requires
-     *
-     * @return              height the tooltip takes up
-     */
     @Override
     public int getHeight() {
         int height = 0;
@@ -111,7 +91,7 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
      *
      * @return  empty quiver description text
      */
-    public @NotNull Component getQuiverEmptyDescription() {
+    public Component getQuiverEmptyDescription() {
         int maxStacks = QuiverHelper.getMaxQuiverOccupancyStacks(contents.quiverStack);
         if (maxStacks != 1) {
             return Component.translatable(QUIVER_EMPTY_DESCRIPTION_PLURAL, maxStacks);
@@ -121,37 +101,23 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
         }
     }
 
-    /**
-     * @return  list of stacks from the contents
-     */
     @Override
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return contents.getStacks();
     }
 
-    /**
-     * @return  selected index of the contents
-     */
     @Override
     public int getSelectedIndex() {
         return contents.getSelectedIndex();
     }
 
-    /**
-     * @return  fullness fraction of the contents
-     */
     @Override
-    public @NotNull Fraction getFillFraction() {
+    public Fraction getFillFraction() {
         return contents.getFillFraction();
     }
 
-    /**
-     * Gets a different progress bar texture depending on if the contents are full.
-     *
-     * @return  texture identifier for the progress bar
-     */
     @Override
-    public @NotNull ResourceLocation getProgressBarFillTexture() {
+    public ResourceLocation getProgressBarFillTexture() {
         if (contents.isFull()) {
             return QUIVER_PROGRESS_BAR_FULL_TEXTURE;
         } else {
@@ -159,46 +125,29 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
         }
     }
 
-    /**
-     * @return  texture identifier for the progress bar border
-     */
     @Override
-    public @NotNull ResourceLocation getProgressBarBorderTexture() {
+    public ResourceLocation getProgressBarBorderTexture() {
         return QUIVER_PROGRESS_BAR_BORDER_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for the slot background texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotBackgroundTexture() {
+    public ResourceLocation getSlotBackgroundTexture() {
         return QUIVER_SLOT_BACKGROUND_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for highlighted back texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotHighlightBackTexture() {
+    public ResourceLocation getSlotHighlightBackTexture() {
         return QUIVER_SLOT_HIGHLIGHT_BACK_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for highlighted front texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotHighlightFrontTexture() {
+    public ResourceLocation getSlotHighlightFrontTexture() {
         return QUIVER_SLOT_HIGHLIGHT_FRONT_TEXTURE;
     }
 
-    /**
-     * Generate text to display on the progress bar. Either FULL, EMPTY,
-     * TOO MANY STACKS, or nothing.
-     *
-     * @return  text to overlay on the progress bar
-     */
     @Override
-    public @Nullable Component getProgressBarLabel() {
+    @Nullable
+    public Component getProgressBarLabel() {
         if (contents.getTotalOccupancy().compareTo(contents.getMaxQuiverOccupancy()) >= 0) {
             return QUIVER_FULL;
         }

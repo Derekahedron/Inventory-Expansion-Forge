@@ -1,9 +1,11 @@
 package derekahedron.invexp.mixin;
 
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +20,8 @@ import java.util.List;
 public class MapItemSavedDataMixin {
 
     @Unique
-    Player invexp$trackedPlayer;
+    @Nullable
+    Player invexp_$trackedPlayer;
 
     @ModifyArg(
             method = "tickCarriedBy",
@@ -28,13 +31,13 @@ public class MapItemSavedDataMixin {
             )
     )
     private ItemStack containsSackMap(ItemStack mapStack) {
-        if (invexp$trackedPlayer == null) {
+        if (invexp_$trackedPlayer == null) {
             return mapStack;
         }
 
-        for (List<ItemStack> stacks : invexp$trackedPlayer.getInventory().compartments) {
+        for (List<ItemStack> stacks : invexp_$trackedPlayer.getInventory().compartments) {
             for (ItemStack stack : stacks) {
-                SackContents contents = SackContents.of(stack);
+                SackContentsReader contents = SackContents.of(stack);
                 if (contents != null && !contents.isEmpty()) {
                     for (ItemStack nestedStack : contents.getStacks()) {
                         if (!nestedStack.isEmpty() && ItemStack.isSameItemSameTags(nestedStack, mapStack)) {
@@ -53,7 +56,7 @@ public class MapItemSavedDataMixin {
             at = @At("HEAD")
     )
     private void setTrackedPlayer(Player player, ItemStack stack, CallbackInfo ci) {
-        invexp$trackedPlayer = player;
+        invexp_$trackedPlayer = player;
     }
 
     @ModifyVariable(
@@ -61,7 +64,7 @@ public class MapItemSavedDataMixin {
             at = @At("STORE")
     )
     private MapItemSavedData.HoldingPlayer setTrackedPlayer(MapItemSavedData.HoldingPlayer player) {
-        invexp$trackedPlayer = player.player;
+        invexp_$trackedPlayer = player.player;
         return player;
     }
 }

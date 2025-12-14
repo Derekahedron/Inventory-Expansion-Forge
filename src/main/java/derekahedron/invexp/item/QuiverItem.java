@@ -18,9 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 
 /**
@@ -70,7 +68,6 @@ public class QuiverItem extends Item {
      * @return <code>true</code> if the click had an effect; <code>false</code> otherwise.
      */
     @Override
-    @ParametersAreNonnullByDefault
     public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction clickAction, Player player) {
         QuiverContents contents = QuiverContents.of(stack);
         ItemStack otherStack;
@@ -119,7 +116,6 @@ public class QuiverItem extends Item {
      * @return <code>true</code> if the click had an effect; <code>false</code> otherwise.
      */
     @Override
-    @ParametersAreNonnullByDefault
     public boolean overrideOtherStackedOnMe(
             ItemStack stack, ItemStack otherStack, Slot slot, ClickAction clickAction, Player player,
             SlotAccess slotAccess
@@ -168,7 +164,6 @@ public class QuiverItem extends Item {
      * @return <code>true</code> if the item bar should be shown; <code>false</code> otherwise
      */
     @Override
-    @ParametersAreNonnullByDefault
     public boolean isBarVisible(ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         return contents != null && !contents.isEmpty();
@@ -181,7 +176,6 @@ public class QuiverItem extends Item {
      * @return int 0-13 representing how full the quiver is
      */
     @Override
-    @ParametersAreNonnullByDefault
     public int getBarWidth(ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         if (contents == null) {
@@ -201,7 +195,6 @@ public class QuiverItem extends Item {
      * @return color that the quiver bar should display
      */
     @Override
-    @ParametersAreNonnullByDefault
     public int getBarColor(ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         if (contents == null || contents.getTotalOccupancy().compareTo(contents.getMaxQuiverOccupancy()) < 0) {
@@ -219,8 +212,7 @@ public class QuiverItem extends Item {
      * @return Optional tooltip data to add to the stack
      */
     @Override
-    @ParametersAreNonnullByDefault
-    public @NotNull Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
+    public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         if (contents != null) {
             return Optional.of(new QuiverTooltip(contents));
@@ -234,7 +226,6 @@ public class QuiverItem extends Item {
      * @param entity ItemEntity that was destroyed
      */
     @Override
-    @ParametersAreNonnullByDefault
     @SuppressWarnings("deprecation")
     public void onDestroyed(ItemEntity entity) {
         QuiverContents contents = QuiverContents.of(entity.getItem());
@@ -254,7 +245,6 @@ public class QuiverItem extends Item {
      * @param selected whether the item is in the selected hotbar slot
      */
     @Override
-    @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack quiverStack, Level level, Entity entity, int slot, boolean selected) {
         if (entity instanceof Player player) {
             QuiverContents contents = QuiverContents.of(quiverStack);
@@ -270,7 +260,6 @@ public class QuiverItem extends Item {
      *
      * @param entity the entity to play the insert sound from
      */
-    @ParametersAreNonnullByDefault
     public void playInsertSound(Entity entity) {
         entity.playSound(
                 InvExpSoundEvents.ITEM_QUIVER_REMOVE_ONE.get(),
@@ -284,7 +273,6 @@ public class QuiverItem extends Item {
      *
      * @param entity the entity to play the remove sound from
      */
-    @ParametersAreNonnullByDefault
     public void playRemoveSound(Entity entity) {
         entity.playSound(
                 InvExpSoundEvents.ITEM_QUIVER_INSERT.get(),

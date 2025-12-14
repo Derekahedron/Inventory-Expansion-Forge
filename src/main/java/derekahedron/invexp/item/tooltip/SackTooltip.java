@@ -1,6 +1,7 @@
 package derekahedron.invexp.item.tooltip;
 
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 
 /**
@@ -8,5 +9,5 @@ import net.minecraft.world.inventory.tooltip.TooltipComponent;
  *
  * @param contents  Contents of the sack
  */
-public record SackTooltip(SackContents contents) implements TooltipComponent {
+public record SackTooltip(SackContentsReader contents) implements TooltipComponent {
 }

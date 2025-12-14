@@ -9,9 +9,7 @@ import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.DispenserBlockEntity;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,10 +27,8 @@ public class SackDispenserBehavior extends OptionalDispenseItemBehavior {
      * @return Sack stack after dispense
      */
     @Override
-    @ParametersAreNonnullByDefault
-    @NotNull
     public ItemStack dispense(BlockSource pointer, ItemStack stack) {
-        SackContents contents = SackContents.of(stack);
+        SackContents contents = SackContents.of(stack, pointer.getLevel());
         // Fail dispense if invalid or empty
         if (contents == null || contents.isEmpty()) {
             setSuccess(false);
@@ -43,7 +39,7 @@ public class SackDispenserBehavior extends OptionalDispenseItemBehavior {
 
         // Set buffer to catch all inserted stacks
         List<ItemStack> usageBuffer = new ArrayList<>();
-        ((DispenserBlockEntityDuck) pointer.getEntity()).invexp$setUsageBuffer(usageBuffer);
+        ((DispenserBlockEntityDuck) pointer.getEntity()).invexp_$setUsageBuffer(usageBuffer);
 
         ItemStack selectedStack = contents.copySelectedStack();
         DispenseItemBehavior behavior = DispenserBlock.DISPENSER_REGISTRY.getOrDefault(selectedStack.getItem(), null);
@@ -56,7 +52,7 @@ public class SackDispenserBehavior extends OptionalDispenseItemBehavior {
             selectedStack = super.dispense(pointer, selectedStack);
         }
         // Remove buffer
-        ((DispenserBlockEntityDuck) pointer.getEntity()).invexp$setUsageBuffer(null);
+        ((DispenserBlockEntityDuck) pointer.getEntity()).invexp_$setUsageBuffer(null);
 
         // Update selected stack and try to add remainder back into sack
         contents.updateSelectedStack(selectedStack, (leftoverStack -> {

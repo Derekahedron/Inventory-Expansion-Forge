@@ -3,7 +3,6 @@ package derekahedron.invexp.mixin;
 import derekahedron.invexp.entity.player.PlayerEntityDuck;
 import net.minecraft.network.protocol.game.*;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,9 +22,9 @@ public class ServerPlayerGameModeMixin {
                     shift = At.Shift.AFTER
             )
     )
-    private void beforeReleaseUseItem(@NotNull ServerboundPlayerActionPacket packet, CallbackInfo ci) {
+    private void beforeReleaseUseItem(ServerboundPlayerActionPacket packet, CallbackInfo ci) {
         if (packet.getAction() == ServerboundPlayerActionPacket.Action.RELEASE_USE_ITEM) {
-            ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$startUsingSack();
+            ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$startUsingSack();
         }
     }
 
@@ -36,9 +35,9 @@ public class ServerPlayerGameModeMixin {
             method = "handlePlayerAction",
             at = @At("RETURN")
     )
-    private void afterReleaseUseItem(@NotNull ServerboundPlayerActionPacket packet, CallbackInfo ci) {
+    private void afterReleaseUseItem(ServerboundPlayerActionPacket packet, CallbackInfo ci) {
         if (packet.getAction() == ServerboundPlayerActionPacket.Action.RELEASE_USE_ITEM) {
-            ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$stopUsingSack();
+            ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$stopUsingSack();
         }
     }
 
@@ -50,11 +49,9 @@ public class ServerPlayerGameModeMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/server/level/ServerLevel;)V",
-                    shift = At.Shift.AFTER
-            )
-    )
+                    shift = At.Shift.AFTER))
     private void beforeInteractItem(ServerboundUseItemPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$startUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$startUsingSack();
     }
 
     /**
@@ -62,10 +59,9 @@ public class ServerPlayerGameModeMixin {
      */
     @Inject(
             method = "handleUseItem",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void afterInteractItem(ServerboundUseItemPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$stopUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$stopUsingSack();
     }
 
     /**
@@ -76,11 +72,9 @@ public class ServerPlayerGameModeMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/server/level/ServerLevel;)V",
-                    shift = At.Shift.AFTER
-            )
-    )
+                    shift = At.Shift.AFTER))
     private void beforeInteractBlock(ServerboundUseItemOnPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$startUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$startUsingSack();
     }
 
     /**
@@ -88,10 +82,9 @@ public class ServerPlayerGameModeMixin {
      */
     @Inject(
             method = "handleUseItemOn",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void afterInteractBlock(ServerboundUseItemOnPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$stopUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$stopUsingSack();
     }
 
     /**
@@ -102,11 +95,9 @@ public class ServerPlayerGameModeMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/server/level/ServerLevel;)V",
-                    shift = At.Shift.AFTER
-            )
-    )
+                    shift = At.Shift.AFTER))
     private void beforeInteractEntity(ServerboundInteractPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$startUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$startUsingSack();
     }
 
     /**
@@ -114,9 +105,8 @@ public class ServerPlayerGameModeMixin {
      */
     @Inject(
             method = "handleInteract",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void afterInteractEntity(ServerboundInteractPacket packet, CallbackInfo ci) {
-        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp$stopUsingSack();
+        ((PlayerEntityDuck) ((ServerGamePacketListenerImpl) (Object) this).player).invexp_$stopUsingSack();
     }
 }

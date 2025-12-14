@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "package": "derekahedron.invexp.mixin",
-  "refmap": "mixins.invexp.refmap.json",
+  "refmap": "invexp.refmap.json",
   "mixins": [
     "AbstractContainerMenuMixin",
     "BundleItemMixin",
@@ -29,6 +29,7 @@
     "TemptGoalMixin"
   ],
   "client": [
+    "client.AbstractContainerScreenInvoker",
     "client.AbstractContainerScreenMixin",
     "client.ClientPacketListenerMixin",
     "client.GuiGraphicsMixin",
@@ -38,5 +39,8 @@
     "client.MinecraftMixin",
     "client.MultiPlayerGameModeMixin",
     "client.PlayerRendererMixin"
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

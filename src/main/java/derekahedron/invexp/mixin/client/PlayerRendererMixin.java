@@ -5,7 +5,6 @@ import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -23,7 +22,7 @@ public class PlayerRendererMixin {
             at = @At("STORE"),
             ordinal = 0
     )
-    private static @NotNull ItemStack getSelectedStackInHand(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
+    private static ItemStack getSelectedStackInHand(ItemStack stack, AbstractClientPlayer player, InteractionHand hand) {
         if (player.isUsingItem() && player.getUsedItemHand() == hand) {
             return SackContents.selectedStackOf(player, stack);
         }

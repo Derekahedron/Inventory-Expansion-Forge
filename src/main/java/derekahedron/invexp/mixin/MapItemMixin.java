@@ -1,13 +1,13 @@
 package derekahedron.invexp.mixin;
 
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,16 +25,20 @@ public class MapItemMixin {
             method = "inventoryTick",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/player/Player;getOffhandItem()Lnet/minecraft/world/item/ItemStack;"
-            ),
+                    target = "Lnet/minecraft/world/entity/player/Player;getOffhandItem()Lnet/minecraft/world/item/ItemStack;"),
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     private void tickInOffhandSack(
-            ItemStack stack, Level world, Entity entity, int p_42873_, boolean selected, CallbackInfo ci, @NotNull MapItemSavedData mapState
-    ) {
+            ItemStack stack,
+            Level world,
+            Entity entity,
+            int p_42873_,
+            boolean selected,
+            CallbackInfo ci,
+            MapItemSavedData mapState) {
         // Same logic for checking maps as vanilla
         if (!mapState.locked && !selected && entity instanceof Player player) {
-            SackContents contents = SackContents.of(player.getOffhandItem());
+            SackContentsReader contents = SackContents.of(player.getOffhandItem());
             if (contents != null && !contents.isEmpty() && ItemStack.matches(stack, contents.getSelectedStack())) {
                 ((MapItem) (Object) this).update(world, entity, mapState);
             }

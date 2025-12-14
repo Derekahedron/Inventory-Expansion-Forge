@@ -1,15 +1,18 @@
 package derekahedron.invexp.client.util;
 
 import derekahedron.invexp.bundle.BundleContents;
+import derekahedron.invexp.mixin.client.AbstractContainerScreenInvoker;
 import derekahedron.invexp.quiver.QuiverContents;
+import derekahedron.invexp.quiver.QuiverContentsReader;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.util.ContainerItemContents;
+import derekahedron.invexp.util.ContainerItemContentsReader;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class ContainerItemSlotDragger {
@@ -21,14 +24,14 @@ public abstract class ContainerItemSlotDragger {
      * @return          new dragger from the given stack; null if stack cannot be dragged
      */
     public static @Nullable ContainerItemSlotDragger of(ItemStack stack) {
-        ContainerItemContents contents = ContainerItemContents.of(stack);
+        ContainerItemContentsReader contents = ContainerItemContents.of(stack);
         // First check if item is a sack
-        if (contents instanceof SackContents sackContents) {
-            return new SackSlotDragger(sackContents.sackStack);
+        if (contents instanceof SackContentsReader sackContents) {
+            return new SackSlotDragger(sackContents.getSackStack());
         }
         // Second check if item is a quiver
-        else if (contents instanceof QuiverContents quiverContents) {
-            return new QuiverSlotDragger(quiverContents.quiverStack);
+        else if (contents instanceof QuiverContentsReader quiverContents) {
+            return new QuiverSlotDragger(quiverContents.getQuiverStack());
         }
         // Last check if item is a bundle
         else if (stack.getItem() instanceof BundleItem) {
@@ -43,17 +46,19 @@ public abstract class ContainerItemSlotDragger {
      * @param slot      slot hovered over
      * @param screen    screen being viewed
      */
-    public void onHover(@NotNull Slot slot, @NotNull AbstractContainerScreen<?> screen) {
+    public void onHover(Slot slot, AbstractContainerScreen<?> screen) {
         ItemStack stack = slot.getItem();
         if (screen.getMenu().canDragTo(slot)) {
             if (screen.quickCraftingType == 1) {
                 if (stack.isEmpty() && !isEmpty()) {
-                    screen.slotClicked(slot, slot.getSlotIndex(), screen.quickCraftingType, ClickType.PICKUP);
+                    ((AbstractContainerScreenInvoker) screen).invokeSlotClicked(
+                            slot, slot.getSlotIndex(), screen.quickCraftingType, ClickType.PICKUP);
                 }
             }
             else if (screen.quickCraftingType == 0) {
                 if (!stack.isEmpty() && canTryInsert(stack)) {
-                    screen.slotClicked(slot, slot.getSlotIndex(), screen.quickCraftingType, ClickType.PICKUP);
+                    ((AbstractContainerScreenInvoker) screen).invokeSlotClicked(
+                            slot, slot.getSlotIndex(), screen.quickCraftingType, ClickType.PICKUP);
                 }
             }
         }
@@ -131,7 +136,7 @@ public abstract class ContainerItemSlotDragger {
          */
         @Override
         public boolean isEmpty() {
-            SackContents contents = SackContents.of(sackStack);
+            SackContentsReader contents = SackContents.of(sackStack);
             return contents == null || contents.isEmpty();
         }
 
@@ -140,7 +145,7 @@ public abstract class ContainerItemSlotDragger {
          */
         @Override
         public boolean canTryInsert(ItemStack stack) {
-            SackContents contents = SackContents.of(sackStack);
+            SackContentsReader contents = SackContents.of(sackStack);
             return contents != null && contents.canTryInsert(stack);
         }
     }

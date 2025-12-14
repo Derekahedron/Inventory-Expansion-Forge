@@ -42,7 +42,7 @@ public class ScrollContainerItemEventHandler {
         ItemStack stack = slot.getItem();
 
         // Fail if contents are invalid
-        ContainerItemContents contents = ContainerItemContents.of(stack);
+        ContainerItemContents contents = ContainerItemContents.of(stack, player.level());
         if (contents == null) {
             contents = BundleContents.of(stack);
         }

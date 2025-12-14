@@ -5,14 +5,12 @@ import derekahedron.invexp.util.ContainerItemContents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BundleContents extends ContainerItemContents implements BundleContentsChecker{
+public class BundleContents extends ContainerItemContents implements BundleContentsReader {
     public final ItemStack bundleStack;
     private BundleContentsComponent component;
 
@@ -23,7 +21,7 @@ public class BundleContents extends ContainerItemContents implements BundleConte
      * @param stack stack containing the contents
      * @param component contents component
      */
-    private BundleContents(@NotNull ItemStack stack, @NotNull BundleContentsComponent component) {
+    private BundleContents(ItemStack stack, BundleContentsComponent component) {
         this.bundleStack = stack;
         this.component = component;
     }
@@ -35,7 +33,8 @@ public class BundleContents extends ContainerItemContents implements BundleConte
      * @param stack stack to create contents from
      * @return created QuiverContents; null if not valid
      */
-    public static @Nullable BundleContents of(@Nullable ItemStack stack) {
+    @Nullable
+    public static BundleContents of(@Nullable ItemStack stack) {
         BundleContentsComponent component = BundleContentsComponent.getComponent(stack);
         if (component == null) {
             return null;
@@ -63,7 +62,7 @@ public class BundleContents extends ContainerItemContents implements BundleConte
      *
      * @param player player holding the quiver
      */
-    public void validate(@NotNull Player player) {
+    public void validate(Player player) {
         if (isValid()) {
             return;
         }
@@ -89,31 +88,16 @@ public class BundleContents extends ContainerItemContents implements BundleConte
         }
     }
 
-    /**
-     * Gets the stack from the component.
-     *
-     * @return List of stack contents
-     */
     @Override
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return component.stacks;
     }
 
-    /**
-     * Gets the selected index from the component.
-     *
-     * @return selected index; -1 if there is none
-     */
     @Override
     public int getSelectedIndex() {
         return component.selectedIndex;
     }
 
-    /**
-     * Sets selected index of contents
-     *
-     * @param selectedIndex new selected index
-     */
     @Override
     public void setSelectedIndex(int selectedIndex) {
         if (selectedIndex != -1) {
@@ -126,65 +110,25 @@ public class BundleContents extends ContainerItemContents implements BundleConte
         }
     }
 
-    /**
-     * Check if the contents have reached max stacks or the total weight has reached max weight.
-     *
-     * @return true if the contents should display as full
-     */
     @Override
-    public boolean isFull() {
-        return getTotalWeight() >= getMaxBundleWeight() || getStacks().size() >= getMaxBundleStacks();
-    }
-
-    /**
-     * Gets a fraction for displaying fullness of contents.
-     *
-     * @return fraction representing fullness
-     */
-    @Override
-    public @NotNull Fraction getFillFraction() {
-        if (isFull()) {
-            return Fraction.ONE;
-        }
-        else {
-            return Fraction.getFraction(getTotalWeight(), getMaxBundleWeight());
-        }
-    }
-
-    /**
-     * Gets the stored bundle stack.
-     *
-     * @return bundle stack that holds the contents
-     */
-    @Override
-    public @NotNull ItemStack getBundleStack() {
+    public ItemStack getBundleStack() {
         return bundleStack;
     }
 
-    /**
-     * Gets the total occupancy from the component.
-     *
-     * @return total bundle weight that the contents hold
-     */
     @Override
     public int getTotalWeight() {
         return component.getTotalWeight();
     }
 
-    /**
-     * Create a new builder for modifying bundle contents.
-     *
-     * @return builder for bundle contents
-     */
     @Override
-    public @NotNull BundleContents.Builder getBuilder() {
+    public BundleContents.Builder getBuilder() {
         return new BundleContents.Builder();
     }
 
     /**
      * Builder for BundleContents. Contains a copy of the bundle contents to be modified.
      */
-    public class Builder extends ContainerItemContents.Builder implements BundleContentsChecker {
+    public class Builder extends ContainerItemContents.Builder implements BundleContentsReader {
         public final List<ItemStack> stacks;
         public int selectedIndex;
         public int totalWeight;
@@ -198,9 +142,6 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             this.totalWeight = component.getTotalWeight();
         }
 
-        /**
-         * Applies the copied values to the QuiverContents object this is attached to.
-         */
         @Override
         public void apply() {
             component = new BundleContentsComponent(
@@ -210,16 +151,8 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             component.setComponent(bundleStack);
         }
 
-        /**
-         * Tries to add the given stack to the bundle. First tries merging with existing items,
-         * then tries inserting at the given index.
-         *
-         * @param stack stack to add
-         * @param insertAt where to insert the new stack
-         * @return number of items added
-         */
         @Override
-        public int add(@NotNull ItemStack stack, int insertAt) {
+        public int add(ItemStack stack, int insertAt) {
             if (!canTryInsert(stack)) {
                 return 0;
             }
@@ -259,15 +192,8 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             return added;
         }
 
-        /**
-         * Remove the given stack from the bundle contents, updating total weight.
-         *
-         * @param stack stack to remove
-         * @param toRemove how many of the given stack to remove
-         * @return how many items were removed
-         */
         @Override
-        public int remove(@NotNull ItemStack stack, int toRemove) {
+        public int remove(ItemStack stack, int toRemove) {
             if (isEmpty() || stack.isEmpty()) {
                 return 0;
             }
@@ -310,13 +236,8 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             return removed;
         }
 
-        /**
-         * Pops the selected stack from the contents, updating occupancy.
-         *
-         * @return ItemStack popped from the contents; EMPTY if none
-         */
         @Override
-        public @NotNull ItemStack popSelectedStack() {
+        public ItemStack popSelectedStack() {
             if (isEmpty()) {
                 return ItemStack.EMPTY;
             }
@@ -329,13 +250,8 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             return selectedStack;
         }
 
-        /**
-         * Remove all stacks from contents and clear occupancy.
-         *
-         * @return List of copies of previous contents
-         */
         @Override
-        public @NotNull List<ItemStack> popAllStacks() {
+        public List<ItemStack> popAllStacks() {
             List<ItemStack> copies = Lists.transform(stacks, ItemStack::copy);
             stacks.clear();
             selectedIndex = -1;
@@ -343,51 +259,26 @@ public class BundleContents extends ContainerItemContents implements BundleConte
             return copies;
         }
 
-        /**
-         * Gets the bundle stored in the related BundleContents.
-         *
-         * @return bundle stack that holds the contents
-         */
         @Override
-        public @NotNull ItemStack getBundleStack() {
+        public ItemStack getBundleStack() {
             return bundleStack;
         }
 
-        /**
-         * Gets the modified stacks.
-         *
-         * @return List of stack contents
-         */
         @Override
-        public @NotNull List<ItemStack> getStacks() {
+        public List<ItemStack> getStacks() {
             return stacks;
         }
 
-        /**
-         * Gets the modified selected index.
-         *
-         * @return selected index; -1 if there is none
-         */
         @Override
         public int getSelectedIndex() {
             return selectedIndex;
         }
 
-        /**
-         * Modifies the selected index
-         *
-         * @param selectedIndex     new selected index
-         */
         @Override
         public void setSelectedIndex(int selectedIndex) {
             this.selectedIndex = selectedIndex;
         }
 
-        /**
-         * Gets the modified total occupancy.
-         *
-         * @return total quiver occupancy that the contents hold
-         */
         @Override
         public int getTotalWeight() {
             return totalWeight;

@@ -1,8 +1,6 @@
 package derekahedron.invexp.client.gui.tooltip;
 
-import derekahedron.invexp.sack.SackContents;
-import derekahedron.invexp.sack.SackDataManager;
-import derekahedron.invexp.sack.SacksHelper;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.util.InvExpUtil;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,9 +10,8 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,24 +32,16 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
     public static final String SACK_TYPE_DESCRIPTION_MANY_CONJUNCTION = "item.invexp.sack.description.type.many.conjunction";
     public static final String SACK_TYPE_DESCRIPTION_MANY_LAST_CONJUNCTION = "item.invexp.sack.description.type.many.last_conjunction";
 
-    public final SackContents contents;
+    public final SackContentsReader contents;
+    @Nullable
     private Font lastFont;
 
-    public ClientSackTooltip(SackContents contents) {
+    public ClientSackTooltip(SackContentsReader contents) {
         this.contents = contents;
     }
 
-    /**
-     * Draws the sack tooltip by first drawing a description, then the contents if there are any,
-     * then finally drawing a progress bar.
-     *
-     * @param textRenderer  text renderer
-     * @param x             x position to draw tooltip at
-     * @param y             y position to draw tooltip at
-     * @param drawContext   draw context
-     */
     @Override
-    public void renderImage(@NotNull Font textRenderer, int x, int y, @NotNull GuiGraphics drawContext) {
+    public void renderImage(Font textRenderer, int x, int y, GuiGraphics drawContext) {
         int width = getTooltipWidth();
         int top = y;  // Store top
         if (contents.isEmpty()) {
@@ -86,23 +75,12 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         // y += getProgressBarPadding();
     }
 
-    /**
-     * Gets the width this tooltip requires.
-     *
-     * @param textRenderer  text renderer
-     * @return              width the tooltip takes up
-     */
     @Override
     public int getWidth(@Nullable Font textRenderer) {
         lastFont = textRenderer;
         return getTooltipWidth();
     }
 
-    /**
-     * Gets the height this tooltip requires
-     *
-     * @return              height the tooltip takes up
-     */
     @Override
     public int getHeight() {
         int height = 0;
@@ -125,7 +103,7 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
      *
      * @return  empty sack description text
      */
-    public @NotNull Component getSackEmptyDescription() {
+    public Component getSackEmptyDescription() {
         return Component.translatable(SACK_EMPTY_DESCRIPTION, formatWeight(contents.getMaxSackWeight()));
     }
 
@@ -134,18 +112,15 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
      *
      * @return  sack type description text
      */
-    public @Nullable Component getSackTypeDescription() {
-        if (SackDataManager.getInstance() == null) {
-            return null;
-        }
+    @Nullable
+    public Component getSackTypeDescription() {
         Component description = null;
         // Get list of all names
         List<Component> names = new ArrayList<>(contents.getSackTypes().size());
         for (String sackType : contents.getSackTypes()) {
-            Component name = SackDataManager.getInstance().getSackName(sackType);
-            if (name != null) {
-                names.add(name);
-            }
+            ResourceLocation location = ResourceLocation.parse(sackType);
+            Component name = Component.translatable("sack_type." + location.getNamespace() + "." + location.getPath());
+            names.add(name);
         }
 
         for (int i = 0; i < names.size(); i++) {
@@ -174,37 +149,23 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         return description;
     }
 
-    /**
-     * @return  list of stacks from the contents
-     */
     @Override
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return contents.getStacks();
     }
 
-    /**
-     * @return  selected index of the contents
-     */
     @Override
     public int getSelectedIndex() {
         return contents.getSelectedIndex();
     }
 
-    /**
-     * @return  fullness fraction of the contents
-     */
     @Override
-    public @NotNull Fraction getFillFraction() {
+    public Fraction getFillFraction() {
         return contents.getFillFraction();
     }
 
-    /**
-     * Gets a different progress bar texture depending on if the contents are full.
-     *
-     * @return  texture identifier for the progress bar
-     */
     @Override
-    public @NotNull ResourceLocation getProgressBarFillTexture() {
+    public ResourceLocation getProgressBarFillTexture() {
         if (contents.isFull()) {
             return SACK_PROGRESS_BAR_FULL_TEXTURE;
         } else {
@@ -212,56 +173,35 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         }
     }
 
-    /**
-     * @return  texture identifier for the progress bar border
-     */
     @Override
-    public @NotNull ResourceLocation getProgressBarBorderTexture() {
+    public ResourceLocation getProgressBarBorderTexture() {
         return SACK_PROGRESS_BAR_BORDER_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for the slot background texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotBackgroundTexture() {
+    public ResourceLocation getSlotBackgroundTexture() {
         return SACK_SLOT_BACKGROUND_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for highlighted back texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotHighlightBackTexture() {
+    public ResourceLocation getSlotHighlightBackTexture() {
         return SACK_SLOT_HIGHLIGHT_BACK_TEXTURE;
     }
 
-    /**
-     * @return  texture identifier for highlighted front texture
-     */
     @Override
-    public @NotNull ResourceLocation getSlotHighlightFrontTexture() {
+    public ResourceLocation getSlotHighlightFrontTexture() {
         return SACK_SLOT_HIGHLIGHT_FRONT_TEXTURE;
     }
 
-    /**
-     * Generate text to display on the progress bar. Either FULL, EMPTY,
-     * TOO MANY STACKS, or a fraction of the total weight out of max weight.
-     *
-     * @return  text to overlay on the progress bar
-     */
     @Override
-    public @NotNull Component getProgressBarLabel() {
-        if (contents.getTotalWeight() >= contents.getMaxSackWeight()) {
+    public Component getProgressBarLabel() {
+        if (contents.getTotalWeight().compareTo(contents.getMaxSackWeight()) >= 0) {
             return SACK_FULL;
-        }
-        else if (getStacks().size() >= contents.getMaxSackStacks()) {
+        } else if (getStacks().size() >= contents.getMaxSackStacks()) {
             return SACK_TOO_MANY_STACKS;
-        }
-        else if (contents.isEmpty()) {
+        } else if (contents.isEmpty()) {
             return SACK_EMPTY;
-        }
-        else {
+        } else {
             return Component.translatable(SACK_PARTIAL, formatWeight(contents.getTotalWeight()), formatWeight(contents.getMaxSackWeight()));
         }
     }
@@ -273,12 +213,12 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
      * @param weight    sack weight to format
      * @return          formatted text representing the sack weight
      */
-    public static @NotNull MutableComponent formatWeight(int weight) {
-        if (weight % SacksHelper.DEFAULT_SACK_WEIGHT == 0) {
-            return Component.literal(String.valueOf(weight / SacksHelper.DEFAULT_SACK_WEIGHT));
-        }
-        else {
-            return Component.literal(String.format("%.2f", weight / (double) SacksHelper.DEFAULT_SACK_WEIGHT));
+    public static MutableComponent formatWeight(Fraction weight) {
+        weight = weight.multiplyBy(Fraction.getFraction(64));
+        if (weight.getNumerator() % weight.getDenominator() == 0) {
+            return Component.literal(String.valueOf(weight.intValue()));
+        } else {
+            return Component.literal(String.format("%.2f", weight.floatValue()));
         }
     }
 }

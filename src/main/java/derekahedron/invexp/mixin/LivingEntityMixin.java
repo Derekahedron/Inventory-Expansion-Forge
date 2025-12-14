@@ -5,7 +5,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,10 +21,10 @@ public class LivingEntityMixin {
             method = "updatingUsingItem",
             at = @At("HEAD")
     )
-    private void beforeTickActiveItemStack(@NotNull CallbackInfo ci) {
+    private void beforeTickActiveItemStack(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (self instanceof Player player) {
-            ((PlayerEntityDuck) player).invexp$startUsingSack();
+            ((PlayerEntityDuck) player).invexp_$startUsingSack();
         }
     }
 
@@ -36,10 +35,10 @@ public class LivingEntityMixin {
             method = "updatingUsingItem",
             at = @At("RETURN")
     )
-    private void afterTickActiveItemStack(@NotNull CallbackInfo ci) {
+    private void afterTickActiveItemStack(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (self instanceof Player player) {
-            ((PlayerEntityDuck) player).invexp$stopUsingSack();
+            ((PlayerEntityDuck) player).invexp_$stopUsingSack();
         }
     }
 
@@ -56,7 +55,7 @@ public class LivingEntityMixin {
                 player.level().isClientSide &&
                 LivingEntity.DATA_LIVING_ENTITY_FLAGS.equals(data)
         ) {
-            ((PlayerEntityDuck) player).invexp$startUsingSack();
+            ((PlayerEntityDuck) player).invexp_$startUsingSack();
         }
     }
 
@@ -73,7 +72,7 @@ public class LivingEntityMixin {
                 player.level().isClientSide &&
                 LivingEntity.DATA_LIVING_ENTITY_FLAGS.equals(data)
         ) {
-            ((PlayerEntityDuck) player).invexp$stopUsingSack();
+            ((PlayerEntityDuck) player).invexp_$stopUsingSack();
         }
     }
 
@@ -84,10 +83,10 @@ public class LivingEntityMixin {
             method = "checkTotemDeathProtection",
             at = @At("HEAD")
     )
-    private void beforeUseDeathProtector(DamageSource source, @NotNull CallbackInfoReturnable<Boolean> cir) {
+    private void beforeUseDeathProtector(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (self instanceof Player player) {
-            ((PlayerEntityDuck) player).invexp$startUsingSack();
+            ((PlayerEntityDuck) player).invexp_$startUsingSack();
         }
     }
 
@@ -98,10 +97,10 @@ public class LivingEntityMixin {
             method = "checkTotemDeathProtection",
             at = @At("RETURN")
     )
-    private void afterUseDeathProtector(DamageSource source, @NotNull CallbackInfoReturnable<Boolean> cir) {
+    private void afterUseDeathProtector(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (self instanceof Player player) {
-            ((PlayerEntityDuck) player).invexp$stopUsingSack();
+            ((PlayerEntityDuck) player).invexp_$stopUsingSack();
         }
     }
 }

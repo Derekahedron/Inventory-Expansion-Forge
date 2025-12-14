@@ -3,6 +3,8 @@ package derekahedron.invexp.entity.player;
 import derekahedron.invexp.sack.SackUsage;
 import net.minecraft.world.item.ItemStack;
 
+import javax.annotation.Nullable;
+
 /**
  * Adds methods to the player entity. When a player starts using a stack,
  * usages are created for the main hand and offhand. If the stack in the main hand or
@@ -18,17 +20,17 @@ public interface PlayerEntityDuck {
      *
      * @return  true if the player is using a sack; false otherwise
      */
-    boolean invexp$isUsingSack();
+    boolean invexp_$isUsingSack();
 
     /**
      * Start player using sack.
      */
-    void invexp$startUsingSack();
+    void invexp_$startUsingSack();
 
     /**
      * Stop player using sack.
      */
-    void invexp$stopUsingSack();
+    void invexp_$stopUsingSack();
 
     /**
      * Gets the usage for the player with a sack stack matching the given stack.
@@ -36,7 +38,8 @@ public interface PlayerEntityDuck {
      * @param sackStack     sack stack to get usage for
      * @return              sack usage associated with the sack stack; null if there is none
      */
-    SackUsage invexp$getUsageForSackStack(ItemStack sackStack);
+    @Nullable
+    SackUsage invexp_$getUsageForSackStack(ItemStack sackStack);
 
     /**
      * Gets the usage for the player with a selected stack matching the given stack.
@@ -44,5 +47,6 @@ public interface PlayerEntityDuck {
      * @param selectedStack     selected stack to get usage for
      * @return                  sack usage associated with the selected stack; null if there is none
      */
-    SackUsage invexp$getUsageForSelectedStack(ItemStack selectedStack);
+    @Nullable
+    SackUsage invexp_$getUsageForSelectedStack(ItemStack selectedStack);
 }

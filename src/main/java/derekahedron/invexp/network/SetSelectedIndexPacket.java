@@ -47,7 +47,7 @@ public class SetSelectedIndexPacket {
 
             // Makes sure the container is valid
             ItemStack stack = player.containerMenu.slots.get(slotId).getItem();
-            ContainerItemContents contents = ContainerItemContents.of(stack);
+            ContainerItemContents contents = ContainerItemContents.of(stack, player.level());
             if (contents == null) {
                 contents = BundleContents.of(stack);
             }

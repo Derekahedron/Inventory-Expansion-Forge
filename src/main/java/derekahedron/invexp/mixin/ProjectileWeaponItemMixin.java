@@ -5,7 +5,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,7 +26,7 @@ public class ProjectileWeaponItemMixin {
             cancellable = true
     )
     private static void getHeldProjectileFromQuiver(
-            LivingEntity entity, Predicate<ItemStack> predicate, @NotNull CallbackInfoReturnable<ItemStack> cir
+            LivingEntity entity, Predicate<ItemStack> predicate, CallbackInfoReturnable<ItemStack> cir
     ) {
         // Check hands in reverse (Offhand first)
         for (int i = InteractionHand.values().length - 1; i >= 0; i--) {

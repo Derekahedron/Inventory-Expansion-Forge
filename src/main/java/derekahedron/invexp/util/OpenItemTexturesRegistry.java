@@ -2,7 +2,7 @@ package derekahedron.invexp.util;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +14,8 @@ public class OpenItemTexturesRegistry {
         OPEN_ITEMS.add(item);
     }
 
-    public static @NotNull List<Item> getItems() {
+    @Unmodifiable
+    public static List<Item> getItems() {
         return OPEN_ITEMS.stream().toList();
     }
 

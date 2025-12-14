@@ -6,9 +6,8 @@ import derekahedron.invexp.util.ContainerItemContents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -17,7 +16,7 @@ import java.util.function.Predicate;
  * Manages contents of a quiver. Extends ContainerItemContents for improved modifying of
  * contents.
  */
-public class QuiverContents extends ContainerItemContents implements QuiverContentsChecker {
+public class QuiverContents extends ContainerItemContents implements QuiverContentsReader {
     public final ItemStack quiverStack;
     private QuiverContentsComponent component;
 
@@ -28,7 +27,7 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
      * @param quiverStack   stack containing the contents
      * @param component     contents component
      */
-    private QuiverContents(@NotNull ItemStack quiverStack, @NotNull QuiverContentsComponent component) {
+    private QuiverContents(ItemStack quiverStack, QuiverContentsComponent component) {
         this.quiverStack = quiverStack;
         this.component = component;
     }
@@ -40,7 +39,8 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
      * @param quiverStack   stack to create contents from
      * @return              created QuiverContents; null if not valid
      */
-    public static @Nullable QuiverContents of(@Nullable ItemStack quiverStack) {
+    @Nullable
+    public static QuiverContents of(@Nullable ItemStack quiverStack) {
         QuiverContentsComponent component = QuiverContentsComponent.getComponent(quiverStack);
         if (component == null) {
             return null;
@@ -55,7 +55,7 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
      * @param predicate     predicate to test the selected stack for
      * @return              new QuiveredItemStack from the selected stack; EMPTY if one doesn't exist
      */
-    public @NotNull ItemStack getProjectileStack(@NotNull Predicate<ItemStack> predicate) {
+    public ItemStack getProjectileStack(Predicate<ItemStack> predicate) {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -93,7 +93,7 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
      *
      * @param player    player holding the quiver
      */
-    public void validate(@NotNull Player player) {
+    public void validate(Player player) {
         if (isValid()) {
             return;
         }
@@ -119,85 +119,35 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
         }
     }
 
-    /**
-     * Gets the stack from the component.
-     *
-     * @return  List of stack contents
-     */
     @Override
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return component.stacks;
     }
 
-    /**
-     * Gets the selected index from the component.
-     *
-     * @return  selected index; -1 if there is none
-     */
     @Override
     public int getSelectedIndex() {
         return component.selectedIndex;
     }
 
-    /**
-     * Check if the contents have reached max stacks or the total occupancy has reached max occupancy.
-     *
-     * @return  true if the contents should display as full
-     */
     @Override
-    public boolean isFull() {
-        return getTotalOccupancy().compareTo(getMaxQuiverOccupancy()) >= 0 || getStacks().size() >= getMaxQuiverStacks();
-    }
-
-    /**
-     * Gets a fraction for displaying fullness of contents.
-     *
-     * @return  fraction representing fullness
-     */
-    @Override
-    public @NotNull Fraction getFillFraction() {
-        if (isFull()) {
-            return Fraction.ONE;
-        }
-        else {
-            return getTotalOccupancy().divideBy(getMaxQuiverOccupancy());
-        }
-    }
-
-    /**
-     * Gets the stored quiver stack.
-     *
-     * @return  quiver stack that holds the contents
-     */
-    @Override
-    public @NotNull ItemStack getQuiverStack() {
+    public ItemStack getQuiverStack() {
         return quiverStack;
     }
 
-    /**
-     * Gets the total occupancy from the component.
-     *
-     * @return  total quiver occupancy that the contents hold
-     */
     @Override
-    public @NotNull Fraction getTotalOccupancy() {
+    public Fraction getTotalOccupancy() {
         return component.getTotalOccupancy();
     }
 
-    /**
-     * Create a new builder for modifying quiver contents.
-     *
-     * @return  builder for quiver contents
-     */
     @Override
-    public @NotNull Builder getBuilder() {
+    public Builder getBuilder() {
         return new Builder();
     }
 
     /**
      * Builder for QuiverContents. Contains a copy of the quiver contents to be modified.
      */
-    public class Builder extends ContainerItemContents.Builder implements QuiverContentsChecker {
+    public class Builder extends ContainerItemContents.Builder implements QuiverContentsReader {
         public final List<ItemStack> stacks;
         public int selectedIndex;
         public Fraction totalOccupancy;
@@ -211,9 +161,6 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             this.totalOccupancy = component.getTotalOccupancy();
         }
 
-        /**
-         * Applies the copied values to the QuiverContents object this is attached to.
-         */
         @Override
         public void apply() {
             component = new QuiverContentsComponent(
@@ -223,16 +170,8 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             component.setComponent(quiverStack);
         }
 
-        /**
-         * Tries to add the given stack to the quiver. First tries merging with existing items,
-         * then tries inserting at the given index.
-         *
-         * @param stack     stack to add
-         * @param insertAt  where to insert the new stack
-         * @return          number of items added
-         */
         @Override
-        public int add(@NotNull ItemStack stack, int insertAt) {
+        public int add(ItemStack stack, int insertAt) {
             if (!canTryInsert(stack)) {
                 return 0;
             }
@@ -270,15 +209,8 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             return added;
         }
 
-        /**
-         * Remove the given stack from the quiver contents, updating occupancy.
-         *
-         * @param stack     stack to remove
-         * @param toRemove  how many of the given stack to remove
-         * @return          how many items were removed
-         */
         @Override
-        public int remove(@NotNull ItemStack stack, int toRemove) {
+        public int remove(ItemStack stack, int toRemove) {
             if (isEmpty() || stack.isEmpty()) {
                 return 0;
             }
@@ -321,13 +253,8 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             return removed;
         }
 
-        /**
-         * Pops the selected stack from the contents, updating occupancy.
-         *
-         * @return ItemStack popped from the contents; EMPTY if none
-         */
         @Override
-        public @NotNull ItemStack popSelectedStack() {
+        public ItemStack popSelectedStack() {
             if (isEmpty()) {
                 return ItemStack.EMPTY;
             }
@@ -338,13 +265,8 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             return selectedStack;
         }
 
-        /**
-         * Remove all stacks from contents and clear occupancy.
-         *
-         * @return  List of copies of previous contents
-         */
         @Override
-        public @NotNull List<ItemStack> popAllStacks() {
+        public List<ItemStack> popAllStacks() {
             List<ItemStack> copies = Lists.transform(stacks, ItemStack::copy);
             stacks.clear();
             selectedIndex = -1;
@@ -352,53 +274,28 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
             return copies;
         }
 
-        /**
-         * Gets the quiver stored in the related QuiverContents.
-         *
-         * @return  quiver stack that holds the contents
-         */
         @Override
-        public @NotNull ItemStack getQuiverStack() {
+        public ItemStack getQuiverStack() {
             return quiverStack;
         }
 
-        /**
-         * Gets the modified stacks.
-         *
-         * @return  List of stack contents
-         */
         @Override
-        public @NotNull List<ItemStack> getStacks() {
+        public List<ItemStack> getStacks() {
             return stacks;
         }
 
-        /**
-         * Gets the modified selected index.
-         *
-         * @return  selected index; -1 if there is none
-         */
         @Override
         public int getSelectedIndex() {
             return selectedIndex;
         }
 
-        /**
-         * Modifies the selected index
-         *
-         * @param selectedIndex     new selected index
-         */
         @Override
         public void setSelectedIndex(int selectedIndex) {
             this.selectedIndex = selectedIndex;
         }
 
-        /**
-         * Gets the modified total occupancy.
-         *
-         * @return  total quiver occupancy that the contents hold
-         */
         @Override
-        public @NotNull Fraction getTotalOccupancy() {
+        public Fraction getTotalOccupancy() {
             return totalOccupancy;
         }
     }
@@ -410,7 +307,7 @@ public class QuiverContents extends ContainerItemContents implements QuiverConte
      * @param stack         stack to try to insert
      * @return              true if the added stack is now empty; false otherwise
      */
-    public static boolean attemptPickup(@NotNull ItemStack quiverStack, @NotNull ItemStack stack) {
+    public static boolean attemptPickup(ItemStack quiverStack, ItemStack stack) {
         QuiverContents contents = QuiverContents.of(quiverStack);
         if (contents == null) {
             return false;

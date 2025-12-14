@@ -32,10 +32,14 @@ public class Scroller {
     }
 
     public static int scrollCycling(double amount, int selectedIndex, int total) {
-        int i = (int)Math.signum(amount);
+        int i = (int) Math.signum(amount);
         selectedIndex -= i;
 
-        while(selectedIndex >= total) {
+        if (selectedIndex < 0) {
+            selectedIndex = total - 1;
+        }
+
+        while (selectedIndex >= total) {
             selectedIndex -= total;
         }
 

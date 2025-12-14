@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ public interface ContainerItemTooltipComponent {
      *
      * @return  list of stacks to display
      */
-    @NotNull List<ItemStack> getStacks();
+    List<ItemStack> getStacks();
 
     /**
      * Gets the index of the selected stack
@@ -90,49 +89,50 @@ public interface ContainerItemTooltipComponent {
      *
      * @return  fraction depicting how full the progress bar should be
      */
-    @NotNull Fraction getFillFraction();
+    Fraction getFillFraction();
 
     /**
      * Gets the progress bar texture.
      *
      * @return  texture identifier for the progress bar
      */
-    @NotNull ResourceLocation getProgressBarFillTexture();
+    ResourceLocation getProgressBarFillTexture();
 
     /**
      * Gets the progress bar border texture.
      *
      * @return  texture identifier for the progress bar border
      */
-    @NotNull ResourceLocation getProgressBarBorderTexture();
+    ResourceLocation getProgressBarBorderTexture();
 
     /**
      * Gets the slot background texture.
      *
      * @return  texture identifier for the slot background texture
      */
-    @NotNull ResourceLocation getSlotBackgroundTexture();
+    ResourceLocation getSlotBackgroundTexture();
 
     /**
      * Gets the slot highlight back texture.
      *
      * @return  texture identifier for highlighted back texture
      */
-    @NotNull ResourceLocation getSlotHighlightBackTexture();
+    ResourceLocation getSlotHighlightBackTexture();
 
     /**
      * Gets the slot highlight front texture.
      *
      * @return  texture identifier for highlighted front texture
      */
-    @NotNull ResourceLocation getSlotHighlightFrontTexture();
+    ResourceLocation getSlotHighlightFrontTexture();
 
     /**
      * Generates text to display over the progress bar.
      *
      * @return  text to overlay on the progress bar; can be null
      */
-    @Nullable Component getProgressBarLabel();
+    @Nullable
+    Component getProgressBarLabel();
 
     /**
      * Render contents of the container. Display the row with the selected item
@@ -305,8 +305,11 @@ public interface ContainerItemTooltipComponent {
      * @param drawContext   draw context
      */
     default void drawProgressBar(
-            @NotNull Font textRenderer, int x, int y, int width, @NotNull GuiGraphics drawContext
-    ) {
+            Font textRenderer,
+            int x,
+            int y,
+            int width,
+            GuiGraphics drawContext) {
         x += getXMargin(width);
         // Draw bar and border
         blit(
@@ -353,7 +356,7 @@ public interface ContainerItemTooltipComponent {
      * @param textRenderer  text renderer
      * @return              height in pixels that the given text takes up
      */
-    default int getHeight(@Nullable Component text, @NotNull Font textRenderer) {
+    default int getHeight(@Nullable Component text, Font textRenderer) {
         if (text == null) {
             return 0;
         }

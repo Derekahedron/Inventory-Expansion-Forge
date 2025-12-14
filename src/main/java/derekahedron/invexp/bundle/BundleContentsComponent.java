@@ -4,9 +4,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class BundleContentsComponent {
      * @param stacks            list of stacks to give the component
      * @param selectedIndex     selected index of the component
      */
-    public BundleContentsComponent(@NotNull List<ItemStack> stacks, int selectedIndex) {
+    public BundleContentsComponent(List<ItemStack> stacks, int selectedIndex) {
         this.stacks = stacks;
         this.selectedIndex = selectedIndex;
         this.totalWeight = calculateTotalWeight(stacks);
@@ -42,7 +41,7 @@ public class BundleContentsComponent {
      *
      * @return  list of stacks in the component
      */
-    public @NotNull List<ItemStack> getStacks() {
+    public List<ItemStack> getStacks() {
         return stacks;
     }
 
@@ -92,7 +91,7 @@ public class BundleContentsComponent {
      *
      * @return  the selected stack; EMPTY if there is none
      */
-    public @NotNull ItemStack getSelectedStack() {
+    public ItemStack getSelectedStack() {
         if (isEmpty()) {
             return ItemStack.EMPTY;
         }
@@ -104,7 +103,7 @@ public class BundleContentsComponent {
      *
      * @param stack ItemStack to set contents for
      */
-    public void setComponent(@NotNull ItemStack stack) {
+    public void setComponent(ItemStack stack) {
         CompoundTag tag = stack.getOrCreateTag();
         ListTag contentsTag = new ListTag();
         if (!isEmpty()) {
@@ -132,7 +131,8 @@ public class BundleContentsComponent {
      * @param stack     stack to get the component from
      * @return          BundleContentsComponent of the stack; null if invalid
      */
-    public static @Nullable BundleContentsComponent getComponent(@Nullable ItemStack stack) {
+    @Nullable
+    public static BundleContentsComponent getComponent(@Nullable ItemStack stack) {
         if (stack != null && !stack.isEmpty() && stack.getItem() instanceof BundleItem) {
             CompoundTag tag = stack.getTag();
             if (tag != null && tag.contains(ITEMS_KEY)) {
@@ -162,7 +162,7 @@ public class BundleContentsComponent {
      * @param stacks ItemStacks to calculate weight of
      * @return total bundle weight of the given stacks
      */
-    public static int calculateTotalWeight(@NotNull List<ItemStack> stacks) {
+    public static int calculateTotalWeight(List<ItemStack> stacks) {
         int totalWeight = 0;
         for (ItemStack stack : stacks) {
             totalWeight += BundleHelper.getBundleWeightOfStack(stack);

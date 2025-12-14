@@ -1,6 +1,7 @@
 package derekahedron.invexp.mixin;
 
 import derekahedron.invexp.util.ContainerItemContents;
+import derekahedron.invexp.util.ContainerItemContentsReader;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
@@ -24,10 +25,12 @@ public class ShulkerBoxBlockEntityMixin {
             cancellable = true
     )
     private void canPlaceContainerItemThroughFace(
-            int slot, ItemStack stack, Direction dir, @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            int slot,
+            ItemStack stack,
+            Direction dir,
+            CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
-            ContainerItemContents contents = ContainerItemContents.of(stack);
+            ContainerItemContentsReader contents = ContainerItemContents.of(stack);
             if (contents != null && !contents.isEmpty()) {
                 ShulkerBoxBlockEntity self = (ShulkerBoxBlockEntity) (Object) this;
                 for (ItemStack nestedStack : contents.getStacks()) {

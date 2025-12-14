@@ -9,6 +9,7 @@ import derekahedron.invexp.item.DyeableSackItem;
 import derekahedron.invexp.network.InvExpPacketHandler;
 import derekahedron.invexp.network.SetSelectedIndexPacket;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -18,7 +19,6 @@ import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -49,17 +49,20 @@ public abstract class AbstractContainerScreenMixin {
     @Shadow @Nullable protected Slot hoveredSlot;
 
     @Unique
-    private Slot invexp$currentSlot;
+    @Nullable
+    private Slot invexp_$currentSlot;
     @Unique
     private boolean invexp$hasMoved;
     @Unique
-    private SackContents invexp$openContents;
+    @Nullable
+    private SackContentsReader invexp_$openContents;
     @Unique
     private int invexp$mouseX;
     @Unique
     private int invexp$mouseY;
     @Unique
-    private Slot invexp$hoveredBundleSlot;
+    @Nullable
+    private Slot invexp_$hoveredBundleSlot;
 
 
     /**
@@ -70,11 +73,13 @@ public abstract class AbstractContainerScreenMixin {
             at = @At("HEAD")
     )
     private void startDraggingContainer(
-            double mouseX, double mouseY, int button, @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            double mouseX,
+            double mouseY,
+            int button,
+            CallbackInfoReturnable<Boolean> cir) {
         AbstractContainerScreen<?> self = (AbstractContainerScreen<?>) (Object) this;
         if (ContainerItemSlotDragger.of(self.getMenu().getCarried()) != null) {
-            invexp$currentSlot = self.getSlotUnderMouse();
+            invexp_$currentSlot = self.getSlotUnderMouse();
             invexp$hasMoved = false;
         }
     }
@@ -88,9 +93,12 @@ public abstract class AbstractContainerScreenMixin {
             cancellable = true
     )
     private void dragContainer(
-            double mouseX, double mouseY, int button, double deltaX, double deltaY,
-            @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            double mouseX,
+            double mouseY,
+            int button,
+            double deltaX,
+            double deltaY,
+            CallbackInfoReturnable<Boolean> cir) {
         AbstractContainerScreen<?> self = (AbstractContainerScreen<?>) (Object) this;
         // Vanilla checks for dragging
         if (self.quickCraftingType == 2 ||
@@ -115,17 +123,17 @@ public abstract class AbstractContainerScreenMixin {
         }
 
         // If current slot is not set, update current slot
-        if (invexp$currentSlot == null) {
-            invexp$currentSlot = slot;
+        if (invexp_$currentSlot == null) {
+            invexp_$currentSlot = slot;
         }
-        else if (invexp$currentSlot != slot) {
+        else if (invexp_$currentSlot != slot) {
             if (!invexp$hasMoved) {
                 invexp$hasMoved = true;
                 quickCraftSlots.clear();
-                dragger.onHover(invexp$currentSlot, self);
+                dragger.onHover(invexp_$currentSlot, self);
             }
-            invexp$currentSlot = slot;
-            dragger.onHover(invexp$currentSlot, self);
+            invexp_$currentSlot = slot;
+            dragger.onHover(invexp_$currentSlot, self);
         }
         cir.setReturnValue(true);
         cir.cancel();
@@ -140,12 +148,14 @@ public abstract class AbstractContainerScreenMixin {
             cancellable = true
     )
     private void finishDraggingContainer(
-            double mouseX, double mouseY, int button, @NotNull CallbackInfoReturnable<Boolean> cir
-    ) {
+            double mouseX,
+            double mouseY,
+            int button,
+            CallbackInfoReturnable<Boolean> cir) {
         AbstractContainerScreen<?> self = (AbstractContainerScreen<?>) (Object) this;
         if (invexp$hasMoved && ContainerItemSlotDragger.of(self.getMenu().getCarried()) != null) {
             invexp$hasMoved = false;
-            invexp$currentSlot = null;
+            invexp_$currentSlot = null;
             isQuickCrafting = false;
             cir.setReturnValue(true);
             cir.cancel();
@@ -186,8 +196,8 @@ public abstract class AbstractContainerScreenMixin {
                     target = "Lnet/minecraft/client/gui/GuiGraphics;renderItem(Lnet/minecraft/world/item/ItemStack;III)V"
             )
     )
-    private void drawOpenSack(GuiGraphics context, @NotNull Slot slot, @NotNull CallbackInfo ci) {
-        invexp$openContents = null;
+    private void drawOpenSack(GuiGraphics context, Slot slot, CallbackInfo ci) {
+        invexp_$openContents = null;
         AbstractContainerScreen<?> self = (AbstractContainerScreen<?>) (Object) this;
         if (!slot.hasItem() ||
                 !isHovering(slot, invexp$mouseX, invexp$mouseY) ||
@@ -196,11 +206,11 @@ public abstract class AbstractContainerScreenMixin {
             return;
         }
         ItemStack cursorStack = self.getMenu().getCarried();
-        SackContents contents = SackContents.of(slot.getItem());
+        SackContentsReader contents = SackContents.of(slot.getItem());
         if (contents == null || contents.isEmpty() || (!cursorStack.isEmpty() && !contents.canTryInsert(cursorStack))) {
             return;
         }
-        invexp$openContents = contents;
+        invexp_$openContents = contents;
         Player player = self.getMinecraft().player;
         Level level = player != null ? player.level() : null;
         OpenItemTextures.renderOpenItem(context, slot.getItem(), slot.x, slot.y, level, player, slot.x + slot.y * imageWidth);
@@ -210,13 +220,12 @@ public abstract class AbstractContainerScreenMixin {
             method = "renderSlot",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/GuiGraphics;renderItem(Lnet/minecraft/world/item/ItemStack;III)V"
-            )
+                    target = "Lnet/minecraft/client/gui/GuiGraphics;renderItem(Lnet/minecraft/world/item/ItemStack;III)V")
     )
     private ItemStack renderSelectedItem(ItemStack stack) {
-        if (invexp$openContents != null) {
-            ItemStack selectedStack = invexp$openContents.getSelectedStack();
-            invexp$openContents = null;
+        if (invexp_$openContents != null) {
+            ItemStack selectedStack = invexp_$openContents.getSelectedStack();
+            invexp_$openContents = null;
             return selectedStack;
         }
         else {
@@ -229,7 +238,7 @@ public abstract class AbstractContainerScreenMixin {
             at = @At("RETURN")
     )
     private void trackBundleSlot(GuiGraphics guiGraphics, int x, int y, float delta, CallbackInfo ci) {
-        invexp$setHoveredSlot(hoveredSlot);
+        invexp_$setHoveredSlot(hoveredSlot);
     }
 
     @Inject(
@@ -237,18 +246,18 @@ public abstract class AbstractContainerScreenMixin {
             at = @At("HEAD")
     )
     private void closeBundle(CallbackInfo ci) {
-        invexp$setHoveredSlot(null);
+        invexp_$setHoveredSlot(null);
     }
 
     @Unique
-    private void invexp$setHoveredSlot(Slot newHoveredSlot) {
-        if (newHoveredSlot != invexp$hoveredBundleSlot) {
-            if (invexp$hoveredBundleSlot != null) {
-                BundleContents contents = BundleContents.of(invexp$hoveredBundleSlot.getItem());
+    private void invexp_$setHoveredSlot(@Nullable Slot newHoveredSlot) {
+        if (newHoveredSlot != invexp_$hoveredBundleSlot) {
+            if (invexp_$hoveredBundleSlot != null) {
+                BundleContents contents = BundleContents.of(invexp_$hoveredBundleSlot.getItem());
                 if (contents != null && !contents.isEmpty() && contents.getSelectedIndex() != -1) {
                     contents.setSelectedIndex(-1);
                     AbstractContainerScreen<?> self = (AbstractContainerScreen<?>) (Object) this;
-                    Slot trueSlot = InvExpClientUtil.getTrueSlot(invexp$hoveredBundleSlot, self.getMinecraft().player);
+                    Slot trueSlot = InvExpClientUtil.getTrueSlot(invexp_$hoveredBundleSlot, self.getMinecraft().player);
                     if (trueSlot != null) {
                         InvExpPacketHandler.INSTANCE.sendToServer(new SetSelectedIndexPacket(trueSlot.index, -1));
                     }
@@ -256,12 +265,11 @@ public abstract class AbstractContainerScreenMixin {
             }
 
             if (newHoveredSlot != null && newHoveredSlot.getItem().getItem() instanceof BundleItem) {
-                invexp$hoveredBundleSlot = newHoveredSlot;
+                invexp_$hoveredBundleSlot = newHoveredSlot;
             }
             else {
-                invexp$hoveredBundleSlot = null;
+                invexp_$hoveredBundleSlot = null;
             }
         }
     }
-
 }

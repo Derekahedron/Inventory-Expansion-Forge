@@ -20,10 +20,10 @@ import org.slf4j.Logger;
 public class InventoryExpansion
 {
     public static final String MOD_ID = "invexp";
+    public static final String MOD_NAME = "Inventory Expansion";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public InventoryExpansion(FMLJavaModLoadingContext context)
-    {
+    public InventoryExpansion(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
         InvExpItems.ITEMS.register(modEventBus);

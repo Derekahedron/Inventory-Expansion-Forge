@@ -2,6 +2,7 @@ package derekahedron.invexp.mixin.client;
 
 import derekahedron.invexp.client.util.OpenItemTextures;
 import derekahedron.invexp.sack.SackContents;
+import derekahedron.invexp.sack.SackContentsReader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -24,7 +25,7 @@ public class GuiMixin {
 
     @Shadow @Final protected Minecraft minecraft;
     @Unique
-    private SackContents invexp$openContents;
+    private SackContentsReader invexp$openContents;
 
     /**
      * Check if a sack is selected. If so, store the components so we don't have to repeat the calculation.
@@ -45,7 +46,7 @@ public class GuiMixin {
         if (stack != player.getMainHandItem() && stack != player.getOffhandItem()) {
             return;
         }
-        SackContents contents = SackContents.of(stack);
+        SackContentsReader contents = SackContents.of(stack);
         if (contents != null && !contents.isEmpty()) {
             invexp$openContents = contents;
             context.enableScissor(x, y - 16, x + 16, y + 16);

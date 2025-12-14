@@ -15,9 +15,9 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +25,7 @@ import java.util.List;
 public record OpenItemTextures(ModelResourceLocation backTexture, ModelResourceLocation frontTexture) {
     private static final HashMap<Item, OpenItemTextures> OPEN_TEXTURES = new HashMap<>();
 
+    @Nullable
     public static OpenItemTextures getTextures(Item item) {
         return OPEN_TEXTURES.getOrDefault(item, null);
     }
@@ -49,12 +50,17 @@ public record OpenItemTextures(ModelResourceLocation backTexture, ModelResourceL
         return locations;
     }
 
-    public static void renderOpenItem(GuiGraphics guiGraphics, ItemStack stack, int x, int y, @Nullable Level level, @Nullable LivingEntity entity, int seed) {
+    public static void renderOpenItem(
+            GuiGraphics guiGraphics,
+            ItemStack stack,
+            int x,
+            int y,
+            @Nullable Level level,
+            @Nullable LivingEntity entity,
+            int seed) {
         ItemRenderer renderer = guiGraphics.minecraft.getItemRenderer();
         OpenItemTextures textures = OpenItemTextures.getTextures(stack.getItem());
-        if (textures == null) {
-            return;
-        }
+        if (textures == null) return;
         BakedModel backModel = resolveModelOverride(
                 renderer.getItemModelShaper().getModelManager().getModel(textures.backTexture()),
                 stack, level, entity, seed
@@ -117,7 +123,12 @@ public record OpenItemTextures(ModelResourceLocation backTexture, ModelResourceL
         guiGraphics.pose().popPose();
     }
 
-    public static BakedModel resolveModelOverride(BakedModel model, ItemStack stack, @Nullable Level level, @Nullable LivingEntity entity, int seed) {
+    public static BakedModel resolveModelOverride(
+            BakedModel model,
+            ItemStack stack,
+            @Nullable Level level,
+            @Nullable LivingEntity entity,
+            int seed) {
         ClientLevel clientLevel = level instanceof ClientLevel ? (ClientLevel) level : null;
         BakedModel bakedmodel = model.getOverrides().resolve(model, stack, clientLevel, entity, seed);
         return bakedmodel == null ? model : bakedmodel;

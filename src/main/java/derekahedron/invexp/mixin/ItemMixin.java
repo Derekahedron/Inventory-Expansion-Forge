@@ -1,7 +1,7 @@
 package derekahedron.invexp.mixin;
 
 import derekahedron.invexp.item.ItemDuck;
-import derekahedron.invexp.sack.SackDataManager;
+import derekahedron.invexp.sack.SackDefaultManager;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,16 +9,18 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Item.class)
 public class ItemMixin implements ItemDuck {
+
     @Unique
-    private SackDataManager.DefaultSackData invexp$defaultSackInsertable;
+    private SackDefaultManager.SackDefaults invexp$sackDefaults;
 
     @Override
-    public void invexp$setDefaultSackData(@Nullable SackDataManager.DefaultSackData defaultSackInsertable) {
-        invexp$defaultSackInsertable = defaultSackInsertable;
+    public void invexp$setSackDefaults(@Nullable SackDefaultManager.SackDefaults sackDefaults) {
+        this.invexp$sackDefaults = sackDefaults;
     }
 
     @Override
-    public SackDataManager.DefaultSackData invexp$getDefaultSackData() {
-        return invexp$defaultSackInsertable;
+    @Nullable
+    public SackDefaultManager.SackDefaults invexp$getSackDefaults() {
+        return invexp$sackDefaults;
     }
 }

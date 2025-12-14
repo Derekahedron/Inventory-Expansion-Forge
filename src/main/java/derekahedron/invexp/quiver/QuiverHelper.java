@@ -3,7 +3,6 @@ package derekahedron.invexp.quiver;
 import derekahedron.invexp.item.QuiverItem;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.math.Fraction;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Contains helper functions and default values for data components related to quivers.
@@ -18,7 +17,7 @@ public class QuiverHelper {
      * @param stack     stack to test
      * @return          maximum quiver occupancy stacks this item can hold as a quiver
      */
-    public static int getMaxQuiverOccupancyStacks(@NotNull ItemStack stack) {
+    public static int getMaxQuiverOccupancyStacks(ItemStack stack) {
         if (stack.getItem() instanceof QuiverItem quiverItem) {
             return quiverItem.getMaxQuiverOccupancyStacks();
         }
@@ -31,21 +30,8 @@ public class QuiverHelper {
      * @param stack     stack to test
      * @return          maximum quiver occupancy this item can hold as a quiver
      */
-    public static @NotNull Fraction getMaxQuiverOccupancy(@NotNull ItemStack stack) {
+    public static Fraction getMaxQuiverOccupancy(ItemStack stack) {
         return Fraction.getFraction(getMaxQuiverOccupancyStacks(stack));
-    }
-
-    /**
-     * Return the maximum number of stacks this item can hold as a quiver.
-     *
-     * @param stack     stack to test
-     * @return          maximum stacks this item can hold as a quiver
-     */
-    public static int getMaxQuiverStacks(@NotNull ItemStack stack) {
-        if (stack.getItem() instanceof QuiverItem quiverItem) {
-            return quiverItem.getMaxQuiverStacks();
-        }
-        return 0;
     }
 
     /**
@@ -54,7 +40,7 @@ public class QuiverHelper {
      * @param stack     stack to test
      * @return          how much of a stack one of these items takes up
      */
-    public static @NotNull Fraction getOccupancy(@NotNull ItemStack stack) {
+    public static Fraction getOccupancy(ItemStack stack) {
         return Fraction.getFraction(1, stack.getMaxStackSize());
     }
 
@@ -65,7 +51,7 @@ public class QuiverHelper {
      * @param stack     stack to test
      * @return          how much of a stack the given stack takes up
      */
-    public static @NotNull Fraction getOccupancyOfStack(@NotNull ItemStack stack) {
+    public static Fraction getOccupancyOfStack(ItemStack stack) {
         return Fraction.getFraction(stack.getCount(), stack.getMaxStackSize());
     }
 }
