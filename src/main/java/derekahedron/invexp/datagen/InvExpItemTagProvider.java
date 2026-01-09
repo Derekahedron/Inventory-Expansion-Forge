@@ -39,6 +39,8 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
                 .add(InvExpItems.SACK.get());
         tag(InvExpItemTags.QUIVERS)
                 .add(InvExpItems.QUIVER.get());
+        tag(InvExpItemTags.BUNDLES)
+                .addTag(InvExpItemTags.DYEABLE_BUNDLES);
         tag(InvExpItemTags.DYEABLE_BUNDLES)
                 .add(Items.BUNDLE)
                 .add(InvExpItems.WHITE_BUNDLE.get())
@@ -826,6 +828,11 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
                 .add(Items.ENDER_EYE)
                 .add(Items.STRING)
                 .add(Items.ENDER_PEARL)
+                .add(Items.BEEF)
+                .add(Items.PORKCHOP)
+                .add(Items.MUTTON)
+                .add(Items.CHICKEN)
+                .add(Items.RABBIT)
                 .add(Items.ROTTEN_FLESH)
                 .add(Items.SPIDER_EYE)
                 .add(Items.BONE)
@@ -889,23 +896,7 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
         tag(InvExpItemTags.SackType.POTTERY_SHERD)
                 .addTag(ItemTags.DECORATED_POT_SHERDS);
         tag(InvExpItemTags.SackType.SMITHING_TEMPLATE)
-                .add(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE)
-                .add(Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.VEX_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.HOST_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.WARD_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.EYE_ARMOR_TRIM_SMITHING_TEMPLATE)
-                .add(Items.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE);
+                .addTag(ItemTags.TRIM_TEMPLATES);
         tag(InvExpItemTags.SackType.SPAWN_EGG)
                 .add(Items.ALLAY_SPAWN_EGG)
                 .add(Items.AXOLOTL_SPAWN_EGG)
@@ -1011,6 +1002,7 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
                 .add(Items.RAW_COPPER)
                 .add(Items.AMETHYST_SHARD)
                 .addTag(ItemTags.DECORATED_POT_SHERDS)
+                .add(Items.CLAY_BALL)
                 .add(Items.POPPED_CHORUS_FRUIT)
                 .add(Items.BRICK)
                 .add(Items.NETHER_BRICK)
@@ -1094,6 +1086,7 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
         tag(InvExpItemTags.SackWeight.DOUBLE)
                 .add(Items.TOTEM_OF_UNDYING);
 
+        ItemTagsCompatibility.addMiscTags(this);
         ItemTagsCompatibility.addSackTypes(this);
         ItemTagsCompatibility.addSackWeights(this);
     }

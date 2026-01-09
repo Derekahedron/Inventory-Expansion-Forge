@@ -352,6 +352,110 @@
       "required": false
     },
     {
+      "id": "blue_skies:sunstone_crystal",
+      "required": false
+    },
+    {
+      "id": "blue_skies:moonstone_crystal",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/aquite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/charoite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/horizonite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone_shard",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/pyrope",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/aquite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/diopside",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/charoite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/horizonite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:witherite_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignitium_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:cursium_ingot",
+      "required": false
+    },
+    {
       "id": "create:andesite_alloy",
       "required": false
     },
@@ -432,6 +536,14 @@
       "required": false
     },
     {
+      "id": "tconstruct:steel_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:steel_cluster",
+      "required": false
+    },
+    {
       "id": "tconstruct:ichor_slime_crystal",
       "required": false
     },
@@ -452,6 +564,14 @@
       "required": false
     },
     {
+      "id": "tconstruct:cobalt_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:cobalt_cluster",
+      "required": false
+    },
+    {
       "id": "tconstruct:ender_slime_crystal",
       "required": false
     },
@@ -469,6 +589,14 @@
     },
     {
       "id": "tconstruct:ender_slime_crystal_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:knightmetal_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:knightmetal_cluster",
       "required": false
     }
   ]

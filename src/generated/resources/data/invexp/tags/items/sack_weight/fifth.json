@@ -81,6 +81,26 @@
     {
       "id": "alexscaves:moth_ball",
       "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_nugget",
+      "required": false
     }
   ]
 }

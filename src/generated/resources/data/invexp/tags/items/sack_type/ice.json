@@ -18,6 +18,10 @@
     {
       "id": "yungscavebiomes:ice_sheet",
       "required": false
+    },
+    {
+      "id": "cataclysm:pointed_icicle",
+      "required": false
     }
   ]
 }

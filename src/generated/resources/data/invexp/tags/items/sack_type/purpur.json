@@ -5,6 +5,14 @@
     "minecraft:purpur_stairs",
     "minecraft:purpur_slab",
     "minecraft:end_rod",
-    "minecraft:popped_chorus_fruit"
+    "minecraft:popped_chorus_fruit",
+    {
+      "id": "cataclysm:chiseled_purpur_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:purpur_wall",
+      "required": false
+    }
   ]
 }

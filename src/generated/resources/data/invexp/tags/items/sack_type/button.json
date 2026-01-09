@@ -1,5 +1,9 @@
 {
   "values": [
-    "#minecraft:buttons"
+    "#minecraft:buttons",
+    {
+      "id": "blue_skies:crystallized_button",
+      "required": false
+    }
   ]
 }

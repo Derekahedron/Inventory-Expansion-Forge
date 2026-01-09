@@ -20,8 +20,20 @@ public class CompatUtil {
         return new ResourceLocation("biomesoplenty", id);
     }
 
+    public static ResourceLocation blueSkies(String id) {
+        return new ResourceLocation("blue_skies", id);
+    }
+
+    public static ResourceLocation cataclysm(String id) {
+        return new ResourceLocation("cataclysm", id);
+    }
+
     public static ResourceLocation create(String id) {
         return new ResourceLocation("create", id);
+    }
+
+    public static ResourceLocation curios(String id) {
+        return new ResourceLocation("curios", id);
     }
 
     public static ResourceLocation deeperDarker(String id) {

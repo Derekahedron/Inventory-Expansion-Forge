@@ -532,6 +532,702 @@
       "required": false
     },
     {
+      "id": "blue_skies:turquoise_dripstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_cobblestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_cobblestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_cobblestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_cobblestone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_cobblestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_cobblestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_cobblestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chiseled_turquoise_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_turquoise_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_turquoise_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_turquoise_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_turquoise_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_turquoise_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_dripstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_cobblestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_cobblestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_cobblestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_cobblestone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_cobblestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_cobblestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_cobblestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chiseled_lunar_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:mossy_lunar_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_lunar_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_lunar_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_lunar_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cracked_lunar_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:taratite_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:taratite_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:taratite_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_taratite",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_taratite_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_taratite_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_taratite_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rimestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rimestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rimestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_rimestone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_rimestone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_rimestone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_rimestone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble_lantern",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_bricks",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_brick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_brumble_brick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chiseled_polished_brumble",
+      "required": false
+    },
+    {
+      "id": "blue_skies:umber_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:umber_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:umber_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_umber",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_umber_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_umber_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_umber_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cinderstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cinderstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cinderstone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_cinderstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_cinderstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_cinderstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:polished_cinderstone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:blinding_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:blinding_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:blinding_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:blinding_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_blinding_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_blinding_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_blinding_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_blinding_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:blinding_stone_pillar",
+      "required": false
+    },
+    {
+      "id": "blue_skies:carved_blinding_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_nature_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:nature_stone_pillar",
+      "required": false
+    },
+    {
+      "id": "blue_skies:carved_nature_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_poison_stone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_poison_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glowing_poison_stone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stonebrick_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:poison_stone_pillar",
+      "required": false
+    },
+    {
+      "id": "blue_skies:carved_poison_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rough_poison_stonebrick",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rough_poison_stonebrick_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:rough_poison_stonebrick_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:spider_nest",
+      "required": false
+    },
+    {
+      "id": "cataclysm:dungeon_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_end_stone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_end_stone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_end_stone_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_end_stone_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:end_stone_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:void_infused_end_stone_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:void_stone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:obsidian_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:obsidian_brick_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:obsidian_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:obsidian_brick_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_obsidian",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_obsidian_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_stone_brick_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tiles",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tile_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tile_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:blackstone_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_fence",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_tiles",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_azure_seastone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_brick_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_brick_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_pillar_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_azure_seastone_pillar",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chiseled_azure_seastone_pillar_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_brick_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_brick_wall",
+      "required": false
+    },
+    {
       "id": "#create:stone_types/granite",
       "required": false
     },

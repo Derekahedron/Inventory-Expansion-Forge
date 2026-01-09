@@ -72,10 +72,6 @@
       "required": false
     },
     {
-      "id": "forge:rotten_tomato",
-      "required": false
-    },
-    {
       "id": "#forge:crops/onion",
       "required": false
     },
@@ -237,6 +233,58 @@
     },
     {
       "id": "biomesoplenty:webbing",
+      "required": false
+    },
+    {
+      "id": "blue_skies:sea_moss_carpet",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone_shard",
+      "required": false
+    },
+    {
+      "id": "blue_skies:pine_fruit",
+      "required": false
+    },
+    {
+      "id": "blue_skies:winter_leaves",
+      "required": false
+    },
+    {
+      "id": "blue_skies:scalefruit",
+      "required": false
+    },
+    {
+      "id": "blue_skies:fiery_beans",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cryo_root",
+      "required": false
+    },
+    {
+      "id": "blue_skies:solnut",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tile_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_brick_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_brick_slab",
       "required": false
     },
     {

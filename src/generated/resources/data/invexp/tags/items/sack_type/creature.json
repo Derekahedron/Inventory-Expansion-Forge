@@ -4,6 +4,11 @@
     "minecraft:ender_eye",
     "minecraft:string",
     "minecraft:ender_pearl",
+    "minecraft:beef",
+    "minecraft:porkchop",
+    "minecraft:mutton",
+    "minecraft:chicken",
+    "minecraft:rabbit",
     "minecraft:rotten_flesh",
     "minecraft:spider_eye",
     "minecraft:bone",
@@ -376,6 +381,66 @@
     },
     {
       "id": "alexsmobs:banana_slug_slime_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:azulfo_horn",
+      "required": false
+    },
+    {
+      "id": "blue_skies:fox_pelt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:bug_guts",
+      "required": false
+    },
+    {
+      "id": "blue_skies:soul_fragment",
+      "required": false
+    },
+    {
+      "id": "blue_skies:star_flare",
+      "required": false
+    },
+    {
+      "id": "blue_skies:carabeef",
+      "required": false
+    },
+    {
+      "id": "blue_skies:venison",
+      "required": false
+    },
+    {
+      "id": "blue_skies:monitor_tail",
+      "required": false
+    },
+    {
+      "id": "cataclysm:monstrous_horn",
+      "required": false
+    },
+    {
+      "id": "cataclysm:lava_power_cell",
+      "required": false
+    },
+    {
+      "id": "cataclysm:dying_ember",
+      "required": false
+    },
+    {
+      "id": "cataclysm:koboleton_bone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:crystallized_coral_fragments",
+      "required": false
+    },
+    {
+      "id": "cataclysm:coral_chunk",
+      "required": false
+    },
+    {
+      "id": "cataclysm:amethyst_crab_shell",
       "required": false
     },
     {

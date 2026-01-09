@@ -19,6 +19,14 @@
       "required": false
     },
     {
+      "id": "blue_skies:snowcap_mushroom_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:snowcap_mushroom_stem",
+      "required": false
+    },
+    {
       "id": "farmersdelight:brown_mushroom_colony",
       "required": false
     },

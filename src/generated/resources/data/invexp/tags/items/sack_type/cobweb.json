@@ -16,6 +16,10 @@
     {
       "id": "biomesoplenty:stringy_cobweb",
       "required": false
+    },
+    {
+      "id": "blue_skies:spider_webbing",
+      "required": false
     }
   ]
 }

@@ -140,6 +140,66 @@
       "required": false
     },
     {
+      "id": "blue_skies:brewberry",
+      "required": false
+    },
+    {
+      "id": "blue_skies:pink_brewberry",
+      "required": false
+    },
+    {
+      "id": "blue_skies:black_brewberry",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crescent_fruit",
+      "required": false
+    },
+    {
+      "id": "blue_skies:comet_berries",
+      "required": false
+    },
+    {
+      "id": "blue_skies:comet_berry_pie",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_carabeef",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_venison",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_monitor_tail",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_grittle_flatfish",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_municipal_monkfish",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_charscale_moki",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cooked_horizofin_tunid",
+      "required": false
+    },
+    {
+      "id": "cataclysm:amethyst_crab_meat",
+      "required": false
+    },
+    {
+      "id": "cataclysm:blessed_amethyst_crab_meat",
+      "required": false
+    },
+    {
       "id": "farmersdelight:fried_egg",
       "required": false
     },

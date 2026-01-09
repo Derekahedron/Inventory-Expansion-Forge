@@ -9,6 +9,7 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.recipes.*;
 import net.minecraft.network.FriendlyByteBuf;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.crafting.DifferenceIngredient;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -39,7 +41,7 @@ public class DyeBundleRecipe implements CraftingRecipe {
         this.id = id;
         this.group = group;
         this.category = category;
-        this.input = input;
+        this.input = DifferenceIngredient.of(input, Ingredient.of(result));
         this.material = material;
         this.result = result;
     }
@@ -56,7 +58,6 @@ public class DyeBundleRecipe implements CraftingRecipe {
             if (input.test(stack)) {
                 if (baseBundle != null) return false;
                 baseBundle = stack;
-                if (baseBundle.is(result.getItem())) return false;
             } else if (material.test(stack)) {
                 if (dye != null) return false;
                 dye = stack;
@@ -93,6 +94,11 @@ public class DyeBundleRecipe implements CraftingRecipe {
             }
         }
         return resultBundle;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return NonNullList.of(Ingredient.EMPTY, input, material);
     }
 
     @Override
