@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "#blue_skies:dungeon_keys",
+      "required": false
+    },
+    {
       "id": "storagedrawers:drawer_key",
       "required": false
     },

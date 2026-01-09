@@ -97,6 +97,10 @@
       "required": false
     },
     {
+      "id": "tconstruct:seared_lamp",
+      "required": false
+    },
+    {
       "id": "tconstruct:seared_ladder",
       "required": false
     }

@@ -14,15 +14,55 @@
     "#forge:storage_blocks/amethyst",
     "#forge:storage_blocks/quartz",
     {
-      "id": "#forge:storage_blocks/raw_silver",
-      "required": false
-    },
-    {
       "id": "alexscaves:sulfur",
       "required": false
     },
     {
       "id": "biomesoplenty:rose_quartz_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:vitreous_moonstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:moonstone_lantern",
+      "required": false
+    },
+    {
+      "id": "blue_skies:sunstone_block",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/moonstone",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/pyrope",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/aquite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/diopside",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/charoite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:quartz_brick_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:void_crystal",
+      "required": false
+    },
+    {
+      "id": "cataclysm:void_lantern_block",
       "required": false
     },
     {
@@ -323,6 +363,10 @@
     },
     {
       "id": "galosphere:chiseled_pastel_pink_salt",
+      "required": false
+    },
+    {
+      "id": "galosphere:pink_salt_chamber",
       "required": false
     },
     {

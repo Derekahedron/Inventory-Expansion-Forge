@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "invexp:item/brown_bundle_filled"
-  }
-}

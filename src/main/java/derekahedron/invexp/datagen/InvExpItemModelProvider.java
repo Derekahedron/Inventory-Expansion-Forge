@@ -43,6 +43,7 @@ public class InvExpItemModelProvider extends ItemModelProvider {
 
         // Backport textures to vanilla bundle
         ResourceLocation bundleId = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(Items.BUNDLE));
+
         getBuilder(bundleId + "_open_front")
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", InvExpUtil.location("item/" + bundleId.getPath() + "_open_front"));
@@ -54,14 +55,8 @@ public class InvExpItemModelProvider extends ItemModelProvider {
     public void sack(Item item) {
         ResourceLocation id = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
 
-        ModelFile filledModel = basicItem(id.withSuffix("_filled"))
-                .texture("layer1", id.withPrefix("item/").withSuffix("_filled_overlay"));
         basicItem(id)
-                .texture("layer1", id.withPrefix("item/").withSuffix("_overlay"))
-                .override()
-                .predicate(InvExpUtil.location("sack/has_contents"), 1.0F)
-                .model(filledModel)
-                .end();
+                .texture("layer1", id.withPrefix("item/").withSuffix("_overlay"));
         basicItem(id.withSuffix("_open_front"))
                 .texture("layer1", id.withPrefix("item/").withSuffix("_open_front_overlay"));
         basicItem(id.withSuffix("_open_back"));
@@ -81,12 +76,7 @@ public class InvExpItemModelProvider extends ItemModelProvider {
     public void bundle(Item item) {
         ResourceLocation id = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
 
-        ModelFile filledModel = basicItem(id.withSuffix("_filled"));
-        basicItem(id)
-                .override()
-                .predicate(InvExpUtil.location("bundle/has_contents"), 1.0F)
-                .model(filledModel)
-                .end();
+        basicItem(id);
         basicItem(id.withSuffix("_open_front"));
         basicItem(id.withSuffix("_open_back"));
     }

@@ -50,6 +50,34 @@
     {
       "id": "alexscaves:copper_valve",
       "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_lever",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_lever",
+      "required": false
+    },
+    {
+      "id": "cataclysm:sandstone_poison_dart_trap",
+      "required": false
+    },
+    {
+      "id": "cataclysm:sandstone_ignite_trap",
+      "required": false
+    },
+    {
+      "id": "cataclysm:purpur_void_rune_trap_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:end_stone_teleport_trap_bricks",
+      "required": false
+    },
+    {
+      "id": "cataclysm:obsidian_explosion_trap_bricks",
+      "required": false
     }
   ]
 }

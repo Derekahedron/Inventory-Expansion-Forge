@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "blue_skies:summoner_trophy",
+      "required": false
+    },
+    {
+      "id": "blue_skies:alchemist_trophy",
+      "required": false
+    },
+    {
+      "id": "blue_skies:starlit_crusher_trophy",
+      "required": false
+    },
+    {
+      "id": "blue_skies:arachnarch_trophy",
+      "required": false
+    }
+  ]
+}

@@ -7,6 +7,18 @@
     "minecraft:creeper_head",
     "minecraft:piglin_head",
     "minecraft:dragon_head",
-    "#forge:heads"
+    "#forge:heads",
+    {
+      "id": "cataclysm:aptrgangr_head",
+      "required": false
+    },
+    {
+      "id": "cataclysm:draugr_head",
+      "required": false
+    },
+    {
+      "id": "cataclysm:kobolediator_skull",
+      "required": false
+    }
   ]
 }

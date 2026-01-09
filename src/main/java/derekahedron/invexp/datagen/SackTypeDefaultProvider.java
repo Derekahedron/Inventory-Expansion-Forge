@@ -626,6 +626,11 @@ public class SackTypeDefaultProvider {
                         InvExpItemTags.SackType.METAL_PLATE,
                         sackTypeLookup.getOrThrow(SackTypes.METAL_PLATE)));
         context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("trophy")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.TROPHY,
+                        sackTypeLookup.getOrThrow(SackTypes.TROPHY)));
+        context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("unknown")),
                 new SackTypeDefault(
                         InvExpItemTags.SackType.UNKNOWN,
@@ -725,6 +730,63 @@ public class SackTypeDefaultProvider {
                         InvExpItemTags.SackType.NULL,
                         sackTypeLookup.getOrThrow(SackTypes.NULL)));
 
+        // Blue Skies Sack Types
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("pine_fruit_seeds")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.PINE_FRUIT_SEEDS,
+                        sackTypeLookup.getOrThrow(SackTypes.PINE_FRUIT_SEEDS)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("pine_fruit")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.PINE_FRUIT,
+                        sackTypeLookup.getOrThrow(SackTypes.PINE_FRUIT)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("winter_leaf_seeds")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.WINTER_LEAF_SEEDS,
+                        sackTypeLookup.getOrThrow(SackTypes.WINTER_LEAF_SEEDS)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("winter_leaves")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.WINTER_LEAVES,
+                        sackTypeLookup.getOrThrow(SackTypes.WINTER_LEAVES)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("scalefruit_seeds")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.SCALEFRUIT_SEEDS,
+                        sackTypeLookup.getOrThrow(SackTypes.SCALEFRUIT_SEEDS)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("scalefruit")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.SCALEFRUIT,
+                        sackTypeLookup.getOrThrow(SackTypes.SCALEFRUIT)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("fiery_bean_seeds")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.FIERY_BEAN_SEEDS,
+                        sackTypeLookup.getOrThrow(SackTypes.FIERY_BEAN_SEEDS)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("fiery_beans")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.FIERY_BEANS,
+                        sackTypeLookup.getOrThrow(SackTypes.FIERY_BEANS)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("cryo_root")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.CRYO_ROOT,
+                        sackTypeLookup.getOrThrow(SackTypes.CRYO_ROOT)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("solnut")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.SOLNUT,
+                        sackTypeLookup.getOrThrow(SackTypes.SOLNUT)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("warding_pearl")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.WARDING_PEARL,
+                        sackTypeLookup.getOrThrow(SackTypes.WARDING_PEARL)));
+
         // Deeper and Darker Sack Types
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("sculk_grime_bricks")),
@@ -800,15 +862,15 @@ public class SackTypeDefaultProvider {
                         InvExpItemTags.SackType.GLOWBALL,
                         sackTypeLookup.getOrThrow(SackTypes.GLOWBALL)));
         context.register(
-                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("efln")),
-                new SackTypeDefault(
-                        InvExpItemTags.SackType.EFLN,
-                        sackTypeLookup.getOrThrow(SackTypes.EFLN)));
-        context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("shuriken")),
                 new SackTypeDefault(
                         InvExpItemTags.SackType.SHURIKEN,
                         sackTypeLookup.getOrThrow(SackTypes.SHURIKEN)));
+        context.register(
+                ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("throwing_axe")),
+                new SackTypeDefault(
+                        InvExpItemTags.SackType.THROWING_AXE,
+                        sackTypeLookup.getOrThrow(SackTypes.THROWING_AXE)));
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("tinkers_reinforcement")),
                 new SackTypeDefault(

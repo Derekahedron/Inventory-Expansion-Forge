@@ -4,6 +4,22 @@
     "minecraft:polished_blackstone_pressure_plate",
     "minecraft:heavy_weighted_pressure_plate",
     "minecraft:light_weighted_pressure_plate",
-    "#minecraft:wooden_pressure_plates"
+    "#minecraft:wooden_pressure_plates",
+    {
+      "id": "blue_skies:crystallized_pressure_plate",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_stone_pressure_plate",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_stone_pressure_plate",
+      "required": false
+    },
+    {
+      "id": "blue_skies:moonstone_pressure_plate",
+      "required": false
+    }
   ]
 }

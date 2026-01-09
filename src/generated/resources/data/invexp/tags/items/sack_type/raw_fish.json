@@ -47,6 +47,26 @@
     {
       "id": "alexsmobs:flying_fish",
       "required": false
+    },
+    {
+      "id": "blue_skies:grittle_flatfish",
+      "required": false
+    },
+    {
+      "id": "blue_skies:municipal_monkfish",
+      "required": false
+    },
+    {
+      "id": "blue_skies:charscale_moki",
+      "required": false
+    },
+    {
+      "id": "blue_skies:horizofin_tunid",
+      "required": false
+    },
+    {
+      "id": "cataclysm:lionfish",
+      "required": false
     }
   ]
 }

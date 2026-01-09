@@ -124,6 +124,7 @@ public class SackTypes {
     public static final ResourceKey<SackType> STRAW = of("straw");
     public static final ResourceKey<SackType> ROPE = of("rope");
     public static final ResourceKey<SackType> METAL_PLATE = of("metal_plate");
+    public static final ResourceKey<SackType> TROPHY = of("trophy");
     public static final ResourceKey<SackType> UNKNOWN = of("unknown");
     // Alex's Caves Sack Types
     public static final ResourceKey<SackType> CAVE_TABLET = of("cave_tablet");
@@ -145,6 +146,18 @@ public class SackTypes {
     public static final ResourceKey<SackType> BODY_PART = of("body_part");
     public static final ResourceKey<SackType> WISPJELLY = of("wispjelly");
     public static final ResourceKey<SackType> NULL = of("null");
+    // Blue Skies Sack Types
+    public static final ResourceKey<SackType> PINE_FRUIT_SEEDS = of("pine_fruit_seeds");
+    public static final ResourceKey<SackType> PINE_FRUIT = of("pine_fruit");
+    public static final ResourceKey<SackType> WINTER_LEAF_SEEDS = of("winter_leaf_seeds");
+    public static final ResourceKey<SackType> WINTER_LEAVES = of("winter_leaves");
+    public static final ResourceKey<SackType> SCALEFRUIT_SEEDS = of("scalefruit_seeds");
+    public static final ResourceKey<SackType> SCALEFRUIT = of("scalefruit");
+    public static final ResourceKey<SackType> FIERY_BEAN_SEEDS = of("fiery_bean_seeds");
+    public static final ResourceKey<SackType> FIERY_BEANS = of("fiery_beans");
+    public static final ResourceKey<SackType> CRYO_ROOT = of("cryo_root");
+    public static final ResourceKey<SackType> SOLNUT = of("solnut");
+    public static final ResourceKey<SackType> WARDING_PEARL = of("warding_pearl");
     // Deeper and Darker Sack Types
     public static final ResourceKey<SackType> SCULK_GRIME_BRICKS = of("sculk_grime_bricks");
     public static final ResourceKey<SackType> BLOOM_BERRIES = of("bloom_berries");
@@ -163,8 +176,8 @@ public class SackTypes {
     public static final ResourceKey<SackType> KEY_BUTTON = of("key_button");
     // Tinkers Construct Sack Types
     public static final ResourceKey<SackType> GLOWBALL = of("glowball");
-    public static final ResourceKey<SackType> EFLN = of("efln");
     public static final ResourceKey<SackType> SHURIKEN = of("shuriken");
+    public static final ResourceKey<SackType> THROWING_AXE = of("throwing_axe");
     public static final ResourceKey<SackType> TINKERS_REINFORCEMENT = of("tinkers_reinforcement");
     public static final ResourceKey<SackType> PATTERN = of("pattern");
     public static final ResourceKey<SackType> REPAIR_KIT = of("repair_kit");
@@ -304,6 +317,7 @@ public class SackTypes {
         context.register(STRAW, new SackType());
         context.register(ROPE, new SackType());
         context.register(METAL_PLATE, new SackType());
+        context.register(TROPHY, new SackType());
         context.register(UNKNOWN, new SackType());
         // Alex's Caves Sack Types
         context.register(CAVE_TABLET, new SackType());
@@ -325,6 +339,18 @@ public class SackTypes {
         context.register(BODY_PART, new SackType());
         context.register(WISPJELLY, new SackType());
         context.register(NULL, new SackType());
+        // Biomes O' Plenty Sack Types
+        context.register(PINE_FRUIT_SEEDS, new SackType());
+        context.register(PINE_FRUIT, new SackType());
+        context.register(WINTER_LEAF_SEEDS, new SackType());
+        context.register(WINTER_LEAVES, new SackType());
+        context.register(SCALEFRUIT_SEEDS, new SackType());
+        context.register(SCALEFRUIT, new SackType());
+        context.register(FIERY_BEAN_SEEDS, new SackType());
+        context.register(FIERY_BEANS, new SackType());
+        context.register(CRYO_ROOT, new SackType());
+        context.register(SOLNUT, new SackType());
+        context.register(WARDING_PEARL, new SackType());
         // Deeper and Darker Sack Types
         context.register(SCULK_GRIME_BRICKS, new SackType());
         context.register(BLOOM_BERRIES, new SackType());
@@ -343,8 +369,8 @@ public class SackTypes {
         context.register(KEY_BUTTON, new SackType());
         // Tinkers Construct Sack Types
         context.register(GLOWBALL, new SackType());
-        context.register(EFLN, new SackType());
         context.register(SHURIKEN, new SackType());
+        context.register(THROWING_AXE, new SackType());
         context.register(TINKERS_REINFORCEMENT, new SackType());
         context.register(PATTERN, new SackType());
         context.register(REPAIR_KIT, new SackType());

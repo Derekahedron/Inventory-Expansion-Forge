@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 public class InvExpItemTags {
     public static final TagKey<Item> SACKS = of("sacks");
     public static final TagKey<Item> QUIVERS = of("quivers");
+    public static final TagKey<Item> BUNDLES = of("bundles");
     public static final TagKey<Item> DYEABLE_BUNDLES = of("dyeable_bundles");
 
     /**
@@ -138,6 +139,7 @@ public class InvExpItemTags {
         public static final TagKey<Item> STRAW = of("straw");
         public static final TagKey<Item> ROPE = of("rope");
         public static final TagKey<Item> METAL_PLATE = of("metal_plate");
+        public static final TagKey<Item> TROPHY = of("trophy");
         public static final TagKey<Item> UNKNOWN = of("unknown");
         // Alex's Caves Sack Types
         public static final TagKey<Item> CAVE_TABLET = of("cave_tablet");
@@ -159,6 +161,18 @@ public class InvExpItemTags {
         public static final TagKey<Item> BODY_PART = of("body_part");
         public static final TagKey<Item> WISPJELLY = of("wispjelly");
         public static final TagKey<Item> NULL = of("null");
+        // Blue Skies Sack Types
+        public static final TagKey<Item> PINE_FRUIT_SEEDS = of("pine_fruit_seeds");
+        public static final TagKey<Item> PINE_FRUIT = of("pine_fruit");
+        public static final TagKey<Item> WINTER_LEAF_SEEDS = of("winter_leaf_seeds");
+        public static final TagKey<Item> WINTER_LEAVES = of("winter_leaves");
+        public static final TagKey<Item> SCALEFRUIT_SEEDS = of("scalefruit_seeds");
+        public static final TagKey<Item> SCALEFRUIT = of("scalefruit");
+        public static final TagKey<Item> FIERY_BEAN_SEEDS = of("fiery_bean_seeds");
+        public static final TagKey<Item> FIERY_BEANS = of("fiery_beans");
+        public static final TagKey<Item> CRYO_ROOT = of("cryo_root");
+        public static final TagKey<Item> SOLNUT = of("solnut");
+        public static final TagKey<Item> WARDING_PEARL = of("warding_pearl");
         // Deeper and Darker Sack Types
         public static final TagKey<Item> SCULK_GRIME_BRICKS = of("sculk_grime_bricks");
         public static final TagKey<Item> BLOOM_BERRIES = of("bloom_berries");
@@ -177,8 +191,8 @@ public class InvExpItemTags {
         public static final TagKey<Item> KEY_BUTTON = of("key_button");
         // Tinkers Construct Sack Types
         public static final TagKey<Item> GLOWBALL = of("glowball");
-        public static final TagKey<Item> EFLN = of("efln");
         public static final TagKey<Item> SHURIKEN = of("shuriken");
+        public static final TagKey<Item> THROWING_AXE = of("throwing_axe");
         public static final TagKey<Item> TINKERS_REINFORCEMENT = of("tinkers_reinforcement");
         public static final TagKey<Item> PATTERN = of("pattern");
         public static final TagKey<Item> REPAIR_KIT = of("repair_kit");

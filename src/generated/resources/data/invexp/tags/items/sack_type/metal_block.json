@@ -153,6 +153,50 @@
       "required": false
     },
     {
+      "id": "#blue_skies:storage_blocks/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:enderite_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:witherite_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignitium_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:cursium_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_fence",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_wall",
+      "required": false
+    },
+    {
       "id": "create:andesite_ladder",
       "required": false
     },
