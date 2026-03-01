@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "#forge:storage_blocks/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/salmonberry",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/salmonberry",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberry",
+      "required": false
+    }
+  ]
+}
