@@ -14,6 +14,10 @@
     "#forge:storage_blocks/amethyst",
     "#forge:storage_blocks/quartz",
     {
+      "id": "#forge:storage_blocks/fluorite",
+      "required": false
+    },
+    {
       "id": "alexscaves:sulfur",
       "required": false
     },

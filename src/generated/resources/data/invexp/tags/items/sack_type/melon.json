@@ -2,6 +2,10 @@
   "values": [
     "minecraft:melon",
     "minecraft:melon_slice",
-    "minecraft:glistering_melon_slice"
+    "minecraft:glistering_melon_slice",
+    {
+      "id": "delightful:mini_melon",
+      "required": false
+    }
   ]
 }

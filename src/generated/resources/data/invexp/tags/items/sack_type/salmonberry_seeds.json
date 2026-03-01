@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#forge:seeds/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/salmonberry",
+      "required": false
+    }
+  ]
+}

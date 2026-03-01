@@ -13,7 +13,59 @@
       "required": false
     },
     {
+      "id": "#forge:plates/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/nickel",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/bronze",
+      "required": false
+    },
+    {
       "id": "#forge:plates/brass",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/steel",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/electrum",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/uranium",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/osmium",
+      "required": false
+    },
+    {
+      "id": "#forge:plates/cobalt",
       "required": false
     },
     {

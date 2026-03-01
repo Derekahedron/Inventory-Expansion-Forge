@@ -1,5 +1,9 @@
 {
   "values": [
-    "minecraft:chorus_fruit"
+    "minecraft:chorus_fruit",
+    {
+      "id": "endersdelight:chorus_crate",
+      "required": false
+    }
   ]
 }

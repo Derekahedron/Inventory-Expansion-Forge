@@ -41,6 +41,18 @@
       "required": false
     },
     {
+      "id": "#forge:seeds/cantaloupe",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/salmonberry",
+      "required": false
+    },
+    {
       "id": "alexscaves:magnetic_levitation_rail",
       "required": false
     },
@@ -54,6 +66,10 @@
     },
     {
       "id": "alexscaves:candy_cane",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lava_bottle",
       "required": false
     },
     {
@@ -126,6 +142,10 @@
     },
     {
       "id": "galosphere:pink_salt_straw",
+      "required": false
+    },
+    {
+      "id": "mekanism:fluorite_gem",
       "required": false
     },
     {

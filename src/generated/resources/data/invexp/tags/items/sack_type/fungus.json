@@ -27,11 +27,23 @@
       "required": false
     },
     {
+      "id": "endersdelight:amberveil",
+      "required": false
+    },
+    {
       "id": "farmersdelight:brown_mushroom_colony",
       "required": false
     },
     {
       "id": "farmersdelight:red_mushroom_colony",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:crimson_fungus_colony",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:warped_fungus_colony",
       "required": false
     },
     {

@@ -1,9 +1,10 @@
 package derekahedron.invexp.datagen;
 
 import derekahedron.invexp.InventoryExpansion;
-import derekahedron.invexp.datagen.compat.ItemTagsCompatibility;
+import derekahedron.invexp.datagen.compat.*;
 import derekahedron.invexp.item.InvExpItemTags;
 import derekahedron.invexp.item.InvExpItems;
+import derekahedron.invexp.util.CompatUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
@@ -81,7 +82,8 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
                 .addTag(Tags.Items.FENCES_WOODEN)
                 .addTag(Tags.Items.FENCE_GATES_WOODEN)
                 .addTag(Tags.Items.CHESTS_WOODEN)
-                .addTag(Tags.Items.BARRELS_WOODEN);
+                .addTag(Tags.Items.BARRELS_WOODEN)
+                .addTag(Tags.Items.RODS_WOODEN);
         tag(InvExpItemTags.SackType.DOOR)
                 .addTag(ItemTags.DOORS)
                 .addTag(ItemTags.TRAPDOORS);
@@ -1086,9 +1088,31 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
         tag(InvExpItemTags.SackWeight.DOUBLE)
                 .add(Items.TOTEM_OF_UNDYING);
 
-        ItemTagsCompatibility.addMiscTags(this);
-        ItemTagsCompatibility.addSackTypes(this);
-        ItemTagsCompatibility.addSackWeights(this);
+        tag(ItemTags.create(CompatUtil.curios("bundle")))
+                .addTag(InvExpItemTags.BUNDLES);
+
+        new ForgeItemTagsProvider(this).makeTags();
+        new AlexsCavesItemTagsProvider(this).makeTags();
+        new AlexsMobsItemTagsProvider(this).makeTags();
+        new ApotheosisItemTagsProvider(this).makeTags();
+        new ArtifactsItemTagsProvider(this).makeTags();
+        new BiomesOPlentyItemTagsProvider(this).makeTags();
+        new BlueSkiesItemTagsProvider(this).makeTags();
+        new CataclysmItemTagsProvider(this).makeTags();
+        new CreateItemTagsProvider(this).makeTags();
+        new DeeperDarkerItemTagsProvider(this).makeTags();
+        new DelightfulItemTagsProvider(this).makeTags();
+        new ElevatorItemTagsProvider(this).makeTags();
+        new EnderIOItemTagsProvider(this).makeTags();
+        new EndersDelightItemTagsProvider(this).makeTags();
+        new FarmersDelightItemTagsProvider(this).makeTags();
+        new GalosphereItemTagsProvider(this).makeTags();
+        new MekanismItemTagsProvider(this).makeTags();
+        new NethersDelightItemTagsProvider(this).makeTags();
+        new StorageDrawersItemTagsProvider(this).makeTags();
+        new TConstructItemTagsProvider(this).makeTags();
+        new WaystonesItemTagsProvider(this).makeTags();
+        new YungsCaveBiomesItemTagsProvider(this).makeTags();
     }
 
     @Override

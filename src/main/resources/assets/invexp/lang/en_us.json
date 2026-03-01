@@ -157,6 +157,10 @@
   "sack_type.invexp.cabbage_seeds": "Cabbage Seeds",
   "sack_type.invexp.tomato": "Tomatoes",
   "sack_type.invexp.tomato_seeds": "Tomato Seeds",
+  "sack_type.invexp.salmonberries": "Salmonberries",
+  "sack_type.invexp.salmonberry_seeds": "Salmonberry Seeds",
+  "sack_type.invexp.cantaloupe": "Cantaloupes",
+  "sack_type.invexp.cantaloupe_seeds": "Cantaloupe Seeds",
   "sack_type.invexp.onion": "Onions",
   "sack_type.invexp.rice": "Rice",
   "sack_type.invexp.straw": "Straw",
@@ -181,6 +185,8 @@
   "sack_type.invexp.sweets": "Sweets",
   "sack_type.invexp.jelly_bean": "Jelly Beans",
 
+  "sack_type.invexp.apotheosis_gem": "Gems",
+
   "sack_type.invexp.body_part": "Body Parts",
   "sack_type.invexp.wispjelly": "Wispjelly",
   "sack_type.invexp.null": "§kNULL",
@@ -199,6 +205,10 @@
 
   "sack_type.invexp.sculk_grime_bricks": "Sculk Grime Bricks",
   "sack_type.invexp.bloom_berries": "Bloom Berries",
+
+  "sack_type.invexp.elevator": "Elevators",
+
+  "sack_type.invexp.broken_spawner": "Broken Spawners",
 
   "sack_type.invexp.barometer": "Barometers",
   "sack_type.invexp.silver_bomb": "Silver Bombs",

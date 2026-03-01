@@ -468,7 +468,51 @@
       "required": false
     },
     {
+      "id": "delightful:animal_fat",
+      "required": false
+    },
+    {
+      "id": "delightful:raw_goat",
+      "required": false
+    },
+    {
+      "id": "endersdelight:mite_crust",
+      "required": false
+    },
+    {
+      "id": "endersdelight:enderman_sight",
+      "required": false
+    },
+    {
+      "id": "endersdelight:shulker_mollusk",
+      "required": false
+    },
+    {
+      "id": "endersdelight:ender_shard",
+      "required": false
+    },
+    {
+      "id": "endersdelight:sight_fragment",
+      "required": false
+    },
+    {
       "id": "galosphere:preserved_flesh",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_loin",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_ear",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:strider_slice",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_hide",
       "required": false
     },
     {

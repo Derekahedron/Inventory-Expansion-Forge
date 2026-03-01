@@ -2,10 +2,6 @@
   "values": [
     "#minecraft:trim_templates",
     {
-      "id": "deeperdarker:warden_upgrade_smithing_template",
-      "required": false
-    },
-    {
       "id": "cataclysm:ignitium_upgrade_smithing_template",
       "required": false
     },
@@ -14,7 +10,7 @@
       "required": false
     },
     {
-      "id": "galosphere:silver_upgrade_smithing_template",
+      "id": "deeperdarker:warden_upgrade_smithing_template",
       "required": false
     },
     {
