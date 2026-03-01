@@ -27,12 +27,16 @@ public class BetterClientBundleTooltip implements ClientTooltipComponent, Contai
     public static final Component BUNDLE_TOO_MANY_STACKS = Component.translatable("item.invexp.bundle.too_many_stacks");
     public static final Component BUNDLE_EMPTY_DESCRIPTION = Component.translatable("item.invexp.bundle.description.empty");
     public static final String BUNDLE_EMPTY_DESCRIPTION_PLURAL = "item.invexp.bundle.description.empty.plural";
-    private final BundleContents contents;
+
+    public final BundleContents contents;
+    @Nullable
+    public final Component description;
     @Nullable
     private Font lastFont;
 
     public BetterClientBundleTooltip(BetterBundleTooltip tooltip) {
         contents = tooltip.contents();
+        description = tooltip.description();
     }
 
     @Override
@@ -61,7 +65,13 @@ public class BetterClientBundleTooltip implements ClientTooltipComponent, Contai
         // Finally draw progress bar
         y += getProgressBarPadding();
         drawProgressBar(textRenderer, x, y, width, drawContext);
-        // y += getProgressBarPadding();
+        y += getProgressBarPadding();
+        if (description != null) {
+            drawContext.drawWordWrap(
+                    textRenderer, description, x + getXMargin(width), y,
+                    getTooltipWidth(), DESCRIPTION_TEXT_COLOR
+            );
+        }
     }
 
     @Override

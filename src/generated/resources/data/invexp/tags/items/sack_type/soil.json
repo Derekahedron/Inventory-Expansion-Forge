@@ -91,6 +91,14 @@
       "required": false
     },
     {
+      "id": "nethersdelight:soul_compost",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:rich_soul_soil",
+      "required": false
+    },
+    {
       "id": "tconstruct:grout",
       "required": false
     },

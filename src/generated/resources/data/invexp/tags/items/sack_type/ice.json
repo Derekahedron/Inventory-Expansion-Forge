@@ -4,6 +4,10 @@
     "minecraft:packed_ice",
     "minecraft:blue_ice",
     {
+      "id": "cataclysm:pointed_icicle",
+      "required": false
+    },
+    {
       "id": "yungscavebiomes:icicle",
       "required": false
     },
@@ -17,10 +21,6 @@
     },
     {
       "id": "yungscavebiomes:ice_sheet",
-      "required": false
-    },
-    {
-      "id": "cataclysm:pointed_icicle",
       "required": false
     }
   ]

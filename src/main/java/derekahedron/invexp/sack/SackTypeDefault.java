@@ -37,6 +37,10 @@ public record SackTypeDefault(
         this(Optional.of(priority), Optional.of(Ingredient.of(tag)), Optional.empty(), Optional.of(sackType));
     }
 
+    public SackTypeDefault(int priority, Ingredient items, Holder<SackType> sackType) {
+        this(Optional.of(priority), Optional.of(items), Optional.empty(), Optional.of(sackType));
+    }
+
     public SackTypeDefault(TagKey<Item> tag, Holder<SackType> sackType) {
         this(Optional.empty(), Optional.of(Ingredient.of(tag)), Optional.empty(), Optional.of(sackType));
     }

@@ -29,10 +29,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class InventoryExpansionClient {
 
     @SubscribeEvent
-    public static void setupTooltips(RegisterClientTooltipComponentFactoriesEvent event)
-    {
-        event.register(SackTooltip.class, (sackTooltipData) -> new ClientSackTooltip(sackTooltipData.contents()));
-        event.register(QuiverTooltip.class, (quiverTooltipData) -> new ClientQuiverTooltip(quiverTooltipData.contents()));
+    public static void setupTooltips(RegisterClientTooltipComponentFactoriesEvent event) {
+        event.register(SackTooltip.class, ClientSackTooltip::new);
+        event.register(QuiverTooltip.class, ClientQuiverTooltip::new);
         event.register(BetterBundleTooltip.class, BetterClientBundleTooltip::new);
     }
 

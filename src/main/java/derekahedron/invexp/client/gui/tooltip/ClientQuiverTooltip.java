@@ -1,7 +1,10 @@
 package derekahedron.invexp.client.gui.tooltip;
 
+import derekahedron.invexp.item.tooltip.BetterBundleTooltip;
+import derekahedron.invexp.item.tooltip.QuiverTooltip;
 import derekahedron.invexp.quiver.QuiverContents;
 import derekahedron.invexp.quiver.QuiverHelper;
+import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.util.InvExpUtil;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -29,12 +32,16 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
     public static final Component QUIVER_TOO_MANY_STACKS = Component.translatable("item.invexp.quiver.too_many_stacks");
     public static final Component QUIVER_EMPTY_DESCRIPTION = Component.translatable("item.invexp.quiver.description.empty");
     public static final String QUIVER_EMPTY_DESCRIPTION_PLURAL = "item.invexp.quiver.description.empty.plural";
+
     public final QuiverContents contents;
+    @Nullable
+    public final Component description;
     @Nullable
     private Font lastFont;
 
-    public ClientQuiverTooltip(QuiverContents contents) {
-        this.contents = contents;
+    public ClientQuiverTooltip(QuiverTooltip tooltip) {
+        contents = tooltip.contents();
+        description = tooltip.description();
     }
 
     @Override
@@ -61,7 +68,13 @@ public class ClientQuiverTooltip implements ClientTooltipComponent, ContainerIte
         // Finally draw progress bar
         y += getProgressBarPadding();
         drawProgressBar(textRenderer, x, y, width, drawContext);
-        // y += getProgressBarPadding();
+        y += getProgressBarPadding();
+        if (description != null) {
+            drawContext.drawWordWrap(
+                    textRenderer, description, x + getXMargin(width), y,
+                    getTooltipWidth(), DESCRIPTION_TEXT_COLOR
+            );
+        }
     }
 
     @Override

@@ -2,6 +2,7 @@ package derekahedron.invexp.item;
 
 import derekahedron.invexp.bundle.BundleContents;
 import derekahedron.invexp.util.OpenItemTexturesRegistry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -9,6 +10,9 @@ import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
+
+import javax.annotation.Nullable;
+
 public class BetterBundleItem extends BundleItem {
     public static final int FULL_ITEM_BAR_COLOR = Mth.color(1.0F, 0.33F, 0.33F);
 
@@ -54,6 +58,11 @@ public class BetterBundleItem extends BundleItem {
                 13,
                 1 + (fillFraction.getNumerator() * 12 / fillFraction.getDenominator())
         );
+    }
+
+    @Nullable
+    public Component getTooltipDescription(ItemStack stack) {
+        return null;
     }
 
     public int getMaxBundleWeightStacks() {

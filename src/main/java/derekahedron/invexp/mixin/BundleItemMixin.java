@@ -162,7 +162,14 @@ public abstract class BundleItemMixin {
             CallbackInfoReturnable<Optional<TooltipComponent>> cir) {
         BundleContents contents = BundleContents.of(bundleStack);
         if (contents != null) {
-            cir.setReturnValue(Optional.of(new BetterBundleTooltip(contents)));
+            BundleItem self = (BundleItem) (Object) this;
+            if (self instanceof BetterBundleItem betterBundleItem) {
+                cir.setReturnValue(Optional.of(new BetterBundleTooltip(
+                        contents,
+                        betterBundleItem.getTooltipDescription(bundleStack))));
+            } else {
+                cir.setReturnValue(Optional.of(new BetterBundleTooltip(contents)));
+            }
         }
         else {
             cir.setReturnValue(Optional.empty());

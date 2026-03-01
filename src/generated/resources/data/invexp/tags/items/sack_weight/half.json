@@ -80,6 +80,22 @@
       "required": false
     },
     {
+      "id": "#forge:fruits/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/salmonberry",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberry",
+      "required": false
+    },
+    {
       "id": "alexscaves:cave_map",
       "required": false
     },
@@ -368,11 +384,31 @@
       "required": false
     },
     {
+      "id": "delightful:matcha_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:salmonberry_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:source_berry_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:cantaloupe_slice",
+      "required": false
+    },
+    {
       "id": "galosphere:silver_lattice",
       "required": false
     },
     {
       "id": "galosphere:glow_ink_clumps",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:magma_gelatin",
       "required": false
     },
     {

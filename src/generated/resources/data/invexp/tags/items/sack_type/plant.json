@@ -315,6 +315,22 @@
       "required": false
     },
     {
+      "id": "delightful:green_tea_leaf",
+      "required": false
+    },
+    {
+      "id": "endersdelight:ethereal_saffron",
+      "required": false
+    },
+    {
+      "id": "endersdelight:voidpepper",
+      "required": false
+    },
+    {
+      "id": "endersdelight:chorusflame",
+      "required": false
+    },
+    {
       "id": "farmersdelight:sandy_shrub",
       "required": false
     },
@@ -332,6 +348,10 @@
     },
     {
       "id": "galosphere:lichen_shelf",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:propelplant_cane",
       "required": false
     },
     {

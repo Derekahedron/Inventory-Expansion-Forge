@@ -19,6 +19,26 @@
       "required": false
     },
     {
+      "id": "#forge:nuggets/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/nickel",
+      "required": false
+    },
+    {
       "id": "#forge:nuggets/silver",
       "required": false
     },
@@ -27,7 +47,19 @@
       "required": false
     },
     {
+      "id": "#forge:nuggets/bronze",
+      "required": false
+    },
+    {
       "id": "#forge:nuggets/brass",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/steel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/electrum",
       "required": false
     },
     {
@@ -35,11 +67,75 @@
       "required": false
     },
     {
+      "id": "#forge:nuggets/osmium",
+      "required": false
+    },
+    {
       "id": "#forge:nuggets/cobalt",
       "required": false
     },
     {
-      "id": "#forge:nuggets/steel",
+      "id": "alexscaves:mussel",
+      "required": false
+    },
+    {
+      "id": "alexscaves:moth_ball",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_nugget",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/copper_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/energetic_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/vibrant_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/redstone_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/conductive_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/pulsating_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/dark_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/soularium",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/end_steel",
       "required": false
     },
     {
@@ -72,34 +168,6 @@
     },
     {
       "id": "#forge:nuggets/hepatizon",
-      "required": false
-    },
-    {
-      "id": "alexscaves:mussel",
-      "required": false
-    },
-    {
-      "id": "alexscaves:moth_ball",
-      "required": false
-    },
-    {
-      "id": "#blue_skies:nuggets/falsite",
-      "required": false
-    },
-    {
-      "id": "#blue_skies:nuggets/ventium",
-      "required": false
-    },
-    {
-      "id": "#blue_skies:nuggets/horizonite",
-      "required": false
-    },
-    {
-      "id": "cataclysm:ancient_metal_nugget",
-      "required": false
-    },
-    {
-      "id": "cataclysm:black_steel_nugget",
       "required": false
     }
   ]

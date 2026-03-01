@@ -5,6 +5,7 @@ import derekahedron.invexp.item.tooltip.QuiverTooltip;
 import derekahedron.invexp.quiver.QuiverContents;
 import derekahedron.invexp.sound.InvExpSoundEvents;
 import derekahedron.invexp.util.InvExpUtil;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.SlotAccess;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 
 /**
@@ -215,9 +217,14 @@ public class QuiverItem extends Item {
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
         QuiverContents contents = QuiverContents.of(stack);
         if (contents != null) {
-            return Optional.of(new QuiverTooltip(contents));
+            return Optional.of(new QuiverTooltip(contents, getTooltipDescription(stack)));
         }
         return Optional.empty();
+    }
+
+    @Nullable
+    public Component getTooltipDescription(ItemStack stack) {
+        return null;
     }
 
     /**
