@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "tconstruct:shuriken",
+      "required": false
+    },
+    {
       "id": "tconstruct:quartz_shuriken",
       "required": false
     },

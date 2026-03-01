@@ -15,6 +15,7 @@
     "minecraft:raw_copper",
     "minecraft:amethyst_shard",
     "#minecraft:decorated_pot_sherds",
+    "minecraft:clay_ball",
     "minecraft:popped_chorus_fruit",
     "minecraft:brick",
     "minecraft:nether_brick",
@@ -40,6 +41,18 @@
       "required": false
     },
     {
+      "id": "#forge:seeds/cantaloupe",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:seeds/salmonberry",
+      "required": false
+    },
+    {
       "id": "alexscaves:magnetic_levitation_rail",
       "required": false
     },
@@ -53,6 +66,10 @@
     },
     {
       "id": "alexscaves:candy_cane",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:lava_bottle",
       "required": false
     },
     {
@@ -80,6 +97,30 @@
       "required": false
     },
     {
+      "id": "blue_skies:turquoise_dripstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_dripstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:pine_fruit_seeds",
+      "required": false
+    },
+    {
+      "id": "blue_skies:winter_leaf_seeds",
+      "required": false
+    },
+    {
+      "id": "blue_skies:scalefruit_seeds",
+      "required": false
+    },
+    {
+      "id": "blue_skies:fiery_bean_seeds",
+      "required": false
+    },
+    {
       "id": "deeperdarker:grime_ball",
       "required": false
     },
@@ -104,6 +145,10 @@
       "required": false
     },
     {
+      "id": "mekanism:fluorite_gem",
+      "required": false
+    },
+    {
       "id": "tconstruct:seared_brick",
       "required": false
     },
@@ -120,11 +165,23 @@
       "required": false
     },
     {
+      "id": "tconstruct:steel_shard",
+      "required": false
+    },
+    {
       "id": "tconstruct:ichor_slime_crystal",
       "required": false
     },
     {
+      "id": "tconstruct:cobalt_shard",
+      "required": false
+    },
+    {
       "id": "tconstruct:ender_slime_crystal",
+      "required": false
+    },
+    {
+      "id": "tconstruct:knightmetal_shard",
       "required": false
     }
   ]

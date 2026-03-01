@@ -4,8 +4,17 @@ import derekahedron.invexp.registry.InvExpRegistryKeys;
 import derekahedron.invexp.util.InvExpUtil;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SackTypes {
+    // Store all types
+    public static final List<ResourceKey<SackType>> SACK_TYPES = new ArrayList<>();
+
     // Vanilla Sack Types
     public static final ResourceKey<SackType> WOOD = of("wood");
     public static final ResourceKey<SackType> DOOR = of("door");
@@ -14,7 +23,6 @@ public class SackTypes {
     public static final ResourceKey<SackType> STONE = of("stone");
     public static final ResourceKey<SackType> BRICKS = of("bricks");
     public static final ResourceKey<SackType> MUD_BRICKS = of("mud_bricks");
-    public static final ResourceKey<SackType> RESIN_BRICKS = of("resin_bricks");
     public static final ResourceKey<SackType> SANDSTONE = of("sandstone");
     public static final ResourceKey<SackType> PRISMARINE = of("prismarine");
     public static final ResourceKey<SackType> NETHER_BRICKS = of("nether_bricks");
@@ -119,11 +127,16 @@ public class SackTypes {
     public static final ResourceKey<SackType> CABBAGE_SEEDS = of("cabbage_seeds");
     public static final ResourceKey<SackType> TOMATO = of("tomato");
     public static final ResourceKey<SackType> TOMATO_SEEDS = of("tomato_seeds");
+    public static final ResourceKey<SackType> CANTALOUPE = of("cantaloupe");
+    public static final ResourceKey<SackType> CANTALOUPE_SEEDS = of("cantaloupe_seeds");
+    public static final ResourceKey<SackType> SALMONBERRIES = of("salmonberries");
+    public static final ResourceKey<SackType> SALMONBERRY_SEEDS = of("salmonberry_seeds");
     public static final ResourceKey<SackType> ONION = of("onion");
     public static final ResourceKey<SackType> RICE = of("rice");
     public static final ResourceKey<SackType> STRAW = of("straw");
     public static final ResourceKey<SackType> ROPE = of("rope");
     public static final ResourceKey<SackType> METAL_PLATE = of("metal_plate");
+    public static final ResourceKey<SackType> TROPHY = of("trophy");
     public static final ResourceKey<SackType> UNKNOWN = of("unknown");
     // Alex's Caves Sack Types
     public static final ResourceKey<SackType> CAVE_TABLET = of("cave_tablet");
@@ -141,13 +154,31 @@ public class SackTypes {
     public static final ResourceKey<SackType> MOTH_BALL = of("moth_ball");
     public static final ResourceKey<SackType> SWEETS = of("sweets");
     public static final ResourceKey<SackType> JELLY_BEAN = of("jelly_bean");
+    // Apothesis Sack Types
+    public static final ResourceKey<SackType> APOTHEOSIS_GEM = of("apotheosis_gem");
     // Biomes O' Plenty Sack Types
     public static final ResourceKey<SackType> BODY_PART = of("body_part");
     public static final ResourceKey<SackType> WISPJELLY = of("wispjelly");
     public static final ResourceKey<SackType> NULL = of("null");
+    // Blue Skies Sack Types
+    public static final ResourceKey<SackType> PINE_FRUIT_SEEDS = of("pine_fruit_seeds");
+    public static final ResourceKey<SackType> PINE_FRUIT = of("pine_fruit");
+    public static final ResourceKey<SackType> WINTER_LEAF_SEEDS = of("winter_leaf_seeds");
+    public static final ResourceKey<SackType> WINTER_LEAVES = of("winter_leaves");
+    public static final ResourceKey<SackType> SCALEFRUIT_SEEDS = of("scalefruit_seeds");
+    public static final ResourceKey<SackType> SCALEFRUIT = of("scalefruit");
+    public static final ResourceKey<SackType> FIERY_BEAN_SEEDS = of("fiery_bean_seeds");
+    public static final ResourceKey<SackType> FIERY_BEANS = of("fiery_beans");
+    public static final ResourceKey<SackType> CRYO_ROOT = of("cryo_root");
+    public static final ResourceKey<SackType> SOLNUT = of("solnut");
+    public static final ResourceKey<SackType> WARDING_PEARL = of("warding_pearl");
     // Deeper and Darker Sack Types
     public static final ResourceKey<SackType> SCULK_GRIME_BRICKS = of("sculk_grime_bricks");
     public static final ResourceKey<SackType> BLOOM_BERRIES = of("bloom_berries");
+    // Elevators Sack Types
+    public static final ResourceKey<SackType> ELEVATOR = of("elevator");
+    // EnderIO Sack Types
+    public static final ResourceKey<SackType> BROKEN_SPAWNER = of("broken_spawner");
     // Farmer's Delight Sack Types
     public static final ResourceKey<SackType> RICE_PANICLE = of("rice_panicle");
     public static final ResourceKey<SackType> ANIMAL_FOOD = of("animal_food");
@@ -163,8 +194,8 @@ public class SackTypes {
     public static final ResourceKey<SackType> KEY_BUTTON = of("key_button");
     // Tinkers Construct Sack Types
     public static final ResourceKey<SackType> GLOWBALL = of("glowball");
-    public static final ResourceKey<SackType> EFLN = of("efln");
     public static final ResourceKey<SackType> SHURIKEN = of("shuriken");
+    public static final ResourceKey<SackType> THROWING_AXE = of("throwing_axe");
     public static final ResourceKey<SackType> TINKERS_REINFORCEMENT = of("tinkers_reinforcement");
     public static final ResourceKey<SackType> PATTERN = of("pattern");
     public static final ResourceKey<SackType> REPAIR_KIT = of("repair_kit");
@@ -182,183 +213,18 @@ public class SackTypes {
     public static final ResourceKey<SackType> WARP_PLATE = of("warp_plate");
 
     public static ResourceKey<SackType> of(String id) {
-        return ResourceKey.create(InvExpRegistryKeys.SACK_TYPE, InvExpUtil.location(id));
+        ResourceKey<SackType> sackType = ResourceKey.create(InvExpRegistryKeys.SACK_TYPE, InvExpUtil.location(id));
+        SACK_TYPES.add(sackType);
+        return sackType;
+    }
+
+    public static TagKey<Item> getItemTag(ResourceKey<SackType> sackType) {
+        return ItemTags.create(sackType.location().withPrefix("sack_type/"));
     }
 
     public static void bootstrap(BootstapContext<SackType> context) {
-        // Vanilla Sack Types
-        context.register(WOOD, new SackType());
-        context.register(DOOR, new SackType());
-        context.register(PRESSURE_PLATE, new SackType());
-        context.register(BUTTON, new SackType());
-        context.register(STONE, new SackType());
-        context.register(BRICKS, new SackType());
-        context.register(MUD_BRICKS, new SackType());
-        context.register(RESIN_BRICKS, new SackType());
-        context.register(SANDSTONE, new SackType());
-        context.register(PRISMARINE, new SackType());
-        context.register(NETHER_BRICKS, new SackType());
-        context.register(PURPUR, new SackType());
-        context.register(METAL_BLOCK, new SackType());
-        context.register(CRYSTAL_BLOCK, new SackType());
-        context.register(CHAINS, new SackType());
-        context.register(WOOL, new SackType());
-        context.register(TERRACOTTA, new SackType());
-        context.register(CONCRETE, new SackType());
-        context.register(CONCRETE_POWDER, new SackType());
-        context.register(GLASS, new SackType());
-        context.register(BED, new SackType());
-        context.register(CANDLE, new SackType());
-        context.register(BANNER, new SackType());
-        context.register(SOIL, new SackType());
-        context.register(ICE, new SackType());
-        context.register(SNOW, new SackType());
-        context.register(BONE_BLOCK, new SackType());
-        context.register(ORE, new SackType());
-        context.register(FUNGUS, new SackType());
-        context.register(PLANT, new SackType());
-        context.register(BAMBOO, new SackType());
-        context.register(CHORUS_FRUIT, new SackType());
-        context.register(EGG, new SackType());
-        context.register(WHEAT_SEEDS, new SackType());
-        context.register(COCOA_BEANS, new SackType());
-        context.register(PUMPKIN_SEEDS, new SackType());
-        context.register(MELON_SEEDS, new SackType());
-        context.register(BEETROOT_SEEDS, new SackType());
-        context.register(TORCHFLOWER_SEEDS, new SackType());
-        context.register(PITCHER_POD, new SackType());
-        context.register(GLOW_BERRIES, new SackType());
-        context.register(SWEET_BERRIES, new SackType());
-        context.register(NETHER_WART, new SackType());
-        context.register(SEA_CREATURE, new SackType());
-        context.register(KELP, new SackType());
-        context.register(CORAL, new SackType());
-        context.register(SPONGE, new SackType());
-        context.register(MELON, new SackType());
-        context.register(PUMPKIN, new SackType());
-        context.register(NEST, new SackType());
-        context.register(HONEY, new SackType());
-        context.register(FROGLIGHT, new SackType());
-        context.register(SCULK, new SackType());
-        context.register(COBWEB, new SackType());
-        context.register(BEDROCK, new SackType());
-        context.register(TORCH, new SackType());
-        context.register(LANTERN, new SackType());
-        context.register(END_CRYSTAL, new SackType());
-        context.register(BELL, new SackType());
-        context.register(SCAFFOLDING, new SackType());
-        context.register(POT, new SackType());
-        context.register(ARMOR_STAND, new SackType());
-        context.register(ITEM_FRAME, new SackType());
-        context.register(PAINTING, new SackType());
-        context.register(SIGN, new SackType());
-        context.register(HEAD, new SackType());
-        context.register(INFESTED_STONE, new SackType());
-        context.register(REDSTONE_COMPONENT, new SackType());
-        context.register(RAIL, new SackType());
-        context.register(MINECART, new SackType());
-        context.register(TNT, new SackType());
-        context.register(BUCKET, new SackType());
-        context.register(FIRE_CHARGE, new SackType());
-        context.register(BONE_MEAL, new SackType());
-        context.register(NAME_TAG, new SackType());
-        context.register(LEAD, new SackType());
-        context.register(COMPASS, new SackType());
-        context.register(CLOCK, new SackType());
-        context.register(MAP, new SackType());
-        context.register(FIREWORK_ROCKET, new SackType());
-        context.register(SADDLE, new SackType());
-        context.register(BOAT, new SackType());
-        context.register(GOAT_HORN, new SackType());
-        context.register(MUSIC_DISC, new SackType());
-        context.register(TOTEM_OF_UNDYING, new SackType());
-        context.register(ARROW, new SackType());
-        context.register(FOOD, new SackType());
-        context.register(CARROT, new SackType());
-        context.register(POTATO, new SackType());
-        context.register(BEETROOT, new SackType());
-        context.register(RAW_FISH, new SackType());
-        context.register(BOTTLE, new SackType());
-        context.register(POTION, new SackType());
-        context.register(WHEAT, new SackType());
-        context.register(CREATURE, new SackType());
-        context.register(HEART_OF_THE_SEA, new SackType());
-        context.register(DYE, new SackType());
-        context.register(PAPER, new SackType());
-        context.register(BOOK, new SackType());
-        context.register(FIREWORK_STAR, new SackType());
-        context.register(SUGAR, new SackType());
-        context.register(BANNER_PATTERN, new SackType());
-        context.register(POTTERY_SHERD, new SackType());
-        context.register(SMITHING_TEMPLATE, new SackType());
-        context.register(KEY, new SackType());
-        context.register(SPAWN_EGG, new SackType());
-        context.register(COMMAND_BLOCK, new SackType());
-        // Extra Sack Types
-        context.register(CABBAGE, new SackType());
-        context.register(CABBAGE_SEEDS, new SackType());
-        context.register(TOMATO, new SackType());
-        context.register(TOMATO_SEEDS, new SackType());
-        context.register(ONION, new SackType());
-        context.register(RICE, new SackType());
-        context.register(STRAW, new SackType());
-        context.register(ROPE, new SackType());
-        context.register(METAL_PLATE, new SackType());
-        context.register(UNKNOWN, new SackType());
-        // Alex's Caves Sack Types
-        context.register(CAVE_TABLET, new SackType());
-        context.register(CAVE_CODEX, new SackType());
-        context.register(TESLA_BULB, new SackType());
-        context.register(OMINOUS_CATALYST, new SackType());
-        context.register(TOXIC_WASTE, new SackType());
-        context.register(NUCLEAR_BOMB, new SackType());
-        context.register(RADON_LAMP, new SackType());
-        context.register(FLOATER, new SackType());
-        context.register(INK_BOMB, new SackType());
-        context.register(DEPTH_CHARGE, new SackType());
-        context.register(GUANO, new SackType());
-        context.register(FERTILIZER, new SackType());
-        context.register(MOTH_BALL, new SackType());
-        context.register(SWEETS, new SackType());
-        context.register(JELLY_BEAN, new SackType());
-        // Biomes O' Plenty Sack Types
-        context.register(BODY_PART, new SackType());
-        context.register(WISPJELLY, new SackType());
-        context.register(NULL, new SackType());
-        // Deeper and Darker Sack Types
-        context.register(SCULK_GRIME_BRICKS, new SackType());
-        context.register(BLOOM_BERRIES, new SackType());
-        // Farmer's Delight Sack Types
-        context.register(RICE_PANICLE, new SackType());
-        context.register(ANIMAL_FOOD, new SackType());
-        // Galosphere Sack Types
-        context.register(BAROMETER, new SackType());
-        context.register(SILVER_BOMB, new SackType());
-        context.register(GLOW_FLARE, new SackType());
-        context.register(SPECTRE_FLARE, new SackType());
-        context.register(GLOW_INK_CLUMPS, new SackType());
-        // Storage Drawers Sack Types
-        context.register(DRAWER_UPGRADE, new SackType());
-        context.register(DRAWER_CONTROLLER, new SackType());
-        context.register(KEY_BUTTON, new SackType());
-        // Tinkers Construct Sack Types
-        context.register(GLOWBALL, new SackType());
-        context.register(EFLN, new SackType());
-        context.register(SHURIKEN, new SackType());
-        context.register(TINKERS_REINFORCEMENT, new SackType());
-        context.register(PATTERN, new SackType());
-        context.register(REPAIR_KIT, new SackType());
-        context.register(TOOL_PART, new SackType());
-        context.register(MODIFIER_CRYSTAL, new SackType());
-        context.register(COPPER_CAN, new SackType());
-        context.register(SEARED_STONE, new SackType());
-        context.register(SCORCHED_STONE, new SackType());
-        context.register(TANK, new SackType());
-        context.register(CAST, new SackType());
-        // Waystones Sack Types
-        context.register(WAYSTONE, new SackType());
-        context.register(SHARESTONE, new SackType());
-        context.register(PORTSTONE, new SackType());
-        context.register(WARP_PLATE, new SackType());
+        for (ResourceKey<SackType> sackTypeKey : SACK_TYPES) {
+            context.register(sackTypeKey, new SackType());
+        }
     }
 }

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "delightful:cantaloupe",
+      "required": false
+    },
+    {
+      "id": "delightful:cantaloupe_slice",
+      "required": false
+    }
+  ]
+}

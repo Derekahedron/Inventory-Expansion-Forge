@@ -129,11 +129,11 @@ public abstract class AbstractContainerScreenMixin {
         else if (invexp_$currentSlot != slot) {
             if (!invexp$hasMoved) {
                 invexp$hasMoved = true;
-                quickCraftSlots.clear();
                 dragger.onHover(invexp_$currentSlot, self);
             }
             invexp_$currentSlot = slot;
             dragger.onHover(invexp_$currentSlot, self);
+            quickCraftSlots.clear();
         }
         cir.setReturnValue(true);
         cir.cancel();

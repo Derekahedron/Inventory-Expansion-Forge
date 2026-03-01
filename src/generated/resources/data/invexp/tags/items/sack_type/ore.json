@@ -72,7 +72,23 @@
     "#forge:storage_blocks/raw_iron",
     "#forge:storage_blocks/redstone",
     {
-      "id": "#forge:ores/silver",
+      "id": "#forge:raw_materials/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:raw_materials/nickel",
       "required": false
     },
     {
@@ -88,11 +104,31 @@
       "required": false
     },
     {
-      "id": "#forge:raw_materials/pearl",
+      "id": "#forge:raw_materials/osmium",
       "required": false
     },
     {
       "id": "#forge:raw_materials/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/nickel",
       "required": false
     },
     {
@@ -104,11 +140,11 @@
       "required": false
     },
     {
-      "id": "#forge:ingots/brass",
+      "id": "#forge:ingots/bronze",
       "required": false
     },
     {
-      "id": "#forge:ingots/cobalt",
+      "id": "#forge:ingots/brass",
       "required": false
     },
     {
@@ -116,35 +152,23 @@
       "required": false
     },
     {
-      "id": "#forge:ingots/slimesteel",
+      "id": "#forge:ingots/constantan",
       "required": false
     },
     {
-      "id": "#forge:ingots/amethyst_bronze",
+      "id": "#forge:ingots/electrum",
       "required": false
     },
     {
-      "id": "#forge:ingots/rose_gold",
+      "id": "#forge:ingots/uranium",
       "required": false
     },
     {
-      "id": "#forge:ingots/pig_iron",
+      "id": "#forge:ingots/osmium",
       "required": false
     },
     {
-      "id": "#forge:ingots/cinderslime",
-      "required": false
-    },
-    {
-      "id": "#forge:ingots/queens_slime",
-      "required": false
-    },
-    {
-      "id": "#forge:ingots/manyullyn",
-      "required": false
-    },
-    {
-      "id": "#forge:ingots/hepatizon",
+      "id": "#forge:ingots/cobalt",
       "required": false
     },
     {
@@ -168,6 +192,26 @@
       "required": false
     },
     {
+      "id": "#forge:nuggets/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/nickel",
+      "required": false
+    },
+    {
       "id": "#forge:nuggets/silver",
       "required": false
     },
@@ -176,15 +220,11 @@
       "required": false
     },
     {
+      "id": "#forge:nuggets/bronze",
+      "required": false
+    },
+    {
       "id": "#forge:nuggets/brass",
-      "required": false
-    },
-    {
-      "id": "#forge:nuggets/uranium",
-      "required": false
-    },
-    {
-      "id": "#forge:nuggets/cobalt",
       "required": false
     },
     {
@@ -192,35 +232,27 @@
       "required": false
     },
     {
-      "id": "#forge:nuggets/slimesteel",
+      "id": "#forge:nuggets/constantan",
       "required": false
     },
     {
-      "id": "#forge:nuggets/amethyst_bronze",
+      "id": "#forge:nuggets/electrum",
       "required": false
     },
     {
-      "id": "#forge:nuggets/rose_gold",
+      "id": "#forge:nuggets/uranium",
       "required": false
     },
     {
-      "id": "#forge:nuggets/pig_iron",
+      "id": "#forge:nuggets/osmium",
       "required": false
     },
     {
-      "id": "#forge:nuggets/cinderslime",
+      "id": "#forge:nuggets/cobalt",
       "required": false
     },
     {
-      "id": "#forge:nuggets/queens_slime",
-      "required": false
-    },
-    {
-      "id": "#forge:nuggets/manyullyn",
-      "required": false
-    },
-    {
-      "id": "#forge:nuggets/hepatizon",
+      "id": "#forge:gems/fluorite",
       "required": false
     },
     {
@@ -236,6 +268,10 @@
       "required": false
     },
     {
+      "id": "#forge:storage_blocks/raw_nickel",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/raw_silver",
       "required": false
     },
@@ -245,6 +281,10 @@
     },
     {
       "id": "#forge:storage_blocks/raw_cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_uranium",
       "required": false
     },
     {
@@ -352,7 +392,183 @@
       "required": false
     },
     {
+      "id": "blue_skies:sunstone_crystal",
+      "required": false
+    },
+    {
+      "id": "blue_skies:moonstone_crystal",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/aquite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/charoite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:raw_materials/horizonite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone_shard",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/pyrope",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/aquite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/diopside",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/charoite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:nuggets/horizonite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:ingots/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:witherite_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_nugget",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignitium_ingot",
+      "required": false
+    },
+    {
+      "id": "cataclysm:cursium_ingot",
+      "required": false
+    },
+    {
       "id": "create:andesite_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/copper_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/energetic_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/vibrant_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/redstone_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/conductive_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/pulsating_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/dark_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/soularium",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/end_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/copper_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/energetic_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/vibrant_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/redstone_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/conductive_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/pulsating_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/dark_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/soularium",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/end_steel",
       "required": false
     },
     {
@@ -389,6 +605,70 @@
     },
     {
       "id": "galosphere:pink_salt_cluster",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/slimesteel",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/amethyst_bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/rose_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/pig_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:ingots/hepatizon",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/slimesteel",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/amethyst_bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/rose_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/pig_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:nuggets/hepatizon",
       "required": false
     },
     {
@@ -432,6 +712,14 @@
       "required": false
     },
     {
+      "id": "tconstruct:steel_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:steel_cluster",
+      "required": false
+    },
+    {
       "id": "tconstruct:ichor_slime_crystal",
       "required": false
     },
@@ -452,6 +740,14 @@
       "required": false
     },
     {
+      "id": "tconstruct:cobalt_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:cobalt_cluster",
+      "required": false
+    },
+    {
       "id": "tconstruct:ender_slime_crystal",
       "required": false
     },
@@ -469,6 +765,14 @@
     },
     {
       "id": "tconstruct:ender_slime_crystal_cluster",
+      "required": false
+    },
+    {
+      "id": "tconstruct:knightmetal_shard",
+      "required": false
+    },
+    {
+      "id": "tconstruct:knightmetal_cluster",
       "required": false
     }
   ]

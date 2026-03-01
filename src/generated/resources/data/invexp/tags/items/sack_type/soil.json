@@ -35,6 +35,50 @@
       "required": false
     },
     {
+      "id": "blue_skies:turquoise_grass_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_comet_grass_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_dirt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:coarse_turquoise_dirt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:turquoise_farmland",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_grass_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_comet_grass_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_dirt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:coarse_lunar_dirt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_farmland",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_mud",
+      "required": false
+    },
+    {
       "id": "deeperdarker:sculk_grime",
       "required": false
     },
@@ -44,6 +88,14 @@
     },
     {
       "id": "deeperdarker:grime_ball",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:soul_compost",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:rich_soul_soil",
       "required": false
     },
     {

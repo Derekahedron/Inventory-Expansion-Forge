@@ -101,15 +101,14 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
     maven {
         name "Modrinth"
         url "https://api.modrinth.com/maven"
+    }
+    // JEI Maven
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
     }
 }
 
@@ -121,21 +120,22 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("maven.modrinth:mantle:1.11.79")
-    implementation fg.deobf("maven.modrinth:tinkers-construct:3.10.2.92")
+    implementation fg.deobf("maven.modrinth:mantle:1.11.97")
+    implementation fg.deobf("maven.modrinth:tinkers-construct:3.11.1.158")
     implementation fg.deobf("maven.modrinth:citadel:2.6.2")
     implementation fg.deobf("maven.modrinth:alexs-caves:2.0.2")
     implementation fg.deobf("maven.modrinth:deeperdarker:1.3.3-forge+1.20.1")
-    implementation fg.deobf("maven.modrinth:biomes-o-plenty:19.0.0.96")
-    implementation fg.deobf("maven.modrinth:terrablender:3.0.1.10")
-    implementation fg.deobf("maven.modrinth:glitchcore:0.0.1.1")
-    implementation fg.deobf("maven.modrinth:yungs-api:1.20-Forge-4.0.6")
-    implementation fg.deobf("maven.modrinth:yungs-cave-biomes:1.20.1-Forge-2.0.5")
-    implementation fg.deobf("maven.modrinth:geckolib:aVW7Z5da")
-    implementation fg.deobf("maven.modrinth:storagedrawers:8raubcF4")
-//    implementation fg.deobf("maven.modrinth:galosphere:JCd7hBd9")
-    implementation fg.deobf("maven.modrinth:waystones:14.1.17+forge-1.20.1")
-    implementation fg.deobf("maven.modrinth:balm:7.3.37+forge-1.20.1")
+//    runtimeOnly fg.deobf("maven.modrinth:biomes-o-plenty:19.0.0.96")
+//    runtimeOnly fg.deobf("maven.modrinth:terrablender:3.0.1.10")
+//    runtimeOnly fg.deobf("maven.modrinth:glitchcore:0.0.1.1")
+//    runtimeOnly fg.deobf("maven.modrinth:yungs-api:1.20-Forge-4.0.6")
+//    runtimeOnly fg.deobf("maven.modrinth:yungs-cave-biomes:1.20.1-Forge-2.0.5")
+//    runtimeOnly fg.deobf("maven.modrinth:geckolib:aVW7Z5da")
+//    runtimeOnly fg.deobf("maven.modrinth:storagedrawers:8raubcF4")
+////    runtimeOnly fg.deobf("maven.modrinth:galosphere:JCd7hBd9")
+//    runtimeOnly fg.deobf("maven.modrinth:waystones:14.1.17+forge-1.20.1")
+//    runtimeOnly fg.deobf("maven.modrinth:balm:7.3.37+forge-1.20.1")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

@@ -11,6 +11,10 @@
       "required": false
     },
     {
+      "id": "alexsmobs:sculk_boomer",
+      "required": false
+    },
+    {
       "id": "deeperdarker:gloomy_sculk",
       "required": false
     },

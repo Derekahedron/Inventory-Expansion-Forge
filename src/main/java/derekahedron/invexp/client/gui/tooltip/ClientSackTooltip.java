@@ -1,5 +1,7 @@
 package derekahedron.invexp.client.gui.tooltip;
 
+import derekahedron.invexp.item.tooltip.QuiverTooltip;
+import derekahedron.invexp.item.tooltip.SackTooltip;
 import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.util.InvExpUtil;
 import net.minecraft.client.gui.Font;
@@ -34,10 +36,13 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
 
     public final SackContentsReader contents;
     @Nullable
+    public final Component description;
+    @Nullable
     private Font lastFont;
 
-    public ClientSackTooltip(SackContentsReader contents) {
-        this.contents = contents;
+    public ClientSackTooltip(SackTooltip tooltip) {
+        contents = tooltip.contents();
+        description = tooltip.description();
     }
 
     @Override
@@ -72,7 +77,13 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         // Finally draw progress bar
         y += getProgressBarPadding();
         drawProgressBar(textRenderer, x, y, width, drawContext);
-        // y += getProgressBarPadding();
+        y += getProgressBarPadding();
+        if (description != null) {
+            drawContext.drawWordWrap(
+                    textRenderer, description, x + getXMargin(width), y,
+                    getTooltipWidth(), DESCRIPTION_TEXT_COLOR
+            );
+        }
     }
 
     @Override

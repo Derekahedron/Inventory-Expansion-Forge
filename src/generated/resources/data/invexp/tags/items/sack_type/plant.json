@@ -199,6 +199,98 @@
       "required": false
     },
     {
+      "id": "blue_skies:turquoise_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:tall_turquoise_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brittlebush",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brewberry_bush",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:tall_lunar_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:muckweed",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystallized_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:glimmer_reed",
+      "required": false
+    },
+    {
+      "id": "blue_skies:moonlit_water_lily",
+      "required": false
+    },
+    {
+      "id": "blue_skies:comet_grass",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble",
+      "required": false
+    },
+    {
+      "id": "blue_skies:brumble_vine_top",
+      "required": false
+    },
+    {
+      "id": "blue_skies:sea_moss",
+      "required": false
+    },
+    {
+      "id": "blue_skies:sea_moss_block",
+      "required": false
+    },
+    {
+      "id": "blue_skies:sea_moss_carpet",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chilled_lily_pad",
+      "required": false
+    },
+    {
+      "id": "blue_skies:bluebright_vine",
+      "required": false
+    },
+    {
+      "id": "blue_skies:starlit_vine",
+      "required": false
+    },
+    {
+      "id": "blue_skies:frostbright_vine",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_vine",
+      "required": false
+    },
+    {
+      "id": "blue_skies:dusk_vine",
+      "required": false
+    },
+    {
+      "id": "blue_skies:maple_vine",
+      "required": false
+    },
+    {
       "id": "deeperdarker:blooming_moss_block",
       "required": false
     },
@@ -223,6 +315,22 @@
       "required": false
     },
     {
+      "id": "delightful:green_tea_leaf",
+      "required": false
+    },
+    {
+      "id": "endersdelight:ethereal_saffron",
+      "required": false
+    },
+    {
+      "id": "endersdelight:voidpepper",
+      "required": false
+    },
+    {
+      "id": "endersdelight:chorusflame",
+      "required": false
+    },
+    {
       "id": "farmersdelight:sandy_shrub",
       "required": false
     },
@@ -240,6 +348,10 @@
     },
     {
       "id": "galosphere:lichen_shelf",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:propelplant_cane",
       "required": false
     },
     {

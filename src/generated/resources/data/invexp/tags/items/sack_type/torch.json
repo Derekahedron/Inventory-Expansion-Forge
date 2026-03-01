@@ -5,6 +5,10 @@
     {
       "id": "alexscaves:bioluminescent_torch",
       "required": false
+    },
+    {
+      "id": "nethersdelight:propelplant_torch",
+      "required": false
     }
   ]
 }

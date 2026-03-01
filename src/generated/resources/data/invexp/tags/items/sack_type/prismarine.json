@@ -54,6 +54,14 @@
     {
       "id": "alexscaves:abyssmarine_tiles",
       "required": false
+    },
+    {
+      "id": "cataclysm:prismarine_brick_fence",
+      "required": false
+    },
+    {
+      "id": "cataclysm:prismarine_brick_wall",
+      "required": false
     }
   ]
 }

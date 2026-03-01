@@ -4,6 +4,11 @@
     "minecraft:ender_eye",
     "minecraft:string",
     "minecraft:ender_pearl",
+    "minecraft:beef",
+    "minecraft:porkchop",
+    "minecraft:mutton",
+    "minecraft:chicken",
+    "minecraft:rabbit",
     "minecraft:rotten_flesh",
     "minecraft:spider_eye",
     "minecraft:bone",
@@ -379,6 +384,66 @@
       "required": false
     },
     {
+      "id": "blue_skies:azulfo_horn",
+      "required": false
+    },
+    {
+      "id": "blue_skies:fox_pelt",
+      "required": false
+    },
+    {
+      "id": "blue_skies:bug_guts",
+      "required": false
+    },
+    {
+      "id": "blue_skies:soul_fragment",
+      "required": false
+    },
+    {
+      "id": "blue_skies:star_flare",
+      "required": false
+    },
+    {
+      "id": "blue_skies:carabeef",
+      "required": false
+    },
+    {
+      "id": "blue_skies:venison",
+      "required": false
+    },
+    {
+      "id": "blue_skies:monitor_tail",
+      "required": false
+    },
+    {
+      "id": "cataclysm:monstrous_horn",
+      "required": false
+    },
+    {
+      "id": "cataclysm:lava_power_cell",
+      "required": false
+    },
+    {
+      "id": "cataclysm:dying_ember",
+      "required": false
+    },
+    {
+      "id": "cataclysm:koboleton_bone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:crystallized_coral_fragments",
+      "required": false
+    },
+    {
+      "id": "cataclysm:coral_chunk",
+      "required": false
+    },
+    {
+      "id": "cataclysm:amethyst_crab_shell",
+      "required": false
+    },
+    {
       "id": "deeperdarker:sculk_bone",
       "required": false
     },
@@ -403,7 +468,51 @@
       "required": false
     },
     {
+      "id": "delightful:animal_fat",
+      "required": false
+    },
+    {
+      "id": "delightful:raw_goat",
+      "required": false
+    },
+    {
+      "id": "endersdelight:mite_crust",
+      "required": false
+    },
+    {
+      "id": "endersdelight:enderman_sight",
+      "required": false
+    },
+    {
+      "id": "endersdelight:shulker_mollusk",
+      "required": false
+    },
+    {
+      "id": "endersdelight:ender_shard",
+      "required": false
+    },
+    {
+      "id": "endersdelight:sight_fragment",
+      "required": false
+    },
+    {
       "id": "galosphere:preserved_flesh",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_loin",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_ear",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:strider_slice",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:hoglin_hide",
       "required": false
     },
     {

@@ -157,11 +157,16 @@
   "sack_type.invexp.cabbage_seeds": "Cabbage Seeds",
   "sack_type.invexp.tomato": "Tomatoes",
   "sack_type.invexp.tomato_seeds": "Tomato Seeds",
+  "sack_type.invexp.salmonberries": "Salmonberries",
+  "sack_type.invexp.salmonberry_seeds": "Salmonberry Seeds",
+  "sack_type.invexp.cantaloupe": "Cantaloupes",
+  "sack_type.invexp.cantaloupe_seeds": "Cantaloupe Seeds",
   "sack_type.invexp.onion": "Onions",
   "sack_type.invexp.rice": "Rice",
   "sack_type.invexp.straw": "Straw",
   "sack_type.invexp.rope": "Ropes",
   "sack_type.invexp.metal_plate": "Metal Plates",
+  "sack_type.invexp.trophy": "Trophies",
   "sack_type.invexp.unknown": "???",
 
   "sack_type.invexp.cave_tablet": "Cave Tablets",
@@ -180,12 +185,30 @@
   "sack_type.invexp.sweets": "Sweets",
   "sack_type.invexp.jelly_bean": "Jelly Beans",
 
+  "sack_type.invexp.apotheosis_gem": "Gems",
+
   "sack_type.invexp.body_part": "Body Parts",
   "sack_type.invexp.wispjelly": "Wispjelly",
   "sack_type.invexp.null": "§kNULL",
 
+  "sack_type.invexp.pine_fruit_seeds": "Pine Fruit Seeds",
+  "sack_type.invexp.pine_fruit": "Pine Fruits",
+  "sack_type.invexp.winter_leaf_seeds": "Winter Leaf Seeds",
+  "sack_type.invexp.winter_leaves": "Winter Leaves",
+  "sack_type.invexp.scalefruit_seeds": "Scalefruit Seeds",
+  "sack_type.invexp.scalefruit": "Scalefruits",
+  "sack_type.invexp.fiery_bean_seeds": "Fiery Bean Seeds",
+  "sack_type.invexp.fiery_beans": "Fiery Beans",
+  "sack_type.invexp.cryo_root": "Cryo Roots",
+  "sack_type.invexp.solnut": "Solnuts",
+  "sack_type.invexp.warding_pearl": "Warding Pearls",
+
   "sack_type.invexp.sculk_grime_bricks": "Sculk Grime Bricks",
   "sack_type.invexp.bloom_berries": "Bloom Berries",
+
+  "sack_type.invexp.elevator": "Elevators",
+
+  "sack_type.invexp.broken_spawner": "Broken Spawners",
 
   "sack_type.invexp.barometer": "Barometers",
   "sack_type.invexp.silver_bomb": "Silver Bombs",
@@ -201,8 +224,8 @@
   "sack_type.invexp.key_button": "Key Buttons",
 
   "sack_type.invexp.glowball": "Glowballs",
-  "sack_type.invexp.efln": "EFLNs",
   "sack_type.invexp.shuriken": "Shurikens",
+  "sack_type.invexp.throwing_axe": "Throwing Axes",
   "sack_type.invexp.tinkers_reinforcement": "Reinforcements",
   "sack_type.invexp.repair_kit": "Repair Kits",
   "sack_type.invexp.tool_part": "Tool Parts",

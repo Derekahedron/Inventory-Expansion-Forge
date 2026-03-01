@@ -41,6 +41,26 @@
     "#forge:storage_blocks/iron",
     "#forge:storage_blocks/netherite",
     {
+      "id": "#forge:storage_blocks/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/nickel",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/silver",
       "required": false
     },
@@ -49,15 +69,11 @@
       "required": false
     },
     {
+      "id": "#forge:storage_blocks/bronze",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/brass",
-      "required": false
-    },
-    {
-      "id": "#forge:storage_blocks/uranium",
-      "required": false
-    },
-    {
-      "id": "#forge:storage_blocks/cobalt",
       "required": false
     },
     {
@@ -65,35 +81,23 @@
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/slimesteel",
+      "id": "#forge:storage_blocks/constantan",
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/amethyst_bronze",
+      "id": "#forge:storage_blocks/electrum",
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/rose_gold",
+      "id": "#forge:storage_blocks/uranium",
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/pig_iron",
+      "id": "#forge:storage_blocks/osmium",
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/cinderslime",
-      "required": false
-    },
-    {
-      "id": "#forge:storage_blocks/queens_slime",
-      "required": false
-    },
-    {
-      "id": "#forge:storage_blocks/manyullyn",
-      "required": false
-    },
-    {
-      "id": "#forge:storage_blocks/hepatizon",
+      "id": "#forge:storage_blocks/cobalt",
       "required": false
     },
     {
@@ -150,6 +154,50 @@
     },
     {
       "id": "alexscaves:hazmat_skull_block",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/falsite",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/ventium",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:storage_blocks/horizonite",
+      "required": false
+    },
+    {
+      "id": "cataclysm:enderite_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:witherite_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignitium_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_metal_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:cursium_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_block",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_fence",
+      "required": false
+    },
+    {
+      "id": "cataclysm:black_steel_wall",
       "required": false
     },
     {
@@ -373,6 +421,42 @@
       "required": false
     },
     {
+      "id": "#forge:storage_blocks/copper_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/energetic_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/vibrant_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/redstone_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/conductive_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/pulsating_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/dark_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/soularium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/end_steel",
+      "required": false
+    },
+    {
       "id": "galosphere:chandelier",
       "required": false
     },
@@ -406,6 +490,38 @@
     },
     {
       "id": "galosphere:silver_lattice",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/slimesteel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/amethyst_bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/rose_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/pig_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/hepatizon",
       "required": false
     },
     {

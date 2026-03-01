@@ -20,12 +20,89 @@
     "#forge:fence_gates/wooden",
     "#forge:chests/wooden",
     "#forge:barrels/wooden",
+    "#forge:rods/wooden",
     {
       "id": "alexscaves:thornwood_branch",
       "required": false
     },
     {
       "id": "biomesoplenty:dead_branch",
+      "required": false
+    },
+    {
+      "id": "blue_skies:bluebright_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:bluebright_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:starlit_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:starlit_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:frostbright_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:frostbright_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:comet_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:comet_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:lunar_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:dusk_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:dusk_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:maple_ladder",
+      "required": false
+    },
+    {
+      "id": "blue_skies:maple_bookshelf",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystallized_planks",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystallized_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystallized_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystallized_wall",
+      "required": false
+    },
+    {
+      "id": "cataclysm:chorus_stem",
       "required": false
     },
     {

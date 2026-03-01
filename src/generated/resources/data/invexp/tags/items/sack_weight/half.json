@@ -72,15 +72,27 @@
       "required": false
     },
     {
-      "id": "forge:rotten_tomato",
-      "required": false
-    },
-    {
       "id": "#forge:crops/onion",
       "required": false
     },
     {
       "id": "#forge:crops/rice",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/salmonberry",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberries",
+      "required": false
+    },
+    {
+      "id": "#forge:crops/salmonberry",
       "required": false
     },
     {
@@ -240,6 +252,58 @@
       "required": false
     },
     {
+      "id": "blue_skies:sea_moss_carpet",
+      "required": false
+    },
+    {
+      "id": "#blue_skies:gems/moonstone_shard",
+      "required": false
+    },
+    {
+      "id": "blue_skies:pine_fruit",
+      "required": false
+    },
+    {
+      "id": "blue_skies:winter_leaves",
+      "required": false
+    },
+    {
+      "id": "blue_skies:scalefruit",
+      "required": false
+    },
+    {
+      "id": "blue_skies:fiery_beans",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cryo_root",
+      "required": false
+    },
+    {
+      "id": "blue_skies:solnut",
+      "required": false
+    },
+    {
+      "id": "cataclysm:stone_tile_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:azure_seastone_brick_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_azure_seastone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:frosted_stone_brick_slab",
+      "required": false
+    },
+    {
       "id": "create:andesite_bars",
       "required": false
     },
@@ -320,11 +384,31 @@
       "required": false
     },
     {
+      "id": "delightful:matcha_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:salmonberry_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:source_berry_ice_cream",
+      "required": false
+    },
+    {
+      "id": "delightful:cantaloupe_slice",
+      "required": false
+    },
+    {
       "id": "galosphere:silver_lattice",
       "required": false
     },
     {
       "id": "galosphere:glow_ink_clumps",
+      "required": false
+    },
+    {
+      "id": "nethersdelight:magma_gelatin",
       "required": false
     },
     {

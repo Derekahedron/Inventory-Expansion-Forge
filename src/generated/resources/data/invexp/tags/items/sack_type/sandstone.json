@@ -94,6 +94,86 @@
       "required": false
     },
     {
+      "id": "blue_skies:midnight_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:midnight_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:midnight_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:midnight_sandstone_pillar",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chiseled_midnight_sandstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_midnight_sandstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_midnight_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_midnight_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cut_midnight_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystal_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystal_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystal_sandstone_wall",
+      "required": false
+    },
+    {
+      "id": "blue_skies:crystal_sandstone_pillar",
+      "required": false
+    },
+    {
+      "id": "blue_skies:chiseled_crystal_sandstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_crystal_sandstone",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_crystal_sandstone_stairs",
+      "required": false
+    },
+    {
+      "id": "blue_skies:smooth_crystal_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "blue_skies:cut_crystal_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "cataclysm:polished_sandstone",
+      "required": false
+    },
+    {
+      "id": "cataclysm:sandstone_falling_trap",
+      "required": false
+    },
+    {
       "id": "yungscavebiomes:ancient_sandstone",
       "required": false
     },

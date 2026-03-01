@@ -8,6 +8,7 @@ import derekahedron.invexp.sack.SackContentsReader;
 import derekahedron.invexp.sound.InvExpSoundEvents;
 import derekahedron.invexp.util.InvExpUtil;
 import derekahedron.invexp.util.OpenItemTexturesRegistry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.SlotAccess;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 
 /**
@@ -217,11 +219,15 @@ public class SackItem extends Item {
     public Optional<TooltipComponent> getTooltipImage(ItemStack sackStack) {
         SackContentsReader contents = SackContents.of(sackStack);
         if (contents != null) {
-            return Optional.of(new SackTooltip(contents));
+            return Optional.of(new SackTooltip(contents, getTooltipDescription(sackStack)));
         }
         return Optional.empty();
     }
 
+    @Nullable
+    public Component getTooltipDescription(ItemStack stack) {
+        return null;
+    }
 
     /**
      * Drop all sack contents when item entity is destroyed

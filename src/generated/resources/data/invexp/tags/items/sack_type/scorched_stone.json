@@ -73,6 +73,10 @@
       "required": false
     },
     {
+      "id": "tconstruct:scorched_lamp",
+      "required": false
+    },
+    {
       "id": "tconstruct:scorched_ladder",
       "required": false
     }
