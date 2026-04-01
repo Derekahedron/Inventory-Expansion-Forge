@@ -90,9 +90,7 @@ public class SackDefaultManager {
                 j++;
             }
             if (typeDefault.test(stack)) {
-                return typeDefault.sackType().isPresent()
-                        ? typeDefault.sackType().get().unwrapKey().orElse(null)
-                        : null;
+                return typeDefault.sackType().orElse(null);
             }
         }
 

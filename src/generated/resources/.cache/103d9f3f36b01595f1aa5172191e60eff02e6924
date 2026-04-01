@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-28T19:19:27.1788966	Registries
+// 1.20.1	2026-03-02T00:16:16.3088595	Registries
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/animal_food.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/apotheosis_gem.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/armor_stand.json
@@ -75,6 +75,8 @@ bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/head.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/heart_of_the_sea.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/honey.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/ice.json
+bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/industrial_hemp_fiber.json
+bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/industrial_hemp_seeds.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/infested_stone.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/ink_bomb.json
 bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f data/invexp/invexp/sack_type/item_frame.json
@@ -259,6 +261,8 @@ cacda6004d2f31db0ce8a7199d82bc03910fd88d data/invexp/invexp/sack_type_default/he
 7859050c448d1be2a5040d0216b6664878653526 data/invexp/invexp/sack_type_default/heart_of_the_sea.json
 7b8d17b64b49d90d2a5c842a59f6ed8146f7523e data/invexp/invexp/sack_type_default/honey.json
 7e3de12b9d1661d47b23aa7104acaafcebd07ee7 data/invexp/invexp/sack_type_default/ice.json
+1a47e4a46fdb118b1af32cbf2fea6612a2afa83b data/invexp/invexp/sack_type_default/industrial_hemp_fiber.json
+1b4f2ef532132f9f5e284b760f4ac1445264386f data/invexp/invexp/sack_type_default/industrial_hemp_seeds.json
 c6d61e595002a41649f455a53ea3531b0e423d07 data/invexp/invexp/sack_type_default/infested_stone.json
 216a81d02029b74c5601fe8b98174745648b1a83 data/invexp/invexp/sack_type_default/ink_bomb.json
 c33b3a0e4a4000c88d77ddbadfe0d9322458ceb2 data/invexp/invexp/sack_type_default/item_frame.json

@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-28T19:19:27.1713942	Inventory Expansion Item Tags
+// 1.20.1	2026-03-02T00:16:16.3043531	Inventory Expansion Item Tags
 0a779c01cc66ab9969aafa62125f32a10e1b82d1 data/curios/tags/items/bundle.json
 4fa63af671854f4cb147b506e330ce4ed0bf90d9 data/invexp/tags/items/bundles.json
 4e5377b7b324516332ceeb975363db3f3c137f13 data/invexp/tags/items/dyeable_bundles.json
@@ -80,6 +80,8 @@ a63a4143910c6e75951c46d7bcc8f114fd84e14d data/invexp/tags/items/sack_type/glow_f
 e1102ee826d5ec0d457c55612bc006b93dfc1ed5 data/invexp/tags/items/sack_type/heart_of_the_sea.json
 10639f809f7f7329598c2d44530075ddb36808d9 data/invexp/tags/items/sack_type/honey.json
 9a28cd683f91a1abf8bafc5a3ceb09f917e13655 data/invexp/tags/items/sack_type/ice.json
+19e680694e099ff3ebbda8331158ab6a9c7ca7c0 data/invexp/tags/items/sack_type/industrial_hemp_fiber.json
+9fbb35ca4815ea339d36d20fcfcfa231fce9ee91 data/invexp/tags/items/sack_type/industrial_hemp_seeds.json
 bfca6e38fb5e68db52378b549afbaf0689fe6a40 data/invexp/tags/items/sack_type/infested_stone.json
 29aab51831da2faa9e0d05d1ce20309c3e17d3d0 data/invexp/tags/items/sack_type/ink_bomb.json
 e05e90cd4ab314013e94a89b95d4680f669a0dc9 data/invexp/tags/items/sack_type/item_frame.json
@@ -187,6 +189,6 @@ b4fba10115a03988fd13374bb3ee0056fd98b9a4 data/invexp/tags/items/sack_type/winter
 7b8a44740796e79b58616008ca359a3384718165 data/invexp/tags/items/sack_type/wool.json
 9dffb9d7eb766747226b453827c4a194d7c5911c data/invexp/tags/items/sack_weight/double.json
 4f05aff35377dfb6e4c529e1a451478ce1f70828 data/invexp/tags/items/sack_weight/fifth.json
-c6b3ad410bdf6241259cedf18d16d0419295659c data/invexp/tags/items/sack_weight/fourth.json
-41e14fc4bfeaff92c8e1748cc13fdcbe3bec59b7 data/invexp/tags/items/sack_weight/half.json
+aae0b034d265e1124d50ccb9b3efd8197dfc701e data/invexp/tags/items/sack_weight/fourth.json
+d8dca49bc232a75e9c9ce17bc5449ec6d7f53a97 data/invexp/tags/items/sack_weight/half.json
 b9afa6c4f972123f9243e5fa360544a1e180cf7a data/invexp/tags/items/sack_weight/third.json

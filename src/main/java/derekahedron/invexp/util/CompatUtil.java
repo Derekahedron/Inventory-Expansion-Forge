@@ -72,6 +72,10 @@ public class CompatUtil {
         return new ResourceLocation("galosphere", id);
     }
 
+    public static ResourceLocation immersiveEngineering(String id) {
+        return new ResourceLocation("immersiveengineering", id);
+    }
+
     public static ResourceLocation mekanism(String id) {
         return new ResourceLocation("mekanism", id);
     }

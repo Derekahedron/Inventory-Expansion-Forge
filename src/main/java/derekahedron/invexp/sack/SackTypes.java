@@ -188,6 +188,9 @@ public class SackTypes {
     public static final ResourceKey<SackType> GLOW_FLARE = of("glow_flare");
     public static final ResourceKey<SackType> SPECTRE_FLARE = of("spectre_flare");
     public static final ResourceKey<SackType> GLOW_INK_CLUMPS = of("glow_ink_clumps");
+    // Immersive Engineering Sack Types
+    public static final ResourceKey<SackType> INDUSTRIAL_HEMP_FIBER = of("industrial_hemp_fiber");
+    public static final ResourceKey<SackType> INDUSTRIAL_HEMP_SEEDS = of("industrial_hemp_seeds");
     // Storage Drawers Sack Types
     public static final ResourceKey<SackType> DRAWER_UPGRADE = of("drawer_upgrade");
     public static final ResourceKey<SackType> DRAWER_CONTROLLER = of("drawer_controller");

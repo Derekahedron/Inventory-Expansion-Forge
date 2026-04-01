@@ -26,13 +26,6 @@ public class ClientPacketListenerMixin {
     @Final
     private Minecraft minecraft;
 
-    @Shadow
-    @Final
-    private Connection connection;
-
-    @Shadow
-    private LayeredRegistryAccess<ClientRegistryLayer> registryAccess;
-
     @Inject(
             method = "handleContainerSetSlot",
             at = @At(
@@ -66,33 +59,6 @@ public class ClientPacketListenerMixin {
         }
         if (newCount > oldCount) {
             newStack.setPopTime(5);
-        }
-    }
-
-    /**
-     * After receiving new tags from the server, if the connection is not local,
-     * signal data pack change.
-     */
-    @Inject(
-            method = "handleUpdateTags",
-            at = @At("RETURN")
-    )
-    private void afterSynchronizeTags(ClientboundUpdateTagsPacket p_105134_, CallbackInfo ci) {
-        if (!connection.isMemoryConnection()) {
-            SackDefaultManager.updateInstanceSackDefaults();
-        }
-    }
-
-    @Inject(
-            method = "handleLogin",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Ljava/util/Collections;shuffle(Ljava/util/List;)V"
-            )
-    )
-    private void afterSynchronizeTags(ClientboundLoginPacket p_105030_, CallbackInfo ci) {
-        if (!connection.isMemoryConnection()) {
-            SackDefaultManager.createNewInstance(registryAccess.compositeAccess());
         }
     }
 }

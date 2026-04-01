@@ -196,6 +196,9 @@ public class InvExpItemTags {
         public static final TagKey<Item> GLOW_FLARE = SackTypes.getItemTag(SackTypes.GLOW_FLARE);
         public static final TagKey<Item> SPECTRE_FLARE = SackTypes.getItemTag(SackTypes.SPECTRE_FLARE);
         public static final TagKey<Item> GLOW_INK_CLUMPS = SackTypes.getItemTag(SackTypes.GLOW_INK_CLUMPS);
+        // Immersive Engineering Sack Types
+        public static final TagKey<Item> INDUSTRIAL_HEMP_FIBER = SackTypes.getItemTag(SackTypes.INDUSTRIAL_HEMP_FIBER);
+        public static final TagKey<Item> INDUSTRIAL_HEMP_SEEDS = SackTypes.getItemTag(SackTypes.INDUSTRIAL_HEMP_SEEDS);
         // Storage Drawers Sack Types
         public static final TagKey<Item> DRAWER_UPGRADE = SackTypes.getItemTag(SackTypes.DRAWER_UPGRADE);
         public static final TagKey<Item> DRAWER_CONTROLLER = SackTypes.getItemTag(SackTypes.DRAWER_CONTROLLER);

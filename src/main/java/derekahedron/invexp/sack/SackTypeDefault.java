@@ -2,9 +2,10 @@ package derekahedron.invexp.sack;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import derekahedron.invexp.registry.InvExpRegistryKeys;
 import derekahedron.invexp.util.InvExpCodecs;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -16,7 +17,7 @@ public record SackTypeDefault(
         Optional<Integer> priority,
         Optional<Ingredient> items,
         Optional<ItemPredicate> predicate,
-        Optional<Holder<SackType>> sackType) {
+        Optional<ResourceKey<SackType>> sackType) {
     public static final Codec<SackTypeDefault> CODEC =
             RecordCodecBuilder.create(instance -> instance.group(
                     Codec.INT
@@ -28,20 +29,20 @@ public record SackTypeDefault(
                     InvExpCodecs.ITEM_PREDICATE
                             .optionalFieldOf("predicate")
                             .forGetter(SackTypeDefault::predicate),
-                    SackType.ENTRY_CODEC
+                    ResourceKey.codec(InvExpRegistryKeys.SACK_TYPE)
                             .optionalFieldOf("sack_type")
                             .forGetter(SackTypeDefault::sackType)
             ).apply(instance, SackTypeDefault::new));
 
-    public SackTypeDefault(int priority, TagKey<Item> tag, Holder<SackType> sackType) {
+    public SackTypeDefault(int priority, TagKey<Item> tag, ResourceKey<SackType> sackType) {
         this(Optional.of(priority), Optional.of(Ingredient.of(tag)), Optional.empty(), Optional.of(sackType));
     }
 
-    public SackTypeDefault(int priority, Ingredient items, Holder<SackType> sackType) {
+    public SackTypeDefault(int priority, Ingredient items, ResourceKey<SackType> sackType) {
         this(Optional.of(priority), Optional.of(items), Optional.empty(), Optional.of(sackType));
     }
 
-    public SackTypeDefault(TagKey<Item> tag, Holder<SackType> sackType) {
+    public SackTypeDefault(TagKey<Item> tag, ResourceKey<SackType> sackType) {
         this(Optional.empty(), Optional.of(Ingredient.of(tag)), Optional.empty(), Optional.of(sackType));
     }
 

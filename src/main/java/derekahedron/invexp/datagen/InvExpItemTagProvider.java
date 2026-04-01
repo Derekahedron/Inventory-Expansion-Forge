@@ -1107,6 +1107,7 @@ public class InvExpItemTagProvider extends ItemTagsProvider {
         new EndersDelightItemTagsProvider(this).makeTags();
         new FarmersDelightItemTagsProvider(this).makeTags();
         new GalosphereItemTagsProvider(this).makeTags();
+        new ImmersiveEngineeringItemTagsProvider(this).makeTags();
         new MekanismItemTagsProvider(this).makeTags();
         new NethersDelightItemTagsProvider(this).makeTags();
         new StorageDrawersItemTagsProvider(this).makeTags();

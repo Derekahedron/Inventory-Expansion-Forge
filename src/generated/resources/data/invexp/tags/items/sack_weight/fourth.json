@@ -145,6 +145,10 @@
       "required": false
     },
     {
+      "id": "immersiveengineering:seed",
+      "required": false
+    },
+    {
       "id": "mekanism:fluorite_gem",
       "required": false
     },

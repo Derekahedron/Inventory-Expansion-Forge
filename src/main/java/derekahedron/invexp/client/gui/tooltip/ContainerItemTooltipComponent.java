@@ -24,6 +24,7 @@ public interface ContainerItemTooltipComponent {
     int DEFAULT_ROW_WIDTH = 4;
     int DEFAULT_PROGRESS_BAR_PADDING = 4;
     int DEFAULT_PROGRESS_BAR_HEIGHT = 13;
+    int DEFAULT_DESCRIPTION_PADDING = 1;
     int EXTRA_ITEMS_TEXT_COLOR = 0xFFFFFF;
     int PROGRESS_BAR_TEXT_COLOR = 0xFFFFFF;
     int DESCRIPTION_TEXT_COLOR = 0xAAAAAA;
@@ -68,6 +69,13 @@ public interface ContainerItemTooltipComponent {
      */
     default int getProgressBarPadding() {
         return DEFAULT_PROGRESS_BAR_PADDING;
+    }
+
+    /**
+     * @return  get padding in pixels beneath the description
+     */
+    default int getDescriptionPadding() {
+        return DEFAULT_DESCRIPTION_PADDING;
     }
 
     /**

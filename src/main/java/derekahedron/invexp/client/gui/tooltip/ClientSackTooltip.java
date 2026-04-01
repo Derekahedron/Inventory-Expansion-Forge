@@ -77,12 +77,14 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         // Finally draw progress bar
         y += getProgressBarPadding();
         drawProgressBar(textRenderer, x, y, width, drawContext);
+        y += getProgressBarHeight();
         y += getProgressBarPadding();
         if (description != null) {
             drawContext.drawWordWrap(
                     textRenderer, description, x + getXMargin(width), y,
                     getTooltipWidth(), DESCRIPTION_TEXT_COLOR
             );
+            // y += getDescriptionPadding();
         }
     }
 
@@ -106,6 +108,12 @@ public class ClientSackTooltip implements ClientTooltipComponent, ContainerItemT
         height += getProgressBarPadding();
         height += getProgressBarHeight();
         height += getProgressBarPadding();
+        if (description != null) {
+            if (lastFont != null) {
+                height += getHeight(description, lastFont);
+                height += getDescriptionPadding();
+            }
+        }
         return height;
     }
 

@@ -27,7 +27,7 @@ public class SackTypeDefaultProvider {
                     ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, sackType.location()),
                     new SackTypeDefault(
                             getItemTag(sackType),
-                            sackTypeLookup.getOrThrow(sackType)));
+                            sackTypeLookup.getOrThrow(sackType).key()));
         }
 
         // Special Sack Types
@@ -38,27 +38,27 @@ public class SackTypeDefaultProvider {
                         Optional.of(Ingredient.of(
                                 Items.BAMBOO_PLANKS, Items.BAMBOO_SLAB, Items.BAMBOO_FENCE, Items.BAMBOO_FENCE_GATE)),
                         Optional.empty(),
-                        Optional.of(sackTypeLookup.getOrThrow(SackTypes.BAMBOO))));
+                        Optional.of(sackTypeLookup.getOrThrow(SackTypes.BAMBOO).key())));
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("raw_infested_stone")),
                 new SackTypeDefault(
                         10,
                         Ingredient.of(
                                 Items.INFESTED_STONE, Items.INFESTED_COBBLESTONE, Items.INFESTED_DEEPSLATE),
-                        sackTypeLookup.getOrThrow(SackTypes.INFESTED_STONE)));
+                        sackTypeLookup.getOrThrow(SackTypes.INFESTED_STONE).key()));
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("moss_blocks")),
                 new SackTypeDefault(
                         10,
                         Ingredient.of(Items.MOSS_BLOCK),
-                        sackTypeLookup.getOrThrow(SackTypes.PLANT)));
+                        sackTypeLookup.getOrThrow(SackTypes.PLANT).key()));
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("water_bottle")),
                 new SackTypeDefault(
                         Optional.of(10),
                         Optional.of(Ingredient.of(Items.POTION)),
                         Optional.of(ItemPredicate.Builder.item().isPotion(Potions.WATER).build()),
-                        Optional.of(sackTypeLookup.getOrThrow(SackTypes.BOTTLE))));
+                        Optional.of(sackTypeLookup.getOrThrow(SackTypes.BOTTLE).key())));
         context.register(
                 ResourceKey.create(InvExpRegistryKeys.SACK_TYPE_DEFAULT, InvExpUtil.location("cake")),
                 new SackTypeDefault(
